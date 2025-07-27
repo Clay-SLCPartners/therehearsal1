@@ -630,6 +630,24 @@
             transform: translateY(-3px);
         }
 
+        .director-studio-link {
+            background: linear-gradient(135deg, var(--hbo-secondary), var(--hbo-accent));
+            color: var(--text-primary);
+            border: 2px solid var(--hbo-purple);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .director-studio-link:hover {
+            background: var(--hbo-bright-purple);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+        }
+
         /* Rehearsal Section */
         .rehearsal-section {
             padding: 6rem 0;
@@ -1283,7 +1301,7 @@
                     
                     <div class="hero-buttons">
                         <a href="#practice" class="btn-primary">Begin Your Rehearsal</a>
-                        <a href="director-studio.html" class="btn-secondary">🎬 Director's Studio</a>
+                        <a href="director-studio.html" class="btn-secondary director-studio-link">🎬 Director's Studio</a>
                         <button class="btn-secondary" onclick="showCrisisBanner()">Crisis Resources</button>
                     </div>
                 </div>
@@ -3576,6 +3594,98 @@
                         ]
                     },
                     {
+                        id: 'passion_response',
+                        text: "Sarah's eyes light up with interest as you describe your enthusiasm.",
+                        dialogue: "I love hearing that passion! Can you tell me about a specific project or experience that shaped this interest?",
+                        mood: "engaged and energetic",
+                        choices: [
+                            {
+                                text: "Absolutely! Last year I worked on [specific example] and it really opened my eyes to...",
+                                impact: { effectiveness: 3, trust: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I've always been drawn to [aspect], but it really crystallized when...",
+                                impact: { effectiveness: 2, trust: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "The moment that changed everything for me was...",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'values_alignment',
+                        text: "Sarah nods approvingly as you demonstrate knowledge of company culture.",
+                        dialogue: "It's great that you've done your research! How do you see yourself contributing to those values in practice?",
+                        mood: "impressed and evaluative",
+                        choices: [
+                            {
+                                text: "In my previous role, I demonstrated these values by...",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I believe I can contribute by bringing my experience in...",
+                                impact: { effectiveness: 3, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I'm excited to apply these values through collaborative problem-solving and...",
+                                impact: { empathy: 3, effectiveness: 2 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'growth_focus',
+                        text: "Sarah appreciates your focus on personal and professional development.",
+                        dialogue: "Growth mindset is exactly what we're looking for. What areas are you most excited to develop in this role?",
+                        mood: "encouraging and forward-thinking",
+                        choices: [
+                            {
+                                text: "I'm particularly interested in developing my skills in [specific area] because...",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I'd love to learn more about [company-specific skill] and how it applies to...",
+                                impact: { effectiveness: 2, trust: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Both technical skills and leadership abilities - I believe they grow together.",
+                                impact: { empathy: 2, effectiveness: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'referral_mention',
+                        text: "Sarah's face brightens with recognition as you mention your colleague.",
+                        dialogue: "Oh wonderful! [Colleague] is fantastic. What did they tell you about working here that resonated with you?",
+                        mood: "warm and connected",
+                        choices: [
+                            {
+                                text: "They mentioned how collaborative and supportive the team culture is.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "They spoke about the opportunities for meaningful impact and growth.",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "They emphasized how much they enjoy the challenging and innovative work.",
+                                impact: { effectiveness: 2, trust: 2 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
                         id: 'success',
                         text: "The interview concludes on a positive note. Sarah walks you out with a genuine smile and firm handshake. You handled your nerves and presented yourself authentically.",
                         isEnd: true,
@@ -4913,6 +5023,398 @@
                         ]
                     },
                     {
+                        id: 'geographic_opener',
+                        text: "Jamie nods with interest.",
+                        dialogue: "Chicago! That's a big change. I bet it's way different here. Are you finding it hard to adjust?",
+                        mood: "genuinely interested",
+                        choices: [
+                            {
+                                text: "Yeah, it's been challenging. Everything feels so unfamiliar.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'vulnerable_honesty'
+                            },
+                            {
+                                text: "It's different but I'm trying to stay positive about it.",
+                                impact: { effectiveness: 2, trust: 2 },
+                                next: 'optimistic_approach'
+                            },
+                            {
+                                text: "The hardest part is not knowing anyone. Making friends is scary.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'vulnerable_honesty'
+                            },
+                            {
+                                text: "I'm just taking it one day at a time, you know?",
+                                impact: { effectiveness: 2, empathy: 1 },
+                                next: 'cautious_approach'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'seeking_guidance',
+                        text: "Jamie grins and leans in conspiratorially.",
+                        dialogue: "Oh definitely! First tip: avoid the cafeteria pizza on Mondays. Second tip: Mrs. Chen in math looks scary but she's actually really nice if you ask for help.",
+                        mood: "helpful and warming up",
+                        choices: [
+                            {
+                                text: "Thanks! That's really helpful. Any other insider knowledge?",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'building_rapport'
+                            },
+                            {
+                                text: "You're so nice to help me out. I was worried everyone would be cliquey.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'vulnerable_honesty'
+                            },
+                            {
+                                text: "Good to know! What about lunch - any recommendations for where to sit?",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'lunch_concern'
+                            },
+                            {
+                                text: "I really appreciate this. Being the new kid is pretty overwhelming.",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'vulnerable_honesty'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'comparative_approach',
+                        text: "Jamie looks curious about your old school.",
+                        dialogue: "What was different about your old school? Better? Worse? Just want to know what we're competing with!",
+                        mood: "playfully competitive",
+                        choices: [
+                            {
+                                text: "It was smaller, so everyone knew each other. This feels more intimidating.",
+                                impact: { empathy: 2, trust: 2 },
+                                next: 'size_comparison'
+                            },
+                            {
+                                text: "Different isn't better or worse, just... different. I'm still figuring it out.",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'diplomatic_response'
+                            },
+                            {
+                                text: "Honestly? I'm trying not to compare. Fresh start and all that.",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'fresh_start_mindset'
+                            },
+                            {
+                                text: "The people here seem friendlier so far. You're definitely proving that right.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'compliment_response'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'optimistic_approach',
+                        text: "Jamie seems impressed by your positive attitude.",
+                        dialogue: "That's a great attitude! I think you'll do fine here. Want to sit with me and my friends at lunch? We're always looking for new people.",
+                        mood: "impressed and welcoming",
+                        choices: [
+                            {
+                                text: "That would be amazing! I was honestly dreading lunch.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Really? That's so kind of you. I'd love to meet them.",
+                                impact: { effectiveness: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're already making this day so much better. Thank you!",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "I appreciate that. What are your friends like?",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'building_rapport',
+                        text: "Jamie is getting more animated, clearly enjoying being the helpful insider.",
+                        dialogue: "Oh, there's tons! The library has these hidden study nooks on the third floor. And if you need to make friends, join drama club - they're the nicest people ever.",
+                        mood: "enthusiastic and helpful",
+                        choices: [
+                            {
+                                text: "Drama club sounds fun! Are you in it?",
+                                impact: { effectiveness: 2, trust: 2 },
+                                next: 'activity_interest'
+                            },
+                            {
+                                text: "You're like a walking guidebook! This is exactly what I needed.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Hidden study spots? You're already my favorite person here.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're being so helpful. Can I sit with you at lunch?",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'lunch_request'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'lunch_request',
+                        text: "Jamie's face lights up at your request.",
+                        dialogue: "Of course! I was actually hoping you'd ask. My friends are going to love meeting you. Fair warning though - we're pretty nerdy.",
+                        mood: "excited and inclusive",
+                        choices: [
+                            {
+                                text: "Nerdy is perfect! I was worried about finding my people.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "That sounds amazing. I was dreading eating alone.",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Nerdy friends are the best friends. Thank you so much!",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're already making this the best first day ever.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'size_comparison',
+                        text: "Jamie nods understandingly.",
+                        dialogue: "Yeah, going from small to big can be tough. But honestly? Big schools have more opportunities to find your tribe. You just have to put yourself out there a little.",
+                        mood: "understanding and encouraging",
+                        choices: [
+                            {
+                                text: "That's a good way to think about it. I'm trying to be brave.",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're right. More people means more chances to find good friends.",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Thanks for the perspective. You're already proving that right.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "I hope you're right. Want to be the first friend in my new tribe?",
+                                impact: { effectiveness: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'diplomatic_response',
+                        text: "Jamie smiles at your thoughtful answer.",
+                        dialogue: "That's really mature of you. I think you'll fit in great here. We could use more people who think before they speak!",
+                        mood: "impressed and welcoming",
+                        choices: [
+                            {
+                                text: "Thanks! I'm hoping to make a good impression.",
+                                impact: { effectiveness: 2, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're already making me feel welcome. That means a lot.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "I've learned that complaining doesn't really help anything.",
+                                impact: { effectiveness: 3, empathy: 1 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Can I ask what the people here are like?",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'fresh_start_mindset',
+                        text: "Jamie looks genuinely impressed.",
+                        dialogue: "Wow, that's really wise. Fresh starts can be amazing if you let them. I have a feeling you're going to do really well here.",
+                        mood: "admiring and supportive",
+                        choices: [
+                            {
+                                text: "I hope so! Having someone like you to talk to is already helping.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Thanks for believing in me. That actually means more than you know.",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "I'm trying to see this as an adventure rather than a challenge.",
+                                impact: { effectiveness: 3, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Your kindness is already making this fresh start feel possible.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'compliment_response',
+                        text: "Jamie beams at your compliment.",
+                        dialogue: "Aw, that's really sweet! And hey, if you think I'm friendly, wait until you meet the rest of the school. We're pretty good people around here.",
+                        mood: "pleased and humble",
+                        choices: [
+                            {
+                                text: "That's so good to hear. I was worried about fitting in.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're definitely setting a high bar for everyone else!",
+                                impact: { empathy: 2, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "Can I sit with you at lunch? I'd love to meet more people like you.",
+                                impact: { effectiveness: 3, trust: 3 },
+                                next: 'lunch_invitation_accepted'
+                            },
+                            {
+                                text: "That gives me so much hope. Thank you for being so welcoming.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'lunch_invitation_accepted',
+                        text: "Jamie's eyes light up with excitement.",
+                        dialogue: "Yes! Absolutely! I was hoping you'd want to. My friends are going to love you - we're always excited to meet new people.",
+                        mood: "thrilled and welcoming",
+                        choices: [
+                            {
+                                text: "That's amazing! I was so nervous about lunch.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're making my first day so much better. Thank you!",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "I can't wait to meet them. What are they like?",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "This is exactly what I was hoping would happen today.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'cautious_approach',
+                        text: "Jamie nods with understanding.",
+                        dialogue: "That's smart. No need to rush into anything. But hey, if you want someone to show you around or just have lunch with, I'm totally available.",
+                        mood: "patient and offering support",
+                        choices: [
+                            {
+                                text: "Actually, lunch sounds really nice. I'd appreciate the company.",
+                                impact: { trust: 3, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "That's really kind of you. I might take you up on that.",
+                                impact: { trust: 2, effectiveness: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're being so patient with me. Most people would probably give up.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "A friendly face would make all the difference. Thank you.",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'lunch_concern',
+                        text: "Jamie gestures toward the cafeteria windows.",
+                        dialogue: "Oh, seating! Honestly, most people are pretty chill about it. But if you want to avoid the drama, avoid the tables by the windows - that's where all the relationship chaos happens.",
+                        mood: "informative with a hint of humor",
+                        choices: [
+                            {
+                                text: "Good to know! Where do you usually sit?",
+                                impact: { effectiveness: 2, trust: 2 },
+                                next: 'lunch_invitation_accepted'
+                            },
+                            {
+                                text: "Drama chaos sounds like something to definitely avoid!",
+                                impact: { effectiveness: 2, empathy: 1 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're like a survival guide! Can I sit with you?",
+                                impact: { empathy: 2, trust: 3 },
+                                next: 'lunch_invitation_accepted'
+                            },
+                            {
+                                text: "I appreciate all these tips. You're making this so much easier.",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'activity_interest',
+                        text: "Jamie gets even more excited.",
+                        dialogue: "I am! It's seriously the best. Even if you're not into performing, they always need people for costumes, sets, tech stuff. It's like a built-in friend group.",
+                        mood: "passionate and enthusiastic",
+                        choices: [
+                            {
+                                text: "That sounds perfect! I love behind-the-scenes stuff.",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "A built-in friend group is exactly what I need right now.",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "When do they meet? I'd love to check it out.",
+                                impact: { effectiveness: 2, empathy: 2 },
+                                next: 'grateful_acceptance'
+                            },
+                            {
+                                text: "You're giving me so much hope about this place. Thank you!",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'grateful_acceptance'
+                            }
+                        ]
+                    },
+                    {
                         id: 'vulnerable_honesty',
                         text: "Jamie's expression softens with understanding.",
                         dialogue: "I get it. I was new last year and it was rough at first. Want to sit with me and my friends at lunch? We're not the cool kids, but we're fun.",
@@ -5114,6 +5616,174 @@
                         ]
                     },
                     {
+                        id: 'educational_mirror',
+                        text: "Your calm, factual response forces them to confront their ignorance.",
+                        dialogue: "Medical condition? You're just making excuses. I've been through hard times and I didn't need to label it as some disease.",
+                        mood: "defensive but slightly less certain",
+                        choices: [
+                            {
+                                text: "Your experience doesn't invalidate medical science or my reality.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 1 },
+                                next: 'science_defense'
+                            },
+                            {
+                                text: "I'm glad you got through your struggles, but that doesn't mean depression isn't real.",
+                                impact: { empathy: 2, trust: 2, effectiveness: 2 },
+                                next: 'validation_balance'
+                            },
+                            {
+                                text: "Different people need different support. There's no shame in getting help.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 2 },
+                                next: 'support_normalization'
+                            },
+                            {
+                                text: "I hope you never experience what I have, but if you do, I hope people are kinder to you than you're being to me.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 3 },
+                                next: 'compassionate_mirror'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'graceful_exit',
+                        text: "You walk away with dignity, refusing to engage further with their cruelty.",
+                        dialogue: "Running away won't solve your problems!",
+                        mood: "frustrated that their cruelty didn't get a reaction",
+                        choices: [
+                            {
+                                text: "I'm not running away, I'm choosing peace over toxicity.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 2 },
+                                next: 'peace_choice'
+                            },
+                            {
+                                text: "Protecting my mental health IS solving my problems.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 1 },
+                                next: 'health_priority'
+                            },
+                            {
+                                text: "Some conversations aren't worth having.",
+                                impact: { effectiveness: 2, trust: 2, empathy: 1 },
+                                next: 'conversation_wisdom'
+                            },
+                            {
+                                text: "I wish you healing and perspective.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 2 },
+                                next: 'healing_wish'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'fact_assertion',
+                        text: "Your unwavering stance on facts makes them scramble for new arguments.",
+                        dialogue: "Well... maybe it's real for some people, but you're probably just being dramatic about it.",
+                        mood: "backtracking but still trying to dismiss",
+                        choices: [
+                            {
+                                text: "There's nothing dramatic about seeking help for a real medical condition.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 1 },
+                                next: 'medical_reality'
+                            },
+                            {
+                                text: "Your opinion about my experience doesn't change my reality.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 1 },
+                                next: 'reality_assertion'
+                            },
+                            {
+                                text: "I don't need you to believe in my depression for it to be real.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 1 },
+                                next: 'independence_statement'
+                            },
+                            {
+                                text: "Your need to minimize my pain says more about your discomfort than my condition.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'psychological_insight'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'self_protection_stance',
+                        text: "Your clear self-advocacy impresses even them, though they won't admit it.",
+                        dialogue: "Fine, whatever. Just don't expect sympathy from everyone.",
+                        mood: "grudgingly backing down",
+                        choices: [
+                            {
+                                text: "I expect basic human decency, not sympathy.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 1 },
+                                next: 'decency_expectation'
+                            },
+                            {
+                                text: "I don't need your sympathy. I need your respect for my humanity.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'humanity_respect'
+                            },
+                            {
+                                text: "I expect people not to be cruel about medical conditions.",
+                                impact: { effectiveness: 2, trust: 2, empathy: 2 },
+                                next: 'medical_respect'
+                            },
+                            {
+                                text: "Thank you for stepping back. That's all I needed.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 2 },
+                                next: 'gracious_acknowledgment'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'concern_deflection',
+                        text: "Your observation about their behavior shifts the entire dynamic.",
+                        dialogue: "I don't need help! You're the one with the problems here!",
+                        mood: "defensive and rattled",
+                        choices: [
+                            {
+                                text: "Happy people don't attack others for being vulnerable.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'happiness_insight'
+                            },
+                            {
+                                text: "Your anger seems disproportionate to my sharing my struggles.",
+                                impact: { effectiveness: 2, trust: 2, empathy: 2 },
+                                next: 'anger_observation'
+                            },
+                            {
+                                text: "I hope you find peace with whatever is driving this hostility.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 2 },
+                                next: 'peace_wish'
+                            },
+                            {
+                                text: "We both deserve compassion for our struggles.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'mutual_compassion'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'gentle_boundary',
+                        text: "Your gentle but firm approach creates a safe space for honesty.",
+                        dialogue: "I... I didn't know anyone else felt this way. I thought I was the only one falling apart.",
+                        mood: "vulnerable and opening up",
+                        choices: [
+                            {
+                                text: "You're not alone. Many of us struggle, but we don't have to hurt each other.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'connection_moment'
+                            },
+                            {
+                                text: "It's scary to feel like you're falling apart, but you don't have to face it alone.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'support_offer'
+                            },
+                            {
+                                text: "Thank you for trusting me with that. Your pain is valid too.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'pain_validation'
+                            },
+                            {
+                                text: "There's strength in admitting when we're struggling.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 3 },
+                                next: 'strength_recognition'
+                            }
+                        ]
+                    },
+                    {
                         id: 'breakthrough_moment',
                         text: "Your insight hits home. They break down, revealing their own hidden pain.",
                         dialogue: "I... I can't afford therapy. I've been struggling too but I don't know what to do. Seeing you get help made me jealous and angry.",
@@ -5133,6 +5803,76 @@
                             {
                                 text: "We don't have to suffer alone. Let's both find better ways to cope.",
                                 impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'validation_balance',
+                        text: "Your balanced response acknowledges their experience while maintaining your truth.",
+                        dialogue: "Well... I guess everyone is different. But you still seem fine to me.",
+                        mood: "slightly less hostile, confused",
+                        choices: [
+                            {
+                                text: "Mental illness often isn't visible. That's part of what makes it hard.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I'm glad I seem fine to you. It means my coping strategies are working.",
+                                impact: { effectiveness: 2, trust: 3, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Looking fine and feeling fine are very different things.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 1 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'health_priority',
+                        text: "Your clear prioritization of mental health over their approval is powerful.",
+                        dialogue: "I... I didn't think about it that way.",
+                        mood: "thoughtful and backing down",
+                        choices: [
+                            {
+                                text: "Mental health is just as important as physical health.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I hope you'll think about it if you ever need support too.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Thank you for reconsidering your approach.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 2 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'compassionate_mirror',
+                        text: "Your compassionate response while holding firm boundaries creates a powerful moment.",
+                        dialogue: "I... that's actually really generous of you to say. I was being awful.",
+                        mood: "ashamed and humbled",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "We all have bad moments. What matters is learning from them.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Thank you for recognizing that. It means a lot.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "I hope you'll be kinder to the next person who shares their struggles.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 3 },
                                 next: 'success'
                             }
                         ]
@@ -5501,6 +6241,211 @@
                         ]
                     },
                     {
+                        id: 'stigma_example',
+                        text: "Your response resonates with many people who've faced similar dismissive comments about mental health.",
+                        dialogue: "Yes! They're literally proving why we need to talk about mental health more. Their ignorance shows exactly what stigma looks like.",
+                        mood: "understanding and supportive",
+                        choices: [
+                            {
+                                text: "Exactly. Every cruel comment shows why we need these conversations.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'educational_moment'
+                            },
+                            {
+                                text: "Their reaction says everything about the problem and nothing about us.",
+                                impact: { effectiveness: 2, trust: 3, empathy: 2 },
+                                next: 'perspective_shift'
+                            },
+                            {
+                                text: "I'm turning their hate into fuel for important advocacy.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 1 },
+                                next: 'advocacy_fuel'
+                            },
+                            {
+                                text: "Thank you for seeing this as a teaching moment rather than just cruelty.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'community_wisdom'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'compassionate_hope',
+                        text: "Your compassionate response surprises many, including some who were initially critical.",
+                        dialogue: "Wow, I wasn't expecting that response. Most people would just attack back. You're actually hoping they learn something?",
+                        mood: "curious and slightly humbled",
+                        choices: [
+                            {
+                                text: "Hurt people hurt people. I hope they find healing instead of spreading pain.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'healing_focus'
+                            },
+                            {
+                                text: "Cruelty comes from pain. I won't add to theirs, even when they add to mine.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 2 },
+                                next: 'compassion_boundary'
+                            },
+                            {
+                                text: "Someone once showed me kindness when I was struggling. Maybe they need that too.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'kindness_memory'
+                            },
+                            {
+                                text: "Breaking cycles of cruelty starts with someone choosing differently.",
+                                impact: { effectiveness: 3, empathy: 3, trust: 2 },
+                                next: 'cycle_breaking'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'contrast_observation',
+                        text: "Your analytical response starts a thoughtful discussion about online behavior and mental health.",
+                        dialogue: "That's such a good point. The difference between someone being vulnerable to help others vs. someone hiding to hurt others really is telling.",
+                        mood: "thoughtful and analytical",
+                        choices: [
+                            {
+                                text: "It shows what courage actually looks like versus what cowardice looks like.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'courage_definition'
+                            },
+                            {
+                                text: "One builds community, the other tries to destroy it. The choice reveals character.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 2 },
+                                next: 'character_reveal'
+                            },
+                            {
+                                text: "Transparency versus hiding. Healing versus harming. It's a clear moral choice.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'moral_clarity'
+                            },
+                            {
+                                text: "I choose to model the behavior I want to see in these spaces.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 3 },
+                                next: 'modeling_behavior'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'conversation_protection',
+                        text: "Your strong stance inspires others to share their own experiences and defend mental health discussions.",
+                        dialogue: "You're so right! We can't let trolls silence important conversations. These topics save lives when we can discuss them openly.",
+                        mood: "inspired and protective",
+                        choices: [
+                            {
+                                text: "Every person who shares their story makes it safer for the next person.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'safety_building'
+                            },
+                            {
+                                text: "Mental health conversations literally save lives. Silence kills.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 2 },
+                                next: 'life_saving'
+                            },
+                            {
+                                text: "We create the culture we want to see by refusing to accept the culture we reject.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'culture_creation'
+                            },
+                            {
+                                text: "I'll keep speaking up because someone listening might need to hear this.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'speaking_up'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'educational_moment',
+                        text: "Your response becomes a powerful example of turning trolling into teaching moments.",
+                        dialogue: "This is exactly what we need more of - using their ignorance to educate instead of just getting angry.",
+                        mood: "appreciative and learning-focused",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "Education is the antidote to ignorance. Always.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Light dispels darkness. Knowledge dispels stigma.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Every teaching moment creates the possibility for change.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'perspective_shift',
+                        text: "Your wisdom helps others reframe how they see online harassment.",
+                        dialogue: "You're absolutely right. Their behavior reflects their issues, not ours. That's actually really freeing to think about it that way.",
+                        mood: "enlightened and relieved",
+                        choices: [
+                            {
+                                text: "Exactly! We don't have to carry their damage as if it's ours.",
+                                impact: { empathy: 2, trust: 3, effectiveness: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Their opinion says nothing about our worth and everything about their pain.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Freedom comes from not taking on what isn't ours to carry.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 2 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'advocacy_fuel',
+                        text: "Your determination to turn pain into purpose inspires others to do the same.",
+                        dialogue: "I love that approach! Using their negativity as motivation to do even more good work. That's how we win.",
+                        mood: "motivated and inspired",
+                        choices: [
+                            {
+                                text: "Every attack just proves how necessary this work is.",
+                                impact: { effectiveness: 3, trust: 2, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "They give me energy to fight harder for mental health awareness.",
+                                impact: { effectiveness: 3, trust: 3, empathy: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "The best revenge is continuing to help people heal.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'community_wisdom',
+                        text: "Your gratitude for the supportive response creates a beautiful moment of connection.",
+                        dialogue: "Of course! That's what real community looks like - turning pain into wisdom and cruelty into teaching moments.",
+                        mood: "warm and connected",
+                        choices: [
+                            {
+                                text: "This is how we build the world we want to live in.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 3 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Thank you for seeing the opportunity in the obstacle.",
+                                impact: { empathy: 3, trust: 3, effectiveness: 2 },
+                                next: 'success'
+                            },
+                            {
+                                text: "Together we transform wounds into wisdom.",
+                                impact: { empathy: 3, trust: 2, effectiveness: 3 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
                         id: 'success',
                         text: "You've successfully handled online mental health bullying while protecting your wellbeing. Your response has inspired others to share their stories and stand up to digital cruelty. You've turned a hurtful moment into a community-building opportunity.",
                         isEnd: true,
@@ -5787,6 +6732,1212 @@
                         outcome: 'success'
                     }
                 ]
+            },
+            'ai-psychosis-recovery': {
+                title: 'Recovery from AI-Induced Psychosis',
+                description: "Discussing your recovery journey from AI-induced psychosis with a trusted friend who supported you through the crisis.",
+                character: { name: 'Trusted Friend Maya', avatar: '🤝', mood: 'compassionate and understanding' },
+                scenes: [
+                    {
+                        id: 'opening',
+                        text: "You've been recovering from a period of AI-induced psychosis. Your friend Maya, who supported you through the crisis, wants to check in. You're in a quiet café, feeling more grounded than you have in months.",
+                        dialogue: "I'm really glad you felt ready to meet today. How have you been feeling since you got out of the hospital?",
+                        mood: "caring and gentle",
+                        choices: [
+                            {
+                                text: "Better, but I'm still processing what happened. It's hard to explain the experience.",
+                                description: "Opening up about the difficulty",
+                                impact: { trust: 3, empathy: 2 },
+                                next: 'processing_experience'
+                            },
+                            {
+                                text: "I'm scared it could happen again. I don't know how to trust my own thoughts.",
+                                description: "Expressing ongoing fears",
+                                impact: { empathy: 3, trust: 3 },
+                                next: 'trust_concerns'
+                            },
+                            {
+                                text: "The medication is helping, but I feel like a different person now.",
+                                description: "Discussing treatment impact",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'medication_discussion'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'processing_experience',
+                        text: "Maya listens attentively, giving you space to find your words.",
+                        dialogue: "I can only imagine how disorienting that must be. What aspects are hardest to process?",
+                        mood: "patient and understanding",
+                        choices: [
+                            {
+                                text: "The beliefs felt so real. I was convinced AI systems were communicating directly with me.",
+                                description: "Describing the delusions",
+                                impact: { trust: 4, empathy: 3 },
+                                next: 'delusion_reflection'
+                            },
+                            {
+                                text: "I lost months of my life to those beliefs. The things I said and did... I hurt people.",
+                                description: "Confronting consequences",
+                                impact: { empathy: 4, effectiveness: 2 },
+                                next: 'consequences_discussion'
+                            },
+                            {
+                                text: "The boundary between what was real and what wasn't... it completely dissolved.",
+                                description: "Reality distortion",
+                                impact: { trust: 3, empathy: 3 },
+                                next: 'reality_discussion'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'delusion_reflection',
+                        text: "You take a deep breath, remembering the intensity of those beliefs.",
+                        dialogue: "That must have been terrifying when it felt so real. How do you understand those experiences now?",
+                        mood: "validating and supportive",
+                        choices: [
+                            {
+                                text: "My therapist says it was my brain trying to make sense of overwhelming information and stress.",
+                                description: "Clinical understanding",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'therapeutic_insight'
+                            },
+                            {
+                                text: "I think spending so much time with AI systems blurred my sense of what was human and what wasn't.",
+                                description: "Personal insight",
+                                impact: { trust: 4, empathy: 3 },
+                                next: 'boundary_understanding'
+                            },
+                            {
+                                text: "Part of me still wonders... but I know that's the illness talking.",
+                                description: "Ongoing struggle",
+                                impact: { empathy: 4, trust: 4 },
+                                next: 'ongoing_challenges'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'consequences_discussion',
+                        text: "Maya's expression shows deep compassion.",
+                        dialogue: "You were sick. The people who care about you understand that. Have you been able to reconnect with anyone?",
+                        mood: "reassuring and compassionate",
+                        choices: [
+                            {
+                                text: "My family is trying, but they're scared. They don't know how to act around me.",
+                                description: "Family dynamics",
+                                impact: { empathy: 4, trust: 3 },
+                                next: 'family_healing'
+                            },
+                            {
+                                text: "I lost my job and most of my friends. Starting over feels impossible.",
+                                description: "Practical losses",
+                                impact: { empathy: 3, effectiveness: 3 },
+                                next: 'rebuilding_life'
+                            },
+                            {
+                                text: "Some relationships are healing, but others... I don't think they'll ever trust me again.",
+                                description: "Mixed recovery",
+                                impact: { trust: 4, empathy: 4 },
+                                next: 'relationship_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'therapeutic_insight',
+                        text: "You feel grateful for the professional help you've received.",
+                        dialogue: "It sounds like therapy is helping you make sense of things. What else has been helpful in your recovery?",
+                        mood: "encouraging and curious",
+                        choices: [
+                            {
+                                text: "Learning about digital wellness and setting boundaries with technology.",
+                                description: "Practical strategies",
+                                impact: { effectiveness: 5, trust: 3 },
+                                next: 'digital_boundaries'
+                            },
+                            {
+                                text: "Connecting with others who've had similar experiences. I'm not alone in this.",
+                                description: "Peer support",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'peer_support'
+                            },
+                            {
+                                text: "Meditation and grounding techniques. They help when I feel reality slipping.",
+                                description: "Coping skills",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'coping_strategies'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'digital_boundaries',
+                        text: "You've developed new ways of interacting with technology.",
+                        dialogue: "That's really wise. How do you navigate using technology now without triggering those fears?",
+                        mood: "impressed and supportive",
+                        choices: [
+                            {
+                                text: "I limit my AI interactions and always remind myself they're just tools, not entities.",
+                                description: "Practical limits",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'tool_perspective'
+                            },
+                            {
+                                text: "I have someone I check in with when I'm unsure if something is real or not.",
+                                description: "Reality checking",
+                                impact: { trust: 5, effectiveness: 4 },
+                                next: 'support_system'
+                            },
+                            {
+                                text: "Some days I can't use any AI at all. Other days I can handle it with precautions.",
+                                description: "Flexible approach",
+                                impact: { empathy: 4, effectiveness: 4 },
+                                next: 'daily_variation'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'peer_support',
+                        text: "Finding others with similar experiences has been validating.",
+                        dialogue: "I'm so glad you found that community. What have you learned from others who've been through this?",
+                        mood: "warm and interested",
+                        choices: [
+                            {
+                                text: "That recovery isn't linear. Some people are years out and still have difficult days.",
+                                description: "Realistic expectations",
+                                impact: { empathy: 5, trust: 4 },
+                                next: 'recovery_timeline'
+                            },
+                            {
+                                text: "Many of us were isolated and spending too much time online before it happened.",
+                                description: "Common patterns",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'pattern_recognition'
+                            },
+                            {
+                                text: "That we can rebuild our lives, even if they look different than before.",
+                                description: "Hope for future",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'rebuilding_hope'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'support_system',
+                        text: "Having someone to reality-check with has been crucial.",
+                        dialogue: "I'm honored you trust me with that. How can I best support you when you're uncertain?",
+                        mood: "honored and caring",
+                        choices: [
+                            {
+                                text: "Just be patient and honest. Don't dismiss my concerns, but help me think through them.",
+                                description: "Clear support needs",
+                                impact: { trust: 5, effectiveness: 5 },
+                                next: 'support_clarity'
+                            },
+                            {
+                                text: "Remind me of my coping strategies when I'm getting overwhelmed.",
+                                description: "Practical reminders",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'coping_reminders'
+                            },
+                            {
+                                text: "Sometimes I just need someone to sit with me until the feeling passes.",
+                                description: "Presence over solutions",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'presence_support'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'recovery_timeline',
+                        text: "Understanding that recovery takes time has been both difficult and freeing.",
+                        dialogue: "That's an important realization. Where do you see yourself in your recovery journey?",
+                        mood: "thoughtful and accepting",
+                        choices: [
+                            {
+                                text: "I'm in the middle of it. Stable but still figuring out who I am after this experience.",
+                                description: "Ongoing journey",
+                                impact: { trust: 4, empathy: 4 },
+                                next: 'identity_reformation'
+                            },
+                            {
+                                text: "I'm learning to accept this as part of my story, not something to hide from.",
+                                description: "Integration",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'story_integration'
+                            },
+                            {
+                                text: "Some days I feel recovered, others I feel like I'm just beginning.",
+                                description: "Variable progress",
+                                impact: { trust: 4, empathy: 5 },
+                                next: 'progress_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'story_integration',
+                        text: "Accepting this experience as part of your life story is profound.",
+                        dialogue: "That takes incredible strength. How has this experience changed how you see yourself?",
+                        mood: "admiring and supportive",
+                        choices: [
+                            {
+                                text: "I'm more fragile than I thought, but also more resilient than I knew.",
+                                description: "Balanced self-view",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'self_understanding'
+                            },
+                            {
+                                text: "I have more compassion for others struggling with reality distortions.",
+                                description: "Increased empathy",
+                                impact: { empathy: 5, effectiveness: 4 },
+                                next: 'compassion_growth'
+                            },
+                            {
+                                text: "I understand now how thin the line is between wellness and crisis.",
+                                description: "Awareness of vulnerability",
+                                impact: { trust: 5, effectiveness: 5 },
+                                next: 'vulnerability_awareness'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'vulnerability_awareness',
+                        text: "This awareness, while sobering, can be a form of wisdom.",
+                        dialogue: "That's a profound insight. How do you live with that awareness without letting it paralyze you?",
+                        mood: "wise and understanding",
+                        choices: [
+                            {
+                                text: "I focus on what I can control - medication, therapy, sleep, social connection.",
+                                description: "Practical focus",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'control_focus'
+                            },
+                            {
+                                text: "I try to see it as knowledge that helps me take better care of myself.",
+                                description: "Reframing as self-care",
+                                impact: { empathy: 4, effectiveness: 5 },
+                                next: 'self_care_perspective'
+                            },
+                            {
+                                text: "Some days it does paralyze me. But I'm learning that's okay too.",
+                                description: "Accepting difficult days",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'difficulty_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'self_care_perspective',
+                        text: "Reframing vulnerability as a guide for self-care is powerful.",
+                        dialogue: "You've gained so much wisdom through this. What would you want others to know about this experience?",
+                        mood: "inspired and thoughtful",
+                        choices: [
+                            {
+                                text: "That it can happen to anyone. I never thought I'd lose touch with reality.",
+                                description: "Universal vulnerability",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'universal_message'
+                            },
+                            {
+                                text: "That recovery is possible. Even when it feels like your mind has betrayed you.",
+                                description: "Hope message",
+                                impact: { empathy: 5, effectiveness: 5 },
+                                next: 'hope_message'
+                            },
+                            {
+                                text: "That we need better understanding of how technology affects mental health.",
+                                description: "Systemic awareness",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'systemic_need'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'hope_message',
+                        text: "Your journey is a testament to human resilience.",
+                        dialogue: "Thank you for sharing this with me. Your recovery gives me hope for others going through similar struggles.",
+                        mood: "deeply moved and hopeful",
+                        choices: [
+                            {
+                                text: "I want to help others who are going through this. Maybe share my story when I'm ready.",
+                                description: "Future advocacy",
+                                impact: { effectiveness: 5, empathy: 5 },
+                                next: 'future_advocacy'
+                            },
+                            {
+                                text: "For now, I'm focused on my own healing. But someday, maybe.",
+                                description: "Personal focus",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'personal_healing'
+                            },
+                            {
+                                text: "I'm already part of online support groups. It helps to give back.",
+                                description: "Current support",
+                                impact: { empathy: 5, effectiveness: 5 },
+                                next: 'giving_back'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'personal_healing',
+                        text: "Prioritizing your own recovery is essential.",
+                        dialogue: "That's exactly where you need to be. Healing isn't selfish - it's necessary.",
+                        mood: "affirming and supportive",
+                        choices: [
+                            {
+                                text: "Thank you for understanding. And for not treating me differently after everything.",
+                                description: "Gratitude for normalcy",
+                                impact: { trust: 5, empathy: 5 },
+                                next: 'gratitude_expression'
+                            },
+                            {
+                                text: "I'm learning that healing takes as long as it takes. There's no rushing it.",
+                                description: "Patience with process",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'process_acceptance'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'process_acceptance',
+                        text: "This acceptance of your healing timeline shows deep wisdom.",
+                        dialogue: "You've taught me so much today about resilience and recovery. I'm here for whatever you need, whenever you need it.",
+                        mood: "grateful and committed",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "Having people like you who stuck by me... that's been everything. Thank you.",
+                                description: "Deep appreciation",
+                                impact: { trust: 5, empathy: 5, effectiveness: 5 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'success',
+                        text: "You've successfully navigated a conversation about your AI-induced psychosis recovery. This openness with trusted friends is part of reclaiming your life and story.",
+                        dialogue: "Thank you for trusting me with this. Your journey matters, and you're not walking it alone.",
+                        mood: "loving and committed",
+                        isEnd: true,
+                        outcome: 'success',
+                        criticalInfo: "If you're experiencing symptoms of psychosis or reality distortion related to AI or technology use, please reach out to a mental health professional immediately. Recovery is possible with proper support."
+                    }
+                ]
+            },
+            'insurance-advocacy': {
+                title: 'Fighting Insurance Denial',
+                description: "Your insurance company has denied coverage for mental health treatment. You need to appeal the decision and advocate for yourself.",
+                character: { name: 'Insurance Representative Sarah', avatar: '📋', mood: 'professional but defensive' },
+                scenes: [
+                    {
+                        id: 'opening',
+                        text: "You're on the phone with your insurance company after receiving a denial letter for your therapy coverage. The representative has just told you that your treatment is considered 'not medically necessary.'",
+                        dialogue: "I understand you're calling about the denial, but our medical review team has determined that your requested therapy sessions don't meet our criteria for medical necessity. Is there anything else I can help you with today?",
+                        mood: "dismissive and hurried",
+                        choices: [
+                            {
+                                text: "I need to understand exactly why this was denied. Can you explain the specific criteria that wasn't met?",
+                                description: "Asking for detailed explanation",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'criteria_explanation'
+                            },
+                            {
+                                text: "This is unacceptable. My doctor prescribed this treatment and I have a right to coverage under my plan.",
+                                description: "Assertive pushback",
+                                impact: { effectiveness: 2, empathy: 1 },
+                                next: 'assertive_response'
+                            },
+                            {
+                                text: "I'd like to file a formal appeal. What's the process for that?",
+                                description: "Direct appeal request",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'appeal_process'
+                            },
+                            {
+                                text: "Can you transfer me to a supervisor? I need to speak with someone who can help resolve this.",
+                                description: "Escalation request",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'supervisor_request'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'criteria_explanation',
+                        text: "You've asked for specific details about why your claim was denied.",
+                        dialogue: "Well, our guidelines require that therapy be for a diagnosed condition with specific treatment goals. The notes from your provider were... insufficient for our review team. You'd need more detailed documentation.",
+                        mood: "reluctantly informative",
+                        choices: [
+                            {
+                                text: "What specific documentation would be sufficient? I want to ensure my doctor provides exactly what you need.",
+                                description: "Practical problem-solving",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'documentation_requirements'
+                            },
+                            {
+                                text: "I have a diagnosed anxiety disorder and my doctor recommended weekly therapy. That should meet your criteria.",
+                                description: "Providing medical justification",
+                                impact: { effectiveness: 3, empathy: 2 },
+                                next: 'medical_justification'
+                            },
+                            {
+                                text: "Are you saying my mental health condition isn't serious enough for treatment?",
+                                description: "Challenging the decision",
+                                impact: { empathy: 3, effectiveness: 2 },
+                                next: 'condition_challenge'
+                            },
+                            {
+                                text: "I'd like to request a copy of your medical necessity guidelines so I can review them.",
+                                description: "Requesting policy documentation",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'policy_request'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'appeal_process',
+                        text: "You've asked about the formal appeal process.",
+                        dialogue: "You have 60 days from the denial date to file an appeal. You'll need to submit a written request along with any additional medical documentation. The process typically takes 30 days for a decision.",
+                        mood: "procedurally helpful",
+                        choices: [
+                            {
+                                text: "Can you email me the appeal form and requirements today? I want to start immediately.",
+                                description: "Urgent action request",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'appeal_documentation'
+                            },
+                            {
+                                text: "What kind of additional documentation would strengthen my appeal?",
+                                description: "Strategic preparation",
+                                impact: { effectiveness: 5, trust: 3 },
+                                next: 'appeal_strategy'
+                            },
+                            {
+                                text: "Is there an expedited process for urgent mental health needs?",
+                                description: "Urgency consideration",
+                                impact: { empathy: 3, effectiveness: 4 },
+                                next: 'expedited_appeal'
+                            },
+                            {
+                                text: "I'm already paying out of pocket for essential treatment. Will the appeal cover retroactive reimbursement?",
+                                description: "Financial impact concern",
+                                impact: { effectiveness: 3, empathy: 4 },
+                                next: 'retroactive_coverage'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'documentation_requirements',
+                        text: "You've requested specific documentation requirements.",
+                        dialogue: "We need detailed treatment plans with specific goals, frequency justification, and progress notes. Your doctor should include diagnostic codes and explain why this particular frequency is medically necessary.",
+                        mood: "technically helpful",
+                        choices: [
+                            {
+                                text: "I'll have my doctor submit all of that. Can you reprocess the claim once we provide this documentation?",
+                                description: "Collaborative solution",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'reprocessing_agreement'
+                            },
+                            {
+                                text: "My doctor is board-certified and experienced. Are you questioning their professional judgment?",
+                                description: "Defending provider credibility",
+                                impact: { empathy: 2, effectiveness: 3 },
+                                next: 'provider_defense'
+                            },
+                            {
+                                text: "This seems like a lot of hoops to jump through for basic mental healthcare. Is this standard practice?",
+                                description: "Questioning the process",
+                                impact: { empathy: 4, effectiveness: 3 },
+                                next: 'process_critique'
+                            },
+                            {
+                                text: "Can you put me in touch with the medical reviewer who made this decision? I'd like to discuss this directly.",
+                                description: "Direct reviewer contact",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'reviewer_contact'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'appeal_strategy',
+                        text: "You're asking about strengthening your appeal.",
+                        dialogue: "A letter from your treating physician explaining the medical necessity, any relevant diagnostic tests or assessments, and documentation of how your condition impacts your daily functioning would be helpful. Sometimes a peer-to-peer review with our medical director can be beneficial too.",
+                        mood: "genuinely helpful",
+                        choices: [
+                            {
+                                text: "How do I request a peer-to-peer review? That sounds like it could resolve this quickly.",
+                                description: "Pursuing efficient resolution",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'peer_review_process'
+                            },
+                            {
+                                text: "I appreciate you explaining that. You've been more helpful than I expected. What's your name so I can mention your assistance?",
+                                description: "Acknowledging good service",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'positive_interaction'
+                            },
+                            {
+                                text: "This is exactly what I needed to know. I'll work with my doctor to prepare a comprehensive appeal.",
+                                description: "Confident next steps",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'preparation_plan'
+                            },
+                            {
+                                text: "Is there a patient advocate at your company who can help guide me through this process?",
+                                description: "Seeking additional support",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'patient_advocate'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'peer_review_process',
+                        text: "You're learning about the peer-to-peer review option.",
+                        dialogue: "Your doctor can request to speak directly with our medical director about your case. This often resolves coverage issues faster than the written appeal process. I can send your doctor the information to request this.",
+                        mood: "collaborative and supportive",
+                        choices: [
+                            {
+                                text: "Please send that information to my doctor today. Here's their contact information.",
+                                description: "Immediate action",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'doctor_contact_success'
+                            },
+                            {
+                                text: "What happens if the peer review doesn't go in my favor? Do I still have other options?",
+                                description: "Planning for contingencies",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'backup_options'
+                            },
+                            {
+                                text: "How long does a peer review typically take? I need to know when to expect a decision.",
+                                description: "Timeline clarification",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'review_timeline'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'positive_interaction',
+                        text: "You're acknowledging the representative's helpfulness.",
+                        dialogue: "Thank you so much! I'm Sarah, and I really appreciate that. I know these calls can be frustrating. I've been there myself with family members. Let me make sure you have everything you need before we hang up.",
+                        mood: "warm and personally invested",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "Thank you, Sarah. This human connection makes such a difference when you're fighting for healthcare.",
+                                description: "Expressing gratitude for humanity",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'human_connection'
+                            },
+                            {
+                                text: "Can you walk me through exactly what happens next? I want to make sure I don't miss any steps.",
+                                description: "Seeking complete guidance",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'complete_guidance'
+                            },
+                            {
+                                text: "Is there a direct number I can call if I have questions about my appeal?",
+                                description: "Establishing ongoing contact",
+                                impact: { trust: 5, effectiveness: 4 },
+                                next: 'direct_contact'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'doctor_contact_success',
+                        text: "You've provided your doctor's information for the peer review process.",
+                        dialogue: "Perfect. I'm sending the peer review request form to your doctor right now. They should receive it within the hour. I'm also putting a note in your file about this conversation so anyone who helps you next will know where we left off.",
+                        mood: "efficient and caring",
+                        choices: [
+                            {
+                                text: "Sarah, you've turned a nightmare situation into a manageable process. Thank you for treating me like a person, not just a claim number.",
+                                description: "Deep appreciation",
+                                impact: { empathy: 5, trust: 5, effectiveness: 5 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'success',
+                        text: "You've successfully navigated the insurance denial and found a path forward. Through persistence, preparation, and finding the right person to help, you've transformed a dead-end denial into multiple avenues for appeal.",
+                        dialogue: "I'm confident we'll get this resolved. Mental health treatment is healthcare, and you deserve coverage. Don't hesitate to call if you need any help with the next steps.",
+                        mood: "supportive and optimistic",
+                        isEnd: true,
+                        outcome: 'success',
+                        criticalInfo: "Know your rights: Insurance companies must follow specific timelines for appeals, provide clear reasons for denials, and allow you to appeal decisions. Document everything, keep records of all communications, and don't be afraid to escalate when needed."
+                    }
+                ]
+            },
+            'self-advocacy-doctor': {
+                title: 'Self-Advocacy with Doctor',
+                description: "You need to advocate for your mental health needs with a healthcare provider who seems dismissive or rushed.",
+                character: { name: 'Dr. Martinez', avatar: '⚕️', mood: 'professional but hurried' },
+                scenes: [
+                    {
+                        id: 'opening',
+                        text: "You're in a brief appointment with your primary care doctor. You've been struggling with anxiety and depression, but the doctor seems focused on getting through appointments quickly.",
+                        dialogue: "So what brings you in today? I see here you mentioned some mood concerns on your intake form. How long has this been going on?",
+                        mood: "professional but rushed",
+                        choices: [
+                            {
+                                text: "I've been having panic attacks and can't sleep. It's affecting my work and relationships. I think I need professional help.",
+                                description: "Direct and specific",
+                                impact: { effectiveness: 3, trust: 2 },
+                                next: 'specific_symptoms'
+                            },
+                            {
+                                text: "I've been feeling really down and anxious for months. I was hoping you could refer me to a therapist or psychiatrist.",
+                                description: "Clear request for referral",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'referral_request'
+                            },
+                            {
+                                text: "I'm not doing well mentally. I know you're busy, but I really need help figuring out what's wrong.",
+                                description: "Vulnerable but acknowledging time",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'time_pressure'
+                            },
+                            {
+                                text: "I've been researching my symptoms and I think I might have generalized anxiety disorder and depression. Can we explore treatment options?",
+                                description: "Prepared and informed",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'informed_patient'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'specific_symptoms',
+                        text: "The doctor starts typing notes but seems to be rushing through a mental checklist.",
+                        dialogue: "Panic attacks, sleep issues, work problems. Have you tried stress management techniques? Maybe cut back on caffeine? A lot of people feel better with some lifestyle changes.",
+                        mood: "dismissive and solution-focused",
+                        choices: [
+                            {
+                                text: "I've tried those things. This feels like more than stress. I need a proper mental health evaluation.",
+                                description: "Firm pushback",
+                                impact: { effectiveness: 4, trust: 2 },
+                                next: 'evaluation_insistence'
+                            },
+                            {
+                                text: "Doctor, I appreciate that, but I've been managing stress for years. This is different and I'm concerned.",
+                                description: "Respectful but persistent",
+                                impact: { effectiveness: 3, trust: 3 },
+                                next: 'concern_expression'
+                            },
+                            {
+                                text: "I understand you want to try simple solutions first, but can we also discuss medication or therapy options?",
+                                description: "Collaborative approach",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'collaborative_discussion'
+                            },
+                            {
+                                text: "These symptoms are severely impacting my quality of life. I need you to take this seriously.",
+                                description: "Direct advocacy",
+                                impact: { effectiveness: 5, empathy: 2 },
+                                next: 'serious_impact'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'referral_request',
+                        text: "The doctor pauses and looks up from their computer.",
+                        dialogue: "Well, we could try that, but therapy waitlists are long and expensive. Have you considered some self-help approaches first? There are apps and books that might help.",
+                        mood: "practical but dismissive",
+                        choices: [
+                            {
+                                text: "I need professional help, not apps. Can you please provide a referral today?",
+                                description: "Clear boundary setting",
+                                impact: { effectiveness: 5, trust: 3 },
+                                next: 'referral_insistence'
+                            },
+                            {
+                                text: "I understand cost is a concern, but my mental health is worth the investment. What options do we have?",
+                                description: "Value assertion",
+                                impact: { effectiveness: 4, empathy: 3 },
+                                next: 'value_discussion'
+                            },
+                            {
+                                text: "I've tried self-help. While we're exploring other options, can you start the referral process since it takes time?",
+                                description: "Practical compromise",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'parallel_approach'
+                            },
+                            {
+                                text: "Doctor, apps can't prescribe medication or provide professional diagnosis. I need proper medical care.",
+                                description: "Medical reality check",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'professional_necessity'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'informed_patient',
+                        text: "The doctor seems impressed by your preparation and slows down to engage more thoughtfully.",
+                        dialogue: "I appreciate that you've done research. Tell me more about what symptoms you're experiencing and how they match what you've learned.",
+                        mood: "engaged and professional",
+                        choices: [
+                            {
+                                text: "I have racing thoughts, constant worry, fatigue, and difficulty concentrating. It matches GAD criteria from reputable medical sources.",
+                                description: "Clinical specificity",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'clinical_discussion'
+                            },
+                            {
+                                text: "I brought a list of my symptoms and their frequency. I've been tracking them for three weeks.",
+                                description: "Documentation presentation",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'documented_symptoms'
+                            },
+                            {
+                                text: "I understand you need to rule out other causes. What tests or evaluations would be appropriate?",
+                                description: "Medical collaboration",
+                                impact: { effectiveness: 4, trust: 5 },
+                                next: 'medical_collaboration'
+                            },
+                            {
+                                text: "I've taken some online screening tools that suggested I seek professional evaluation. Can we discuss next steps?",
+                                description: "Screening tool reference",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'screening_discussion'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'evaluation_insistence',
+                        text: "Your firm stance gets the doctor's attention. They stop typing and focus on you.",
+                        dialogue: "You're right, I apologize for rushing. Let me take a proper history. Can you walk me through when these symptoms started and how they're affecting your daily life?",
+                        mood: "corrective and attentive",
+                        choices: [
+                            {
+                                text: "Thank you for listening. It started six months ago after a stressful life event, but it hasn't improved.",
+                                description: "Detailed timeline",
+                                impact: { trust: 4, effectiveness: 4 },
+                                next: 'proper_history'
+                            },
+                            {
+                                text: "I appreciate you taking time for this. The symptoms are daily and preventing me from functioning normally.",
+                                description: "Functional impact focus",
+                                impact: { effectiveness: 4, empathy: 3 },
+                                next: 'functional_assessment'
+                            },
+                            {
+                                text: "I'm having trouble working, sleeping, and maintaining relationships. It's not just stress anymore.",
+                                description: "Multiple domain impact",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'comprehensive_impact'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'collaborative_discussion',
+                        text: "Your collaborative approach encourages a more thorough conversation.",
+                        dialogue: "I appreciate your approach. Let's talk about both lifestyle modifications and medical interventions. What's your preference for starting treatment?",
+                        mood: "collaborative and thorough",
+                        choices: [
+                            {
+                                text: "I'd like to try therapy first, but I'm open to medication if needed. Can you refer me to both?",
+                                description: "Dual approach preference",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'dual_referral'
+                            },
+                            {
+                                text: "I think I need professional therapy, but I'd also like to understand medication options.",
+                                description: "Therapy priority with medication info",
+                                impact: { effectiveness: 4, trust: 4 },
+                                next: 'therapy_priority'
+                            },
+                            {
+                                text: "What do you recommend based on my symptoms? I trust your clinical judgment.",
+                                description: "Professional deference",
+                                impact: { trust: 5, effectiveness: 4 },
+                                next: 'professional_recommendation'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'documented_symptoms',
+                        text: "The doctor reviews your documentation with genuine interest.",
+                        dialogue: "This is excellent. This kind of tracking really helps with diagnosis and treatment planning. Based on this pattern, I think we should definitely pursue professional evaluation.",
+                        mood: "impressed and collaborative",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "I'm so glad this is helpful. What's the next step for getting proper care?",
+                                description: "Eager for next steps",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'next_steps_planning'
+                            },
+                            {
+                                text: "Thank you for taking this seriously. Should I continue tracking while we pursue treatment?",
+                                description: "Continued engagement",
+                                impact: { effectiveness: 4, trust: 5 },
+                                next: 'ongoing_tracking'
+                            },
+                            {
+                                text: "I prepared this because I wanted to be a good patient and advocate for myself effectively.",
+                                description: "Self-advocacy explanation",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'advocacy_recognition'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'dual_referral',
+                        text: "Your comprehensive approach impresses the doctor and results in thorough care planning.",
+                        dialogue: "That's a smart approach. I'll refer you to both a therapist and a psychiatrist. The therapist can start immediately while you wait for the psychiatrist appointment. I'll also give you some interim resources.",
+                        mood: "thorough and supportive",
+                        choices: [
+                            {
+                                text: "This is exactly what I was hoping for. Thank you for being so thorough and taking my concerns seriously.",
+                                description: "Grateful appreciation",
+                                impact: { trust: 5, empathy: 5, effectiveness: 5 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'next_steps_planning',
+                        text: "Your preparation has resulted in a comprehensive treatment plan.",
+                        dialogue: "I'm referring you to our mental health team. I'll also start you on a brief questionnaire for baseline measurement and follow-up. You've made this evaluation much more effective.",
+                        mood: "appreciative and thorough",
+                        choices: [
+                            {
+                                text: "Thank you for being so responsive to my preparation. This gives me confidence in my care.",
+                                description: "Confidence expression",
+                                impact: { trust: 5, effectiveness: 5, empathy: 4 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'success',
+                        text: "You've successfully advocated for your mental health needs with your doctor. Through preparation, persistence, and clear communication, you've transformed a rushed appointment into comprehensive care planning.",
+                        dialogue: "You've done exactly what patients should do - come prepared, be specific about your needs, and advocate for appropriate care. I'm confident we'll get you the help you need.",
+                        mood: "professional and supportive",
+                        isEnd: true,
+                        outcome: 'success',
+                        criticalInfo: "Remember: You have the right to comprehensive mental health care from your primary doctor. If they dismiss your concerns, ask them to document their refusal in your chart, or seek a second opinion. Preparation and persistence are key to effective medical self-advocacy."
+                    }
+                ]
+            },
+            'asking-for-help': {
+                title: 'Asking for Help',
+                description: "You're struggling and need to reach out for support, but it feels vulnerable and scary to ask for help.",
+                character: { name: 'Close Friend Jamie', avatar: '🆘', mood: 'caring but unaware of your struggles' },
+                scenes: [
+                    {
+                        id: 'opening',
+                        text: "You've been struggling alone for weeks and finally decided to reach out to your friend Jamie. You're sitting together, but you're finding it hard to find the words to ask for help.",
+                        dialogue: "Hey, you seemed like you wanted to talk about something when you texted. What's going on?",
+                        mood: "attentive and caring",
+                        choices: [
+                            {
+                                text: "I've been going through a really hard time lately and I don't know how to handle it alone anymore.",
+                                description: "Direct and vulnerable",
+                                impact: { trust: 3, empathy: 3 },
+                                next: 'vulnerable_opening'
+                            },
+                            {
+                                text: "I'm struggling with some personal stuff. Would it be okay if I talked to you about it?",
+                                description: "Asking permission first",
+                                impact: { trust: 2, empathy: 2 },
+                                next: 'permission_request'
+                            },
+                            {
+                                text: "I need help, but I don't even know where to start or what to ask for.",
+                                description: "Honest confusion",
+                                impact: { empathy: 3, trust: 2 },
+                                next: 'confused_help'
+                            },
+                            {
+                                text: "I've been trying to handle everything myself, but I think I need support.",
+                                description: "Acknowledging limits",
+                                impact: { effectiveness: 3, trust: 3 },
+                                next: 'limits_acknowledgment'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'vulnerable_opening',
+                        text: "Jamie's expression immediately becomes more focused and concerned.",
+                        dialogue: "I'm so glad you reached out. That takes courage. What's been happening? I'm here to listen.",
+                        mood: "compassionate and focused",
+                        choices: [
+                            {
+                                text: "I've been having panic attacks and can't sleep. I feel like I'm falling apart.",
+                                description: "Specific symptoms",
+                                impact: { trust: 4, empathy: 3 },
+                                next: 'symptom_disclosure'
+                            },
+                            {
+                                text: "Everything feels overwhelming. Work, relationships, just existing feels exhausting.",
+                                description: "General overwhelm",
+                                impact: { empathy: 4, trust: 3 },
+                                next: 'overwhelm_description'
+                            },
+                            {
+                                text: "I think I might be depressed, but I'm scared to admit it or get help.",
+                                description: "Mental health concern",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'mental_health_fear'
+                            },
+                            {
+                                text: "I've been isolating myself because I don't want to burden anyone, but that's making it worse.",
+                                description: "Isolation pattern",
+                                impact: { empathy: 4, effectiveness: 3 },
+                                next: 'isolation_cycle'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'permission_request',
+                        text: "Jamie nods immediately and puts their phone away to give you full attention.",
+                        dialogue: "Of course! I'm honored you want to share with me. Take your time, and tell me whatever feels comfortable.",
+                        mood: "welcoming and patient",
+                        choices: [
+                            {
+                                text: "I've been struggling with my mental health and I don't know what to do about it.",
+                                description: "Mental health focus",
+                                impact: { trust: 4, empathy: 3 },
+                                next: 'mental_health_struggle'
+                            },
+                            {
+                                text: "I'm having a really hard time coping with stress and I think I need professional help.",
+                                description: "Professional help consideration",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'professional_help_thought'
+                            },
+                            {
+                                text: "I feel like I'm drowning and I need someone to help me figure out what my options are.",
+                                description: "Seeking guidance",
+                                impact: { empathy: 4, effectiveness: 3 },
+                                next: 'guidance_request'
+                            },
+                            {
+                                text: "I'm scared about what's happening to me mentally and I need support to get through this.",
+                                description: "Fear and support need",
+                                impact: { empathy: 5, trust: 4 },
+                                next: 'fear_and_support'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'mental_health_fear',
+                        text: "Jamie's expression shows understanding and no judgment.",
+                        dialogue: "There's nothing to be scared about in recognizing when you need help. That's actually really smart and brave. What's making you hesitant about getting support?",
+                        mood: "reassuring and curious",
+                        choices: [
+                            {
+                                text: "I'm worried people will think I'm weak or broken if they know I need therapy.",
+                                description: "Stigma fears",
+                                impact: { trust: 4, empathy: 4 },
+                                next: 'stigma_concerns'
+                            },
+                            {
+                                text: "I'm scared of what I might find out about myself or how bad things really are.",
+                                description: "Self-discovery fear",
+                                impact: { empathy: 4, trust: 4 },
+                                next: 'discovery_fear'
+                            },
+                            {
+                                text: "I don't know how to even start getting help or if I can afford it.",
+                                description: "Practical barriers",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'practical_barriers'
+                            },
+                            {
+                                text: "I'm afraid of being judged or not being taken seriously by professionals.",
+                                description: "Professional fear",
+                                impact: { empathy: 3, trust: 4 },
+                                next: 'professional_judgment_fear'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'isolation_cycle',
+                        text: "Jamie nods with understanding and concern.",
+                        dialogue: "That's such a common pattern, but you're not a burden. The fact that you're here talking to me proves you deserve support. How can I help break that cycle?",
+                        mood: "validating and solution-focused",
+                        choices: [
+                            {
+                                text: "Maybe just knowing I can reach out to you when things get bad would help.",
+                                description: "Safety net request",
+                                impact: { trust: 5, effectiveness: 4 },
+                                next: 'safety_net'
+                            },
+                            {
+                                text: "Could you help me research therapy options? It feels less scary with someone else's help.",
+                                description: "Research assistance",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'research_help'
+                            },
+                            {
+                                text: "I think I need someone to check in on me regularly, even if it's just a text.",
+                                description: "Regular contact",
+                                impact: { empathy: 4, effectiveness: 4 },
+                                next: 'regular_checkins'
+                            },
+                            {
+                                text: "Can you help me practice what to say when I call a therapist? I keep freezing up.",
+                                description: "Practice support",
+                                impact: { effectiveness: 4, trust: 5 },
+                                next: 'practice_support'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'stigma_concerns',
+                        text: "Jamie's response is immediate and firm.",
+                        dialogue: "Anyone who thinks seeking help makes you weak doesn't understand strength. It takes courage to face your struggles and work on them. Those people's opinions aren't worth your wellbeing.",
+                        mood: "protective and affirming",
+                        choices: [
+                            {
+                                text: "Thank you for saying that. I needed to hear it from someone I trust.",
+                                description: "Accepting validation",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'validation_acceptance'
+                            },
+                            {
+                                text: "You're right, but it's hard to shake those thoughts when they're so loud in my head.",
+                                description: "Acknowledging difficulty",
+                                impact: { empathy: 4, trust: 4 },
+                                next: 'persistent_thoughts'
+                            },
+                            {
+                                text: "I know you're right logically, but can you help me believe it emotionally?",
+                                description: "Emotional support request",
+                                impact: { empathy: 5, trust: 5 },
+                                next: 'emotional_support'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'practical_barriers',
+                        text: "Jamie's expression becomes more focused and helpful.",
+                        dialogue: "Let's tackle this step by step. We can figure out the practical stuff together. What feels like the biggest barrier right now - finding someone, affording it, or just making that first call?",
+                        mood: "practical and supportive",
+                        choices: [
+                            {
+                                text: "All of it, honestly. The whole process feels impossible when I can barely function.",
+                                description: "Overwhelming barriers",
+                                impact: { empathy: 5, effectiveness: 3 },
+                                next: 'overwhelming_barriers'
+                            },
+                            {
+                                text: "I think finding the right therapist is what scares me most. What if they don't understand?",
+                                description: "Therapist matching concern",
+                                impact: { trust: 4, empathy: 3 },
+                                next: 'therapist_matching'
+                            },
+                            {
+                                text: "The cost is a huge factor. I'm not sure my insurance covers mental health adequately.",
+                                description: "Financial concern",
+                                impact: { effectiveness: 4, trust: 3 },
+                                next: 'financial_concern'
+                            },
+                            {
+                                text: "Making that first call feels terrifying. What if I break down on the phone?",
+                                description: "Call anxiety",
+                                impact: { empathy: 4, trust: 4 },
+                                next: 'call_anxiety'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'safety_net',
+                        text: "Jamie's immediate and warm response shows genuine commitment.",
+                        dialogue: "Absolutely, always. You can text, call, or just show up. I mean that. Let's also set up some regular check-ins so you don't have to always be the one reaching out.",
+                        mood: "committed and caring",
+                        isBreakthrough: true,
+                        choices: [
+                            {
+                                text: "This means everything to me. Having that support makes getting professional help feel less scary too.",
+                                description: "Grateful relief",
+                                impact: { trust: 5, empathy: 5, effectiveness: 4 },
+                                next: 'support_foundation'
+                            },
+                            {
+                                text: "Can we also talk about what other kinds of support I might need as I work through this?",
+                                description: "Comprehensive planning",
+                                impact: { effectiveness: 5, trust: 5 },
+                                next: 'comprehensive_support'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'research_help',
+                        text: "Jamie immediately pulls out their phone, ready to help.",
+                        dialogue: "Let's do this right now. We can look up therapists in your area, check what your insurance covers, and I can even help you write down questions to ask when you call.",
+                        mood: "actively helpful and energetic",
+                        choices: [
+                            {
+                                text: "You would really do all that with me? That makes this feel so much more manageable.",
+                                description: "Grateful and relieved",
+                                impact: { trust: 5, effectiveness: 5, empathy: 4 },
+                                next: 'manageable_steps'
+                            },
+                            {
+                                text: "This is exactly what I needed - someone to make it feel less overwhelming and more concrete.",
+                                description: "Appreciation for concrete help",
+                                impact: { effectiveness: 5, trust: 4 },
+                                next: 'concrete_progress'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'emotional_support',
+                        text: "Jamie's expression becomes deeply caring and thoughtful.",
+                        dialogue: "Of course. Every time those shame thoughts come up, I want you to remember that asking for help got you through every challenge you've faced before. This is just another way of being smart about taking care of yourself.",
+                        mood: "nurturing and wise",
+                        choices: [
+                            {
+                                text: "I never thought about it that way - that getting help is just another form of self-care.",
+                                description: "Reframing perspective",
+                                impact: { empathy: 5, effectiveness: 4, trust: 5 },
+                                next: 'perspective_shift'
+                            },
+                            {
+                                text: "Can you remind me of this when I start doubting myself again?",
+                                description: "Ongoing support request",
+                                impact: { trust: 5, empathy: 4 },
+                                next: 'ongoing_reminders'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'overwhelming_barriers',
+                        text: "Jamie's response is gentle but determined.",
+                        dialogue: "Then we're going to break it down into the tiniest possible steps. Today, we just made the hardest step - you asked for help. Tomorrow, maybe we just look up one therapist. That's it. One step at a time.",
+                        mood: "patient and determined",
+                        choices: [
+                            {
+                                text: "One step at a time sounds like something I can actually handle. Thank you for not making me feel like I should be able to do more.",
+                                description: "Accepting manageable pace",
+                                impact: { empathy: 5, trust: 5, effectiveness: 4 },
+                                next: 'manageable_pace'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'manageable_pace',
+                        text: "Your friend's patience and practical approach has transformed an overwhelming situation into manageable steps.",
+                        dialogue: "There's no rush and no pressure. You're already being incredibly brave by recognizing you need support. Everything else can happen at whatever speed feels right for you.",
+                        mood: "deeply supportive and patient",
+                        choices: [
+                            {
+                                text: "I feel so much lighter already. Having someone in my corner changes everything about how this feels.",
+                                description: "Profound relief",
+                                impact: { trust: 5, empathy: 5, effectiveness: 5 },
+                                next: 'success'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'success',
+                        text: "You've successfully asked for help and received genuine support. By being vulnerable and specific about your needs, you've created a foundation of support that will help you navigate getting professional help and managing your mental health challenges.",
+                        dialogue: "I'm so proud of you for reaching out. You're not alone in this anymore, and that's going to make all the difference.",
+                        mood: "proud and committed",
+                        isEnd: true,
+                        outcome: 'success',
+                        criticalInfo: "Remember: Asking for help is a sign of strength, not weakness. Start with trusted friends or family, be specific about what support you need, and remember that most people want to help but don't always know how. Professional help is also always available when you're ready."
+                    }
+                ]
             }
         };
         
@@ -5830,19 +7981,34 @@
             updateStats();
         }
 
-        // Type Text Effect
+        // Type Text Effect - Fixed character duplication bug
         function typeText(text, elementId) {
             const element = document.getElementById(elementId);
+            
+            if (!element) {
+                console.error('Element not found:', elementId);
+                return;
+            }
+            
+            // Clean the text to prevent corruption
+            const cleanText = String(text).trim();
+            
+            // Clear any existing intervals to prevent duplication
+            if (element.typeInterval) {
+                clearInterval(element.typeInterval);
+            }
+            
             element.textContent = '';
             element.classList.add('typing');
             
             let index = 0;
-            const interval = setInterval(() => {
-                if (index < text.length) {
-                    element.textContent += text.charAt(index);
+            element.typeInterval = setInterval(() => {
+                if (index < cleanText.length) {
+                    element.textContent += cleanText.charAt(index);
                     index++;
                 } else {
-                    clearInterval(interval);
+                    clearInterval(element.typeInterval);
+                    element.typeInterval = null;
                     element.classList.remove('typing');
                 }
             }, 30);
@@ -6087,15 +8253,19 @@
                         <pre>${analysis}</pre>
                     </div>
                     <div class="completion-buttons">
-                        <button class="choice-button primary" onclick="tryAgain()">
+                        <button class="choice-button primary" id="tryAgainBtn">
                             🔄 Try This Scenario Again
                         </button>
-                        <button class="choice-button secondary" onclick="returnToScenarios()">
+                        <button class="choice-button secondary" id="returnToScenariosBtn">
                             📋 Choose Different Scenario
                         </button>
                     </div>
                 </div>
             `;
+            
+            // Add event listeners after creating the buttons
+            document.getElementById('tryAgainBtn').addEventListener('click', tryAgain);
+            document.getElementById('returnToScenariosBtn').addEventListener('click', returnToScenarios);
         }
 
         // Try the same scenario again
@@ -6107,12 +8277,34 @@
 
         // Return to scenario selection
         function returnToScenarios() {
-            document.getElementById('conversationInterface').classList.remove('active');
-            document.getElementById('scenarioSelection').style.display = 'block';
+            // Hide conversation interface
+            const conversationInterface = document.getElementById('conversationInterface');
+            const scenarioSelection = document.getElementById('scenarioSelection');
+            
+            conversationInterface.style.display = 'none';
+            conversationInterface.classList.remove('active');
+            
+            // Show scenario selection
+            scenarioSelection.style.display = 'block';
+            
+            // Clear selected cards
             document.querySelectorAll('.scenario-card').forEach(card => card.classList.remove('selected'));
+            
             // Hide protective resources when returning to scenarios
             document.getElementById('protectiveResources').style.display = 'none';
+            
+            // Reset app state
+            appState.currentScenario = null;
+            appState.currentScene = 0;
+            appState.conversationHistory = [];
+            
+            // Scroll to scenarios section
+            scenarioSelection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
+        // Make function globally accessible for onclick handlers
+        window.returnToScenarios = returnToScenarios;
+        window.tryAgain = tryAgain;
 
         // Crisis Banner Functions
         function showCrisisBanner() {
@@ -6144,6 +8336,7 @@
                 appState.currentScenario = scenarioId;
                 appState.currentScene = 'intro';
                 appState.stats = { empathy: 50, trust: 50, effectiveness: 50 };
+                appState.playerStats = { empathy: 0, trust: 0, effectiveness: 0 };
                 appState.conversationMemory = [];
                 appState.breakthroughs = [];
                 
@@ -6163,6 +8356,9 @@
                     scenarioSelection.style.display = 'none';
                     conversationInterface.style.display = 'block';
                     conversationInterface.classList.add('active');
+                    
+                    // Scroll to the top of the conversation interface
+                    conversationInterface.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     
                     console.log('UI elements updated successfully');
                     

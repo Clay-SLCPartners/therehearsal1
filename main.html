@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rehearsal AI - Mental Health Conversation Practice</title>
+    <meta name="description" content="Practice difficult mental health conversations in a safe, supportive environment. Inspired by The Rehearsal.">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/scenarios.css">
+    <link rel="stylesheet" href="public/css/conversation.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="public/data/scenarios.json" as="fetch" crossorigin="anonymous">
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="The Rehearsal AI - Mental Health Conversation Practice">
+    <meta property="og:description" content="Practice difficult conversations in a safe environment">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <!-- Crisis Banner -->
+    <div id="crisisBanner" class="crisis-banner">
+        <div class="crisis-content">
+            <span class="crisis-icon">🚨</span>
+            <p><strong>Crisis Resources Available 24/7:</strong> 
+               <a href="tel:988">988 Suicide & Crisis Lifeline</a> | 
+               <a href="tel:741741">Crisis Text Line: Text HOME to 741741</a>
+            </p>
+            <button onclick="closeCrisisBanner()" class="crisis-close">×</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🎭 The Rehearsal AI</h1>
+                <span class="nav-subtitle">Mental Health Conversation Practice</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#practice" class="nav-link">Practice</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="director-studio.html" class="nav-link">Director's Studio</a>
+            </div>
+
+            <!-- User Menu -->
+            <div class="user-menu" id="userMenu">
+                <div class="user-avatar" onclick="toggleUserMenu()">👤</div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-info" id="userInfo">
+                        <div class="user-name">Guest User</div>
+                        <div class="user-progress">0 scenarios completed</div>
+                    </div>
+                    <hr>
+                    <button onclick="showLoginModal()" class="dropdown-item">Sign In</button>
+                    <button onclick="authSystem.logout()" class="dropdown-item">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Practice Mental Health Conversations</h1>
+            <p class="hero-subtitle">
+                A safe space to rehearse difficult conversations about mental health, 
+                inspired by HBO's "The Rehearsal"
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="beginRehearsal()">
+                    🎭 Begin Your Rehearsal
+                </button>
+                <a href="director-studio.html" class="btn btn-secondary">
+                    📽️ Director's Studio
+                </a>
+                <a href="#quick-tools" class="btn btn-accent">
+                    🚀 Quick Resources
+                </a>
+            </div>
+            
+            <!-- Memory Percentage Display -->
+            <div class="memory-display">
+                <div class="memory-text">Memory Accuracy: <span id="memoryPercentage">87.3%</span></div>
+                <div class="memory-bar">
+                    <div class="memory-fill" id="memoryFill"></div>
+                </div>
+                <small class="memory-note">Nathan tracks everything for perfect rehearsals</small>
+            </div>
+            
+            <!-- Crisis Resources Button -->
+            <div class="crisis-button-container">
+                <button class="btn btn-crisis" onclick="showCrisisResources()">
+                    🚨 Crisis Resources
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎭 Why America Needs Rehearsals</h2>
+                <p>The philosophy behind The Rehearsal</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50M+</div>
+                    <div class="stat-label">Adults with mental illness</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Received no treatment</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">160M</div>
+                    <div class="stat-label">Live in mental health shortage areas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$100-250</div>
+                    <div class="stat-label">Per therapy session cost</div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="nathan-quote">
+                <p><em>"Sometimes you have to rehearse something over and over to get it right. And even then, life might surprise you."</em></p>
+                <span>— The philosophy behind The Rehearsal</span>
+            </div>
+
+            <!-- Mental Healthcare Issues -->
+            <div class="healthcare-issues">
+                <h3>Mental Healthcare Deserts</h3>
+                <ul>
+                    <li>Nearly half of Americans live in areas with mental health professional shortages</li>
+                    <li>Over 8,000 additional mental health providers needed nationwide</li>
+                    <li>2+ million rural Americans lack access to mental health professionals</li>
+                    <li>Over half of U.S. counties have no practicing psychiatrist</li>
+                </ul>
+
+                <div class="cost-comparison">
+                    <div class="cost-section">
+                        <h4>Therapy Cost Reality</h4>
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span class="cost-label">Without insurance:</span>
+                                <span class="cost-value">$100-250 per session average</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">With insurance:</span>
+                                <span class="cost-value">$20-60 copay average</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crisis Resources -->
+            <div class="crisis-resources-section">
+                <h3>Crisis Support:</h3>
+                <div class="crisis-links">
+                    <a href="tel:988">National Suicide Prevention Lifeline: 988</a>
+                    <a href="sms:741741">Crisis Text Line: Text HOME to 741741</a>
+                </div>
+            </div>
+
+            <!-- Motivational Section -->
+            <div class="motivation-section">
+                <div class="theater-masks">😷😊</div>
+                <p><em>"All the world's a stage, but some of us need more rehearsals."</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About The Rehearsal AI</h2>
+            <p>Inspired by HBO's "The Rehearsal," this platform provides a safe space to practice difficult mental health conversations. Each scenario is carefully designed to help you build confidence and develop effective communication skills.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🎭 Safe Practice Environment</h3>
+                    <p>Practice without real world consequences</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Detailed Analytics</h3>
+                    <p>Track your progress with Nathan-style precision</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🧠 Evidence-Based</h3>
+                    <p>Grounded in mental health best practices</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 Unlimited Rehearsals</h3>
+                    <p>Practice until you feel confident</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenario Selection Section -->
+    <section class="scenarios-section" id="practice">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Rehearsal Scenario</h2>
+                <p>Each scenario has been carefully crafted with multiple conversation paths. 
+                   Practice as many times as needed until you feel confident.</p>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="scenariosLoading" class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading scenarios...</p>
+            </div>
+
+            <!-- Scenarios Grid -->
+            <div id="scenarioSelection" class="scenarios-grid">
+                <!-- Scenarios will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversation Interface -->
+    <div class="conversation-interface" id="conversationInterface">
+        <div class="conversation-header">
+            <div class="scenario-info">
+                <h3 id="currentScenarioTitle">Loading...</h3>
+                <p id="currentScenarioDesc">Please wait...</p>
+            </div>
+            
+            <button onclick="returnToScenarios()" class="btn btn-secondary">
+                ← Back to Scenarios
+            </button>
+        </div>
+
+        <!-- Story Container -->
+        <div class="story-container">
+            <div class="story-text" id="storyText">
+                <!-- Story text will be typed here -->
+            </div>
+        </div>
+
+        <!-- Character Dialogue -->
+        <div class="character-dialogue" id="characterDialogue">
+            <div class="character-info">
+                <div class="character-avatar" id="characterAvatar">🎭</div>
+                <div class="character-details">
+                    <div class="character-name" id="characterName">Character</div>
+                    <div class="character-mood" id="characterMood">neutral</div>
+                </div>
+            </div>
+            <div class="dialogue-text" id="dialogueText">
+                <!-- Character dialogue will be typed here -->
+            </div>
+        </div>
+
+        <!-- Choices Container -->
+        <div class="choices-container" id="choices">
+            <!-- Choice buttons will be dynamically added here -->
+        </div>
+
+        <!-- Rehearsal Progress Stats -->
+        <div class="scenario-stats">
+            <div class="stat-item">
+                <span class="stat-label">Empathy</span>
+                <div class="stat-bar">
+                    <div class="stat-fill empathy" id="empathyBar"></div>
+                </div>
+                <span class="stat-value" id="empathyValue">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Trust</span>
+                <div class="stat-bar">
+                    <div class="stat-fill trust" id="trustBar"></div>
+                </div>
+                <span class="stat-value" id="trustValue">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Effectiveness</span>
+                <div class="stat-bar">
+                    <div class="stat-fill effectiveness" id="effectivenessBar"></div>
+                </div>
+                <span class="stat-value" id="effectivenessValue">0</span>
+            </div>
+        </div>
+
+        <!-- Nathan's Analysis -->
+        <div class="rehearsal-analysis">
+            <h4>🎭 Rehearsal Analysis</h4>
+            <p id="rehearsalAnalysis">Preparing analysis...</p>
+            <div class="flowchart-actions">
+                <button onclick="showFlowchart()" class="flowchart-btn">📊 View Flowchart</button>
+            </div>
+        </div>
+
+        <!-- Protective Resources -->
+        <div class="protective-resources" id="protectiveResources">
+            <h3>🛡️ Protective Resources</h3>
+            <p>If this conversation brings up difficult feelings, these resources can help:</p>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <strong>Crisis Support:</strong> <a href="tel:988">988</a>
+                </div>
+                <div class="resource-item">
+                    <strong>Crisis Text:</strong> <a href="sms:741741">Text HOME to 741741</a>
+                </div>
+                <div class="resource-item">
+                    <strong>LGBTQ+ Support:</strong> <a href="tel:1-866-488-7386">Trevor Lifeline</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- America's Mental Healthcare Crisis Section -->
+    <section id="problem" class="problem-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>America's Mental Healthcare Crisis</h2>
+                <p>
+                    Millions of Americans live in mental healthcare deserts with no access to qualified professionals. 
+                    The system is fundamentally broken, leaving those who need help the most without options.
+                </p>
+            </div>
+            
+            <div class="crisis-cards-grid">
+                <!-- Healthcare Desert Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">🏜️</span>
+                    <h3>Mental Healthcare Deserts</h3>
+                    <p>
+                        160 million Americans live in designated Mental Health Professional Shortage Areas. 
+                        Rural communities are hit hardest, with some areas having zero mental health providers for hundreds of miles.
+                    </p>
+                    <div class="crisis-stat">8,000+</div>
+                    <p class="crisis-stat-description">additional providers needed to meet basic demand</p>
+                </div>
+                
+                <!-- Cost Barrier Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">💸</span>
+                    <h3>Unaffordable Care</h3>
+                    <p>
+                        Therapy costs $100-250 per session without insurance. Even with insurance, many therapists don't accept it, 
+                        and those who do often have months-long waitlists.
+                    </p>
+                    <div class="crisis-stat">$4,800-12,000</div>
+                    <p class="crisis-stat-description">average annual cost for weekly therapy</p>
+                </div>
+                
+                <!-- Systemic Failure Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">⚠️</span>
+                    <h3>Systemic Breakdown</h3>
+                    <p>
+                        The U.S. mental healthcare system is fundamentally underserved. Insurance companies deny coverage, 
+                        providers burn out, and patients fall through the cracks.
+                    </p>
+                    <div class="crisis-stat">50%+</div>
+                    <p class="crisis-stat-description">of counties have no practicing psychiatrist</p>
+                </div>
+                
+                <!-- Wait Times Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">⏰</span>
+                    <h3>Deadly Wait Times</h3>
+                    <p>
+                        Average wait for a first appointment is 48+ days. In crisis situations, 
+                        emergency rooms are often the only option, leading to traumatic and expensive interventions.
+                    </p>
+                    <div class="crisis-stat">48-90 days</div>
+                    <p class="crisis-stat-description">typical wait for mental health appointments</p>
+                </div>
+                
+                <!-- Rural Crisis Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">🌾</span>
+                    <h3>Rural America Abandoned</h3>
+                    <p>
+                        25+ million rural Americans live in areas with severe mental health professional shortages. 
+                        Suicide rates in rural areas are nearly double those in urban areas.
+                    </p>
+                    <div class="crisis-stat">25M+</div>
+                    <p class="crisis-stat-description">rural Americans without mental health access</p>
+                </div>
+                
+                <!-- Insurance Denial Card -->
+                <div class="crisis-card">
+                    <div class="crisis-card-accent"></div>
+                    <span class="crisis-icon">🚫</span>
+                    <h3>Insurance Obstacles</h3>
+                    <p>
+                        Many therapists don't accept insurance due to low reimbursement rates and administrative burden. 
+                        Those who do often have full practices, leaving insured patients with few options.
+                    </p>
+                    <div class="crisis-stat">50%+</div>
+                    <p class="crisis-stat-description">of therapists don't accept insurance</p>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="crisis-cta">
+                <h3>Why This App Exists</h3>
+                <p>
+                    When the system fails us, we must prepare ourselves. Practice these conversations now, 
+                    because when you need help, you might be your own best advocate—or someone else's only lifeline.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nathan Fielder Method Section -->
+    <section class="nathan-method-section" id="method">
+        <div class="container">
+            <h2>The Nathan Fielder Method</h2>
+            <div class="method-intro">
+                <p>In HBO's "The Rehearsal," Nathan Fielder helps people prepare for life's crucial moments through obsessive recreation and practice. We're applying that same philosophy to mental health conversations.</p>
+            </div>
+            
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-icon">🔄</div>
+                    <h3>Repetition Builds Confidence</h3>
+                    <p>Just as Nathan rehearses conversations dozens of times, you can practice mental health conversations until words become natural. No more freezing up when it matters most.</p>
+                    <div class="method-quote">
+                        <em>"I rehearsed this conversation 47 times. By the 48th, I knew exactly what to say."</em>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">🎬</div>
+                    <h3>Every Variable Considered</h3>
+                    <p>Nathan maps out every possible response. Our scenarios include 4 choices per interaction, preparing you for defensive reactions, emotional breakdowns, or unexpected support.</p>
+                    <div class="method-quote">
+                        <em>"What if they cry? What if they get angry? What if they hug you? I had a plan for everything."</em>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">�️</div>
+                    <h3>Controlled Environment</h3>
+                    <p>Nathan builds entire sets to practice. While we can't rebuild your friend's apartment, we simulate the emotional environment of each conversation with painstaking detail.</p>
+                    <div class="method-quote">
+                        <em>"The fake apartment was identical. Even the coffee stain on the couch. Details matter."</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- From HBO to Healthcare -->
+            <div class="method-comparison">
+                <h3>From HBO to Healthcare</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-column">
+                        <h4>Nathan's Method:</h4>
+                        <ul>
+                            <li>✓ Builds replica environments</li>
+                            <li>✓ Hires actors for practice</li>
+                            <li>✓ Creates flowcharts of outcomes</li>
+                            <li>✓ Practices until perfect</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h4>Our Application:</h4>
+                        <ul>
+                            <li>✓ Realistic scenario environments</li>
+                            <li>✓ AI-driven character responses</li>
+                            <li>✓ Branching conversation paths</li>
+                            <li>✓ Unlimited practice attempts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="method-footer">
+                <p><strong>Because sometimes life doesn't give you a second take—but we do.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mental Health Organizations Section -->
+    <section class="mental-health-organizations" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>National Mental Health Organizations</h2>
+                <p>Comprehensive resources and support networks for mental health assistance</p>
+            </div>
+
+            <!-- National Organizations -->
+            <div class="organizations-category">
+                <h3>🏛️ National Mental Health Organizations</h3>
+                <div class="organizations-grid">
+                    <div class="org-card">
+                        <div class="org-icon">🏛️</div>
+                        <h4>National Institute of Mental Health (NIMH)</h4>
+                        <p>The lead federal agency for research on mental disorders. Provides authoritative information on mental health conditions, treatments, and research.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://nimh.nih.gov" target="_blank">nimh.nih.gov</a><br>
+                            <strong>Phone:</strong> 1-866-615-6464
+                        </div>
+                        <p class="org-note">Best for: Research-based information, understanding conditions, treatment options</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">💛</div>
+                        <h4>National Alliance on Mental Illness (NAMI)</h4>
+                        <p>The nation's largest grassroots mental health organization. Offers support groups, education programs, and advocacy for people with mental illness and their families.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://nami.org" target="_blank">nami.org</a><br>
+                            <strong>Helpline:</strong> 1-800-950-NAMI (6264)
+                        </div>
+                        <p class="org-note">Best for: Local support groups, family support, peer connections, advocacy</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">🌟</div>
+                        <h4>Mental Health America (MHA)</h4>
+                        <p>Leading community-based nonprofit dedicated to mental health promotion and illness prevention. Offers screening tools, educational resources, and advocacy.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://mhanational.org" target="_blank">mhanational.org</a><br>
+                            <strong>Phone:</strong> 1-800-969-6642
+                        </div>
+                        <p class="org-note">Best for: Mental health screening, prevention resources, workplace mental health</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment and Therapy Resources -->
+            <div class="organizations-category">
+                <h3>🔍 Treatment & Therapy Resources</h3>
+                <div class="organizations-grid">
+                    <div class="org-card">
+                        <div class="org-icon">🔍</div>
+                        <h4>SAMHSA Treatment Locator</h4>
+                        <p>Substance Abuse and Mental Health Services Administration. Find mental health and substance use treatment facilities in your area.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://findtreatment.gov" target="_blank">findtreatment.gov</a><br>
+                            <strong>Helpline:</strong> 1-800-662-4357
+                        </div>
+                        <p class="org-note">Insurance navigation, treatment options</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">💚</div>
+                        <h4>Psychology Today Therapist Directory</h4>
+                        <p>Comprehensive directory to find therapists, psychiatrists, and support groups in your area. Filter by insurance, specialty, and treatment approach.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://psychologytoday.com/us/therapists" target="_blank">psychologytoday.com/us/therapists</a>
+                        </div>
+                        <p class="org-note">Best for: Finding local therapists, reading therapist profiles, insurance matching</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">💻</div>
+                        <h4>Online Therapy Platforms</h4>
+                        <p>Remote therapy options for those in mental health deserts or who prefer online sessions. Multiple platforms available with licensed therapists.</p>
+                        <div class="org-links">
+                            <strong>Options:</strong> BetterHelp, Talkspace, MDLive, Cerebral<br>
+                            <strong>Cost:</strong> $80-120/week typically
+                        </div>
+                        <p class="org-note">Best for: Rural areas, busy schedules, specialty niches, in-person therapy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Support -->
+            <div class="organizations-category">
+                <h3>🌈 Specialized Support</h3>
+                <div class="organizations-grid">
+                    <div class="org-card">
+                        <div class="org-icon">🏳️‍🌈</div>
+                        <h4>The Trevor Project (LGBTQ+)</h4>
+                        <p>Crisis intervention and suicide prevention for LGBTQ+ young people. 24/7 phone, chat, and text support services.</p>
+                        <div class="org-links">
+                            <strong>Crisis Line:</strong> 1-866-488-7386<br>
+                            <strong>Text:</strong> START to 678-678<br>
+                            <strong>Website:</strong> <a href="https://thetrevorproject.org" target="_blank">thetrevorproject.org</a>
+                        </div>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">🎖️</div>
+                        <h4>Veterans Crisis Line</h4>
+                        <p>24/7 support for veterans, service members, National Guard, Reserve, and their families and friends.</p>
+                        <div class="org-links">
+                            <strong>Crisis Line:</strong> 988, Press 1<br>
+                            <strong>Text:</strong> 838255<br>
+                            <strong>Website:</strong> <a href="https://veteranscrisisline.net" target="_blank">veteranscrisisline.net</a>
+                        </div>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">👨‍👩‍👧‍👦</div>
+                        <h4>PFLAG (Family Support)</h4>
+                        <p>Support, education, and advocacy for families and friends of LGBTQ+ people. Local chapters nationwide.</p>
+                        <div class="org-links">
+                            <strong>Website:</strong> <a href="https://pflag.org" target="_blank">pflag.org</a><br>
+                            <strong>Phone:</strong> 1-202-467-8180
+                        </div>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-icon">🤱</div>
+                        <h4>Postpartum Support International</h4>
+                        <p>Support for perinatal mood and anxiety disorders. Helpline, support groups, and provider directory.</p>
+                        <div class="org-links">
+                            <strong>Helpline:</strong> 1-944-944-4773<br>
+                            <strong>Website:</strong> <a href="https://postpartum.net" target="_blank">postpartum.net</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crisis Resources -->
+            <div class="crisis-resources-highlight">
+                <h3>🚨 Immediate Crisis Support</h3>
+                <div class="crisis-resources-grid">
+                    <div class="crisis-resource">
+                        <strong>988 Suicide & Crisis Lifeline</strong><br>
+                        <a href="tel:988" class="crisis-link">Call or Text: 988</a><br>
+                        <span class="resource-note">24/7 free and confidential support</span>
+                    </div>
+                    <div class="crisis-resource">
+                        <strong>Crisis Text Line</strong><br>
+                        <a href="sms:741741" class="crisis-link">Text HOME to 741741</a><br>
+                        <span class="resource-note">Free 24/7 crisis support via text</span>
+                    </div>
+                    <div class="crisis-resource">
+                        <strong>Emergency Services</strong><br>
+                        <a href="tel:911" class="crisis-link">Call: 911</a><br>
+                        <span class="resource-note">For immediate life-threatening emergencies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Mental Health Tools -->
+    <section class="quick-tools-section" id="quick-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Access Mental Health Tools</h2>
+                <p>Essential resources for immediate support and guidance</p>
+            </div>
+            
+            <div class="quick-tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🧠</div>
+                    <h3>Mental Health Screening</h3>
+                    <p>Free, confidential online screening tools to assess your mental health</p>
+                    <a href="https://screening.mhanational.org" target="_blank" class="tool-link">Take a free, anonymous screening</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
+                    <h3>Insurance Help</h3>
+                    <p>Navigate mental health coverage and find in-network providers</p>
+                    <a href="https://www.healthcare.gov/coverage/mental-health-substance-abuse-coverage/" target="_blank" class="tool-link">Understanding mental health coverage</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📚</div>
+                    <h3>Educational Resources</h3>
+                    <p>Learn about mental health conditions, treatments, and recovery</p>
+                    <a href="https://nimh.nih.gov/health/educational-resources" target="_blank" class="tool-link">NIMH educational materials</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📍</div>
+                    <h3>Local Resources</h3>
+                    <p>Find mental health providers and services in your area</p>
+                    <a href="https://findtreatment.gov" target="_blank" class="tool-link">Find local treatment providers</a>
+                </div>
+            </div>
+            
+            <div class="tools-quote">
+                <p><em>"Sometimes the hardest part is knowing where to start. These resources can help bridge the gap from rehearsal to real support."</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Rehearsal AI</h3>
+                    <p>Mental health conversation practice platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="tel:988">988 Crisis Lifeline</a></li>
+                        <li><a href="https://www.crisistextline.org">Crisis Text Line</a></li>
+                        <li><a href="https://www.thetrevorproject.org">Trevor Project</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">How It Works</a></li>
+                        <li><a href="director-studio.html">Director's Studio</a></li>
+                        <li><a href="#practice">Practice Scenarios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Rehearsal AI. Educational platform for mental health awareness.</p>
+                <p>Not affiliated with HBO or Nathan Fielder. Created for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Crisis Support Banner -->
+    <div class="bottom-crisis-banner">
+        <div class="container">
+            <div class="crisis-banner-content">
+                <span class="crisis-label">Crisis Support:</span>
+                <div class="crisis-links-bottom">
+                    <a href="tel:988" class="crisis-link-bottom">National Suicide Prevention Lifeline: 988</a>
+                    <span class="separator">|</span>
+                    <a href="sms:741741" class="crisis-link-bottom">Crisis Text Line: Text HOME to 741741</a>
+                </div>
+                <button class="crisis-close-bottom" onclick="hideBottomCrisisBanner()">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideLoginModal()">&times;</span>
+            <h2>Sign In to The Rehearsal AI</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="button" class="btn btn-secondary" onclick="loginAsDemo()">
+                    Try Demo Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="public/js/config.js"></script>
+    <script src="public/js/auth.js"></script>
+    <script src="public/js/scenarios.js"></script>
+    <script src="public/js/conversation.js"></script>
+    <script src="public/js/analytics.js"></script>
+    <script src="public/js/main.js"></script>
+</body>
+</html>

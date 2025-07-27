@@ -1,0 +1,1902 @@
+{
+  "friend-checkin": {
+    "title": "Checking on a Friend",
+    "description": "Your friend Alex hasn't been responding to texts and missed your weekly coffee date.",
+    "character": { "name": "Alex", "avatar": "😔", "mood": "withdrawn" },
+    "difficulty": "beginner",
+    "category": "friend-support",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You arrive at Alex's apartment. The blinds are closed and you haven't heard from them in days. You knock on the door.",
+        "dialogue": "Oh... hey. I wasn't expecting anyone.",
+        "mood": "surprised and tired",
+        "choices": [
+          {
+            "text": "Hey Alex! I was in the neighborhood and thought I'd stop by.",
+            "impact": { "empathy": 1, "trust": 1 },
+            "next": "casual"
+          },
+          {
+            "text": "I'm worried about you. You've been really hard to reach.",
+            "impact": { "empathy": 2, "trust": 0, "effectiveness": 1 },
+            "next": "direct"
+          },
+          {
+            "text": "I brought your favorite coffee. Mind if I come in?",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 2 },
+            "next": "coffee_approach"
+          },
+          {
+            "text": "You missed our coffee date. That's not like you.",
+            "impact": { "empathy": 1, "effectiveness": 1 },
+            "next": "concerned_friend"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully connected with Alex and helped them feel less alone. Your approach created a safe space for them to open up about their struggles and consider getting professional help.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Remember: Being present and non-judgmental is often the most important thing you can do for someone struggling with mental health. Encourage professional help when appropriate."
+      }
+    ]
+  },
+  "asking-for-help": {
+    "title": "Asking for Help",
+    "description": "You've been struggling and need to reach out for support.",
+    "character": { "name": "Friend", "avatar": "🤗", "mood": "caring but busy" },
+    "difficulty": "beginner",
+    "category": "self-advocacy",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've been struggling with anxiety and depression for weeks. You finally decide to reach out to a close friend.",
+        "dialogue": "Hey! I haven't heard from you in a while. How are you doing?",
+        "mood": "friendly but rushed",
+        "choices": [
+          {
+            "text": "I'm fine, just wanted to catch up.",
+            "impact": { "empathy": 0, "trust": -1, "effectiveness": 0 },
+            "next": "avoid_topic"
+          },
+          {
+            "text": "Actually, I've been really struggling lately and could use someone to talk to.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "direct_request"
+          },
+          {
+            "text": "I've been better. Are you free to talk sometime soon?",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 2 },
+            "next": "gentle_approach"
+          },
+          {
+            "text": "I'm having a really hard time and don't know what to do.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 2 },
+            "next": "vulnerable_opening"
+          }
+        ]
+      },
+      {
+        "id": "avoid_topic",
+        "text": "You avoided opening up and your friend seems to accept your answer, but you can sense they're still concerned.",
+        "dialogue": "Okay, well, if you need anything just let me know. I'm always here for you.",
+        "mood": "caring but slightly worried",
+        "choices": [
+          {
+            "text": "Actually, wait. I do need to talk about something.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "second_chance"
+          },
+          {
+            "text": "Thanks, I appreciate that. Maybe we can chat more later?",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 1 },
+            "next": "delay_conversation"
+          },
+          {
+            "text": "I know you can tell something's wrong. I'm struggling but don't know how to ask for help.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "honest_admission"
+          },
+          {
+            "text": "You're such a good friend. I'm lucky to have you.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 1 },
+            "next": "deflect_with_gratitude"
+          }
+        ]
+      },
+      {
+        "id": "direct_request",
+        "text": "Your friend immediately becomes more attentive and concerned after your direct request for support.",
+        "dialogue": "Of course! I'm so glad you reached out. What's been going on? You can tell me anything.",
+        "mood": "fully present and caring",
+        "choices": [
+          {
+            "text": "I've been dealing with anxiety and depression. It's been really hard to function.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "specific_sharing"
+          },
+          {
+            "text": "I feel like I'm drowning and don't know how to get better.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "metaphorical_expression"
+          },
+          {
+            "text": "I think I need professional help but I'm scared and don't know where to start.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "help_seeking"
+          },
+          {
+            "text": "I just need someone to listen. I've been keeping this all inside.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 2 },
+            "next": "need_listener"
+          }
+        ]
+      },
+      {
+        "id": "gentle_approach",
+        "text": "Your friend picks up on your subtle cue and gives you their full attention.",
+        "dialogue": "Yeah, I've got time. You sound like something's on your mind. What's going on?",
+        "mood": "attentive and gentle",
+        "choices": [
+          {
+            "text": "I've been having a really tough time with my mental health lately.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "mental_health_disclosure"
+          },
+          {
+            "text": "I feel like I'm not myself anymore. Everything feels overwhelming.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 2 },
+            "next": "feeling_overwhelmed"
+          },
+          {
+            "text": "I think I need support but I don't want to be a burden.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 2 },
+            "next": "burden_concern"
+          },
+          {
+            "text": "Can I be honest with you about what I've been going through?",
+            "impact": { "empathy": 2, "trust": 4, "effectiveness": 3 },
+            "next": "permission_seeking"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully reached out for help. Your friend is supportive and wants to be there for you. They offer practical help and emotional support, making you feel less alone.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Asking for help is a sign of strength, not weakness. Most people want to help but don't know you're struggling unless you tell them."
+      }
+    ]
+  },
+  "self-advocacy-doctor": {
+    "title": "Self-Advocacy with Doctor",
+    "description": "You need to advocate for your mental health needs with a healthcare provider.",
+    "character": { "name": "Dr. Smith", "avatar": "⚕️", "mood": "professional but rushed" },
+    "difficulty": "intermediate",
+    "category": "healthcare-advocacy",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You're at your doctor's appointment. You've been experiencing depression symptoms but your doctor seems focused on physical issues.",
+        "dialogue": "Your blood work looks fine. Is there anything else I can help you with today?",
+        "mood": "professional and hurried",
+        "choices": [
+          {
+            "text": "Actually, I've been struggling with my mental health and think I need help.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "direct_advocacy"
+          },
+          {
+            "text": "I've been feeling really depressed and anxious. Can we discuss treatment options?",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "specific_symptoms"
+          },
+          {
+            "text": "No, that's all. Thanks.",
+            "impact": { "empathy": 0, "trust": 0, "effectiveness": 0 },
+            "next": "missed_opportunity"
+          },
+          {
+            "text": "I think I might need a referral to a mental health professional.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "request_referral"
+          }
+        ]
+      },
+      {
+        "id": "direct_advocacy",
+        "text": "Your doctor looks up from their clipboard and gives you more attention after your direct statement.",
+        "dialogue": "I see. Can you tell me more about what you've been experiencing? How long has this been going on?",
+        "mood": "more attentive but still clinical",
+        "choices": [
+          {
+            "text": "I've had persistent sadness, loss of interest in activities, and trouble sleeping for about 3 months.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "detailed_symptoms"
+          },
+          {
+            "text": "I just feel really overwhelmed and anxious all the time. It's affecting my work and relationships.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "functional_impact"
+          },
+          {
+            "text": "I think I have depression. I've done research and my symptoms match.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "self_diagnosis"
+          },
+          {
+            "text": "I need professional help. Can you refer me to a psychiatrist or therapist?",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 4 },
+            "next": "direct_referral_request"
+          }
+        ]
+      },
+      {
+        "id": "specific_symptoms",
+        "text": "The doctor becomes more engaged when you mention specific mental health symptoms.",
+        "dialogue": "Depression and anxiety can definitely impact your overall health. What specific symptoms are you experiencing?",
+        "mood": "professional and more focused",
+        "choices": [
+          {
+            "text": "I have trouble concentrating, feel hopeless most days, and have lost interest in things I used to enjoy.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "clinical_symptoms"
+          },
+          {
+            "text": "My anxiety makes it hard to leave the house sometimes, and I've been having panic attacks.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "anxiety_focus"
+          },
+          {
+            "text": "I'm not sleeping well, my appetite has changed, and I feel exhausted all the time.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "physical_symptoms"
+          },
+          {
+            "text": "I've been having thoughts about whether life is worth living, which scares me.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "serious_concerns"
+          }
+        ]
+      },
+      {
+        "id": "request_referral",
+        "text": "Your direct request for a referral shows the doctor you're serious about getting help.",
+        "dialogue": "That's a reasonable request. Let me ask you a few questions to determine the best type of referral for you.",
+        "mood": "professional and helpful",
+        "choices": [
+          {
+            "text": "I'd prefer to start with therapy to learn coping strategies before considering medication.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "therapy_preference"
+          },
+          {
+            "text": "I think I might need both therapy and medication. What do you recommend?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "combined_approach"
+          },
+          {
+            "text": "I need someone who understands anxiety disorders specifically.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "specialist_request"
+          },
+          {
+            "text": "What's the difference between a psychologist and a psychiatrist? I want to make sure I get the right help.",
+            "impact": { "empathy": 1, "trust": 3, "effectiveness": 3 },
+            "next": "education_seeking"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully advocated for your mental health needs. Your doctor takes your concerns seriously, provides appropriate resources, and gives you referrals to mental health professionals. You feel heard and empowered.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Healthcare providers are required to address mental health concerns. Don't hesitate to be direct about your needs and ask for referrals when necessary. Be specific about symptoms and their impact on your daily life."
+      }
+    ]
+  },
+  "insurance-advocacy": {
+    "title": "Fighting Insurance Denial",
+    "description": "Your insurance has denied coverage for mental health treatment and you need to fight the decision.",
+    "character": { "name": "Insurance Rep", "avatar": "📋", "mood": "corporate and defensive" },
+    "difficulty": "advanced",
+    "category": "healthcare-advocacy",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You received a denial letter for your therapy coverage. You're calling the insurance company to appeal the decision.",
+        "dialogue": "Thank you for calling. I see you're calling about a denied claim. Let me review your case.",
+        "mood": "polite but bureaucratic",
+        "choices": [
+          {
+            "text": "This denial is wrong. Mental health coverage is required by law.",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 3 },
+            "next": "legal_approach"
+          },
+          {
+            "text": "Can you explain exactly why my claim was denied?",
+            "impact": { "empathy": 0, "trust": 2, "effectiveness": 2 },
+            "next": "information_gathering"
+          },
+          {
+            "text": "I need this therapy. What do I need to do to get this covered?",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 2 },
+            "next": "problem_solving"
+          },
+          {
+            "text": "I want to file a formal appeal. What's the process?",
+            "impact": { "empathy": 0, "trust": 2, "effectiveness": 4 },
+            "next": "formal_appeal"
+          }
+        ]
+      },
+      {
+        "id": "legal_approach",
+        "text": "The representative becomes more cautious when you mention legal requirements.",
+        "dialogue": "I understand your concern. Let me look at the specific reason for denial. It appears it was denied for 'lack of medical necessity.'",
+        "mood": "more careful and formal",
+        "choices": [
+          {
+            "text": "My doctor determined it was medically necessary. That should be sufficient.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "medical_necessity"
+          },
+          {
+            "text": "Mental health parity laws require equal coverage. This denial violates federal law.",
+            "impact": { "empathy": 0, "trust": 1, "effectiveness": 4 },
+            "next": "parity_violation"
+          },
+          {
+            "text": "I need to speak to a supervisor about this discriminatory practice.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 3 },
+            "next": "escalation_request"
+          },
+          {
+            "text": "What documentation do you need to prove medical necessity?",
+            "impact": { "empathy": 0, "trust": 3, "effectiveness": 3 },
+            "next": "documentation_inquiry"
+          }
+        ]
+      },
+      {
+        "id": "information_gathering",
+        "text": "The representative provides the specific denial reason and policy details.",
+        "dialogue": "The claim was denied because the treatment was deemed 'not medically necessary' by our review team. You can appeal this decision.",
+        "mood": "businesslike and procedural",
+        "choices": [
+          {
+            "text": "Who on your review team is qualified to override my doctor's medical judgment?",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 4 },
+            "next": "challenge_authority"
+          },
+          {
+            "text": "What specific criteria does your company use to determine medical necessity for mental health?",
+            "impact": { "empathy": 0, "trust": 3, "effectiveness": 3 },
+            "next": "criteria_inquiry"
+          },
+          {
+            "text": "I want to start the appeal process immediately. What do I need to submit?",
+            "impact": { "empathy": 0, "trust": 2, "effectiveness": 4 },
+            "next": "appeal_initiation"
+          },
+          {
+            "text": "This seems like discrimination against mental health treatment. Is that your company's policy?",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 3 },
+            "next": "discrimination_challenge"
+          }
+        ]
+      },
+      {
+        "id": "formal_appeal",
+        "text": "The representative shifts to a more helpful tone when you ask about formal procedures.",
+        "dialogue": "Certainly. You have 180 days to file an appeal. You'll need to submit additional documentation from your provider.",
+        "mood": "procedural but more cooperative",
+        "choices": [
+          {
+            "text": "What specific documentation will guarantee approval of my appeal?",
+            "impact": { "empathy": 0, "trust": 3, "effectiveness": 4 },
+            "next": "documentation_guarantee"
+          },
+          {
+            "text": "I want this expedited due to the urgent nature of my mental health needs.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "expedited_request"
+          },
+          {
+            "text": "Can you email me the appeal form and requirements right now?",
+            "impact": { "empathy": 0, "trust": 2, "effectiveness": 3 },
+            "next": "immediate_forms"
+          },
+          {
+            "text": "If the appeal is denied, what are my options for external review?",
+            "impact": { "empathy": 0, "trust": 2, "effectiveness": 4 },
+            "next": "external_review"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully navigated the insurance appeal process and secured coverage for your mental health treatment. Your persistence and knowledge of your rights made the difference.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Insurance companies often deny valid claims initially. Know your rights under the Mental Health Parity Act, document everything, and don't give up on your first denial. Appeals have high success rates when properly submitted."
+      }
+    ]
+  },
+  "job-interview": {
+    "title": "Job Interview Rehearsal",
+    "description": "You're preparing for a job interview while managing anxiety about the process.",
+    "character": { "name": "Interviewer", "avatar": "💼", "mood": "professional and evaluative" },
+    "difficulty": "intermediate",
+    "category": "workplace",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You're sitting in the interview room. Your anxiety is high but you've prepared well. The interviewer enters.",
+        "dialogue": "Thank you for coming in today. Tell me a little about yourself.",
+        "mood": "friendly but assessing",
+        "choices": [
+          {
+            "text": "I'm excited to be here. I have experience in [field] and I'm passionate about this role.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "confident_start"
+          },
+          {
+            "text": "Well, I'm a bit nervous but I've prepared thoroughly for this interview.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 2 },
+            "next": "honest_nerves"
+          },
+          {
+            "text": "I have a strong background in [field] and I believe I'd be a great fit for your team.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "professional_response"
+          },
+          {
+            "text": "Thank you for having me. I'm really interested in learning more about this opportunity.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 2 },
+            "next": "curious_approach"
+          }
+        ]
+      },
+      {
+        "id": "confident_start",
+        "text": "The interviewer smiles and seems pleased with your confident introduction.",
+        "dialogue": "Great to hear your enthusiasm! What interests you most about this particular position?",
+        "mood": "engaged and positive",
+        "choices": [
+          {
+            "text": "I'm drawn to the growth opportunities and the chance to work with innovative projects.",
+            "impact": { "empathy": 1, "trust": 3, "effectiveness": 4 },
+            "next": "growth_focused"
+          },
+          {
+            "text": "The company culture seems aligned with my values, and I want to contribute to meaningful work.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "culture_alignment"
+          },
+          {
+            "text": "This role combines my technical skills with my passion for problem-solving.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "skill_combination"
+          },
+          {
+            "text": "I've researched your company extensively and am impressed by your recent achievements.",
+            "impact": { "empathy": 1, "trust": 4, "effectiveness": 3 },
+            "next": "research_preparation"
+          }
+        ]
+      },
+      {
+        "id": "honest_nerves",
+        "text": "The interviewer appreciates your honesty and seems to relax a bit.",
+        "dialogue": "I appreciate your honesty. Nerves show you care about the opportunity. What preparation did you do?",
+        "mood": "understanding and encouraging",
+        "choices": [
+          {
+            "text": "I researched the company, practiced common questions, and prepared specific examples of my work.",
+            "impact": { "empathy": 2, "trust": 4, "effectiveness": 4 },
+            "next": "thorough_preparation"
+          },
+          {
+            "text": "I reviewed the job description carefully and thought about how my experience relates to your needs.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "targeted_preparation"
+          },
+          {
+            "text": "I talked to current employees and read about your company culture to understand if I'd be a good fit.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "culture_research"
+          },
+          {
+            "text": "I prepared questions about the role because I want to make sure this is the right opportunity for both of us.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "mutual_evaluation"
+          }
+        ]
+      },
+      {
+        "id": "professional_response",
+        "text": "The interviewer nods approvingly at your professional approach.",
+        "dialogue": "Tell me about a challenging project you've worked on and how you handled it.",
+        "mood": "business-focused and attentive",
+        "choices": [
+          {
+            "text": "I led a project that was behind schedule. I reorganized priorities, improved communication, and we delivered on time.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "leadership_example"
+          },
+          {
+            "text": "I worked on a complex problem that required learning new skills. I took initiative to get training and solved it.",
+            "impact": { "empathy": 1, "trust": 3, "effectiveness": 4 },
+            "next": "learning_example"
+          },
+          {
+            "text": "I had to work with a difficult team member. I focused on communication and finding common ground.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "collaboration_example"
+          },
+          {
+            "text": "I managed a project with limited resources. I got creative with solutions and exceeded expectations.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "resourcefulness_example"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've completed the interview successfully. Your authenticity, preparation, and professional responses impressed the interviewer. You feel confident about your performance and the conversation felt natural.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Job interviews are conversations, not interrogations. Being authentic while highlighting your strengths creates the best impression. Preparation and practice help reduce anxiety and increase confidence."
+      }
+    ]
+  },
+  "boundary-setting-family": {
+    "title": "Setting Family Boundaries",
+    "description": "You need to set boundaries with family members about your mental health choices.",
+    "character": { "name": "Family Member", "avatar": "👨‍👩‍👧‍👦", "mood": "concerned but intrusive" },
+    "difficulty": "intermediate",
+    "category": "family-dynamics",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Your family member is questioning your decision to see a therapist and take medication.",
+        "dialogue": "I don't understand why you need therapy. We've always solved our problems as a family.",
+        "mood": "worried but dismissive",
+        "choices": [
+          {
+            "text": "I appreciate your concern, but this is what I need right now.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "gentle_boundary"
+          },
+          {
+            "text": "My mental health decisions are personal. I need you to respect that.",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 4 },
+            "next": "firm_boundary"
+          },
+          {
+            "text": "Maybe you're right. I should try to handle this on my own.",
+            "impact": { "empathy": 0, "trust": -1, "effectiveness": 0 },
+            "next": "give_in"
+          },
+          {
+            "text": "Professional help isn't a reflection on our family. It's just additional support.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "educational_approach"
+          }
+        ]
+      },
+      {
+        "id": "gentle_boundary",
+        "text": "Your family member softens slightly but continues to express concern about your choices.",
+        "dialogue": "But what will people think? And medication... aren't you worried about side effects? Can't you just try harder?",
+        "mood": "persistent worry and judgment",
+        "choices": [
+          {
+            "text": "What people think doesn't matter more than my health. I've researched the risks and benefits.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "confident_response"
+          },
+          {
+            "text": "I understand your concerns, but I've made this decision with professional guidance.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "professional_backing"
+          },
+          {
+            "text": "I need you to trust that I know what's best for me right now.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "trust_request"
+          },
+          {
+            "text": "If 'trying harder' worked, I wouldn't need help. Mental health is just like physical health.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "health_comparison"
+          }
+        ]
+      },
+      {
+        "id": "firm_boundary",
+        "text": "Your direct approach causes some tension, but your family member realizes you're serious.",
+        "dialogue": "I'm just worried about you. I love you and want what's best. But this feels like you're shutting us out.",
+        "mood": "hurt but still caring",
+        "choices": [
+          {
+            "text": "I'm not shutting you out. I'm protecting my health while including you in appropriate ways.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "clarify_inclusion"
+          },
+          {
+            "text": "Your love and support mean everything, but that includes respecting my decisions.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "love_with_respect"
+          },
+          {
+            "text": "I need space to heal. That doesn't mean I love you less.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "space_for_healing"
+          },
+          {
+            "text": "What's best for me right now is having my choices respected, not questioned.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "respect_demand"
+          }
+        ]
+      },
+      {
+        "id": "educational_approach",
+        "text": "Your family member seems more open to understanding when you frame it as additional support.",
+        "dialogue": "I guess I just don't understand why talking to strangers is better than talking to us who love you.",
+        "mood": "confused but trying to understand",
+        "choices": [
+          {
+            "text": "Therapists have training that family doesn't. It's like getting medical care for a broken bone.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "professional_training"
+          },
+          {
+            "text": "Sometimes we need objective perspective that loved ones can't provide because they're too close.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "objective_perspective"
+          },
+          {
+            "text": "You can't love someone out of mental illness, just like you can't love someone out of diabetes.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "illness_analogy"
+          },
+          {
+            "text": "I still need your love and support. Professional help just gives me additional tools.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "complementary_support"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully established boundaries with your family member while maintaining your relationship. They may not fully understand, but they're beginning to respect your autonomy and treatment decisions. You feel empowered to make your own mental health choices.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Setting boundaries with family is challenging but essential for mental health recovery. You can love your family while protecting your right to make personal healthcare decisions. Boundaries aren't walls - they're guidelines for healthy relationships."
+      }
+    ]
+  },
+  "delivering-bad-news": {
+    "title": "Delivering Bad News",
+    "description": "You need to have a difficult conversation about disappointing someone you care about.",
+    "character": { "name": "Friend", "avatar": "💔", "mood": "expectant and trusting" },
+    "difficulty": "intermediate",
+    "category": "difficult-conversations",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You promised to help your friend with an important project, but your mental health has made it impossible to follow through.",
+        "dialogue": "I'm so excited about our project! When can we get started?",
+        "mood": "enthusiastic and hopeful",
+        "choices": [
+          {
+            "text": "I need to talk to you about something. I won't be able to help with the project.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "direct_honest"
+          },
+          {
+            "text": "Actually, I've been struggling with some personal issues and can't commit right now.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "context_first"
+          },
+          {
+            "text": "Maybe we should postpone the project for a bit.",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 1 },
+            "next": "vague_delay"
+          },
+          {
+            "text": "I'm so sorry, but I'm dealing with mental health challenges and need to step back.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "vulnerable_honest"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've delivered the difficult news with honesty and compassion. Your friend understands and supports your decision to prioritize your mental health.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Honest communication about limitations protects both relationships and mental health. True friends will understand when you need to prioritize self-care."
+      }
+    ]
+  },
+  "supporting-grief": {
+    "title": "Supporting Someone Through Grief",
+    "description": "A friend has experienced a loss and you want to offer meaningful support.",
+    "character": { "name": "Grieving Friend", "avatar": "🕯️", "mood": "devastated but grateful" },
+    "difficulty": "intermediate",
+    "category": "grief-support",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Your friend recently lost a parent. They seem overwhelmed by well-meaning but unhelpful comments from others.",
+        "dialogue": "Everyone keeps saying they're 'in a better place' and I should 'move on.' I don't know what to say anymore.",
+        "mood": "exhausted and frustrated",
+        "choices": [
+          {
+            "text": "People don't know what to say. Your grief is valid and there's no timeline for healing.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "validate_grief"
+          },
+          {
+            "text": "I can't imagine how painful this is. I'm here to listen whenever you need.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 2 },
+            "next": "offer_presence"
+          },
+          {
+            "text": "Would it help if I handled some practical things for you this week?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "practical_support"
+          },
+          {
+            "text": "Your parent was an amazing person. Tell me about your favorite memory together.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "memory_sharing"
+          }
+        ]
+      },
+      {
+        "id": "validate_grief",
+        "text": "Your friend's shoulders relax slightly when you validate their experience instead of trying to fix it.",
+        "dialogue": "Thank you for saying that. I feel like I'm going crazy because everyone expects me to be 'better' already. It's only been two months.",
+        "mood": "relieved but still heavy with grief",
+        "choices": [
+          {
+            "text": "Two months is nothing when you've lost someone you love. Grief doesn't follow other people's schedules.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "timeline_validation"
+          },
+          {
+            "text": "You're not going crazy. Grief can feel overwhelming and disorienting. That's completely normal.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "normalize_experience"
+          },
+          {
+            "text": "Some people are uncomfortable with grief and want to rush you through it. That's their problem, not yours.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "others_discomfort"
+          },
+          {
+            "text": "What do you need right now? Forget what everyone else thinks you should need.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "focus_on_needs"
+          }
+        ]
+      },
+      {
+        "id": "offer_presence",
+        "text": "Your friend seems comforted by your offer to simply be present without trying to fix anything.",
+        "dialogue": "I don't even know what I need to say. Sometimes I just want to talk about them, and sometimes I can't say their name without falling apart.",
+        "mood": "vulnerable and appreciative",
+        "choices": [
+          {
+            "text": "You don't have to know what to say. I'm here whether you want to talk or just sit together.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "no_pressure_presence"
+          },
+          {
+            "text": "Both of those responses are completely normal. Grief comes in waves and that's okay.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "waves_of_grief"
+          },
+          {
+            "text": "I'd love to hear about them anytime you want to share. And it's okay if you can't sometimes.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "invitation_to_share"
+          },
+          {
+            "text": "There's no right or wrong way to grieve. Trust your instincts about what you need moment to moment.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "trust_instincts"
+          }
+        ]
+      },
+      {
+        "id": "practical_support",
+        "text": "Your friend's eyes fill with tears of gratitude at your practical offer during this overwhelming time.",
+        "dialogue": "That would actually be amazing. I can barely think straight. Everything feels impossible - groceries, laundry, returning calls.",
+        "mood": "overwhelmed but grateful",
+        "choices": [
+          {
+            "text": "I can handle groceries and laundry this week. Just text me a list when you can.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "specific_tasks"
+          },
+          {
+            "text": "I'll coordinate with other friends so people aren't calling you directly. You need space to grieve.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "coordinate_support"
+          },
+          {
+            "text": "What if I came over twice a week to help with whatever needs doing? No pressure to talk.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "regular_help"
+          },
+          {
+            "text": "Grief brain is real. Your thinking will come back, but let us handle the practical stuff for now.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "grief_brain_validation"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've provided meaningful, practical support while validating your friend's grief process. Your approach of being present without trying to fix or rush their healing has created a safe space for them to grieve authentically. They feel truly supported and less alone.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Supporting someone through grief requires presence over advice, validation over solutions, and patience over timelines. Practical help with daily tasks can be invaluable when grief makes simple things feel impossible. Avoid platitudes and follow their lead on what they need."
+      }
+    ]
+  },
+  "personal-grief": {
+    "title": "Processing Your Own Grief",
+    "description": "You're navigating your own grief while trying to return to daily life.",
+    "character": { "name": "Coworker", "avatar": "🌹", "mood": "awkward but well-meaning" },
+    "difficulty": "advanced",
+    "category": "grief-processing",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've returned to work after a loss. A coworker approaches with what they think is helpful advice.",
+        "dialogue": "I know it's hard, but you need to stay positive. They wouldn't want you to be sad.",
+        "mood": "uncomfortable but trying to help",
+        "choices": [
+          {
+            "text": "I appreciate your concern, but grief isn't something I need to 'get over' quickly.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "educate_grief"
+          },
+          {
+            "text": "Thank you, but I'm processing this in my own way and time.",
+            "impact": { "empathy": 1, "trust": 3, "effectiveness": 2 },
+            "next": "boundary_grief"
+          },
+          {
+            "text": "You're right, I should focus on the positive memories.",
+            "impact": { "empathy": 0, "trust": 0, "effectiveness": 0 },
+            "next": "suppress_grief"
+          },
+          {
+            "text": "Grief is love with nowhere to go. I'm learning to carry both the pain and the love.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "reframe_grief"
+          }
+        ]
+      },
+      {
+        "id": "educate_grief",
+        "text": "Your coworker looks uncomfortable but seems to be listening as you explain the reality of grief.",
+        "dialogue": "But it's been three weeks. Aren't you supposed to be feeling better by now? I just want to help.",
+        "mood": "well-intentioned but clueless",
+        "choices": [
+          {
+            "text": "Grief doesn't follow a timeline. Everyone heals differently and there's no 'supposed to' in grieving.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "timeline_education"
+          },
+          {
+            "text": "Three weeks is nothing when you've lost someone you love. Grief can take months or years.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "reality_check"
+          },
+          {
+            "text": "The best help is just accepting that I'm grieving and not trying to fix it.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "define_help"
+          },
+          {
+            "text": "Grief isn't linear. I might have good days and terrible days, and that's completely normal.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "non_linear_grief"
+          }
+        ]
+      },
+      {
+        "id": "boundary_grief",
+        "text": "Your coworker backs off slightly, but you can see they're still uncomfortable with your grief.",
+        "dialogue": "I just think it would be healthier if you tried to move forward. Being sad all the time isn't good for you.",
+        "mood": "persistent but gentle pressure",
+        "choices": [
+          {
+            "text": "I'm not sad 'all the time.' You're seeing me at work where I'm trying to function professionally.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "professional_facade"
+          },
+          {
+            "text": "Moving forward doesn't mean leaving grief behind. It means learning to live with loss.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "moving_forward_redefined"
+          },
+          {
+            "text": "Avoiding grief is what's unhealthy. I need to feel this to heal from it.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "avoiding_vs_processing"
+          },
+          {
+            "text": "I appreciate your concern, but I need people to trust that I know what I need right now.",
+            "impact": { "empathy": 1, "trust": 4, "effectiveness": 3 },
+            "next": "trust_my_process"
+          }
+        ]
+      },
+      {
+        "id": "reframe_grief",
+        "text": "Your coworker seems struck by your reframing of grief and appears to soften their approach.",
+        "dialogue": "I never thought of it that way. I guess I just don't know what to say or do when someone is grieving.",
+        "mood": "more thoughtful and open",
+        "choices": [
+          {
+            "text": "Most people don't know what to say, and that's okay. Sometimes just acknowledging the loss is enough.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "simple_acknowledgment"
+          },
+          {
+            "text": "You don't need to fix my grief or make me feel better. Just being present and patient helps.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "presence_over_fixing"
+          },
+          {
+            "text": "Asking 'How are you holding up?' is better than telling me how to feel or what to do.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "better_questions"
+          },
+          {
+            "text": "Grief is scary for people who haven't experienced it. But avoiding it won't make it go away.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "grief_education"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully navigated workplace interactions while protecting your grief process. You've educated others about healthy grieving while maintaining boundaries about your own healing timeline. You feel more confident advocating for your grief needs in professional settings.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Grief is not a problem to solve but a process to experience. You have the right to grieve in your own way and time, despite others' discomfort. Educating others about grief helps create more supportive environments for everyone processing loss."
+      }
+    ]
+  },
+  "going-to-party": {
+    "title": "Going to a Party",
+    "description": "You're managing social anxiety while attending a social gathering.",
+    "character": { "name": "Party Host", "avatar": "🎉", "mood": "excited and welcoming" },
+    "difficulty": "beginner",
+    "category": "social-anxiety",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've arrived at a party feeling anxious. The host greets you enthusiastically at the door.",
+        "dialogue": "You made it! I'm so glad you came. Come in, everyone's in the living room!",
+        "mood": "energetic and inclusive",
+        "choices": [
+          {
+            "text": "Thanks for inviting me! I'm excited to meet everyone.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "confident_entry"
+          },
+          {
+            "text": "Thank you! I'm a bit nervous about not knowing many people here.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "honest_nerves"
+          },
+          {
+            "text": "Maybe I could help in the kitchen for a bit? I'm better with smaller groups.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "gradual_approach"
+          },
+          {
+            "text": "I'll just find a quiet corner to start. Thanks for having me!",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 2 },
+            "next": "slow_integration"
+          }
+        ]
+      },
+      {
+        "id": "confident_entry",
+        "text": "You enter the living room with confidence. The host introduces you to a small group near the food table.",
+        "dialogue": "Everyone, this is my friend! They're really into [hobby/interest]. You should chat!",
+        "mood": "encouraging and supportive",
+        "choices": [
+          {
+            "text": "Hi everyone! Yes, I love [hobby]. What got you all interested in it?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "engaging_conversation"
+          },
+          {
+            "text": "Nice to meet you all. This is a great party - how do you all know [host]?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "connection_building"
+          },
+          {
+            "text": "Hello! I'm still getting my bearings, but everyone seems really friendly here.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "cautious_warmth"
+          },
+          {
+            "text": "Hi there. I think I'll grab some food first and then come back to chat.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 2 },
+            "next": "need_space"
+          }
+        ]
+      },
+      {
+        "id": "honest_nerves",
+        "text": "The host appreciates your honesty and takes you to meet just one person first - someone who's also quieter.",
+        "dialogue": "I totally get that! Let me introduce you to Sam - they're also pretty chill and we can start small.",
+        "mood": "understanding and accommodating",
+        "choices": [
+          {
+            "text": "That's really thoughtful, thank you. Hi Sam, I'm [name]. How are you enjoying the party?",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "one_on_one_comfort"
+          },
+          {
+            "text": "I really appreciate you understanding. Sam, do you also find big groups a bit overwhelming?",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "shared_experience"
+          },
+          {
+            "text": "Thank you for being so considerate. Sam, what brings you to the party tonight?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "gentle_conversation"
+          },
+          {
+            "text": "This is perfect, thanks. Sam, I love your shirt - where did you get it?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "icebreaker_compliment"
+          }
+        ]
+      },
+      {
+        "id": "gradual_approach",
+        "text": "You find yourself in the kitchen with a few other people who are also helping out. It feels more manageable here.",
+        "dialogue": "Oh great, another helper! We're making sure the snacks stay stocked. I'm Jordan, by the way.",
+        "mood": "collaborative and relaxed",
+        "choices": [
+          {
+            "text": "I'm [name]. This is much better than standing around awkwardly. How can I help?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "productive_socializing"
+          },
+          {
+            "text": "Nice to meet you, Jordan. I find it easier to socialize when I have something to do with my hands.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "honest_strategy"
+          },
+          {
+            "text": "Hi Jordan! Is this a good strategy for avoiding the chaos in the living room?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "humor_connection"
+          },
+          {
+            "text": "I'm [name]. Thanks for letting me help out. It gives me something to focus on.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "anxiety_management"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully navigated the social situation using strategies that work for your anxiety level. You've made genuine connections while respecting your own comfort zone and building confidence for future social events.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Social anxiety is manageable with strategies like gradual exposure, honest communication, finding your comfort zone, and having activities that ease nervousness. Every successful social interaction builds confidence for the next one."
+      }
+    ]
+  },
+  "eating-alone": {
+    "title": "Dining Out Alone",
+    "description": "You're building confidence to enjoy your own company in public spaces.",
+    "character": { "name": "Server", "avatar": "🍽️", "mood": "professional and friendly" },
+    "difficulty": "beginner",
+    "category": "self-confidence",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've decided to treat yourself to dinner at a nice restaurant. The server approaches your table.",
+        "dialogue": "Good evening! Just you tonight? Right this way to a lovely table.",
+        "mood": "welcoming and accommodating",
+        "choices": [
+          {
+            "text": "Yes, just me. I'm looking forward to a peaceful dinner.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "confident_solo"
+          },
+          {
+            "text": "Table for one, please. Maybe somewhere with a nice view?",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "specific_request"
+          },
+          {
+            "text": "Yes, I'm dining alone. Is that okay?",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 1 },
+            "next": "uncertain_solo"
+          },
+          {
+            "text": "Just me tonight. I'm treating myself to a nice meal.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "self_care_frame"
+          }
+        ]
+      },
+      {
+        "id": "confident_solo",
+        "text": "The server smiles and leads you to a nice table. Another diner at a nearby table notices you reading the menu contentedly.",
+        "dialogue": "I love seeing someone confident enough to dine alone. Are you celebrating something special?",
+        "mood": "curious and admiring",
+        "choices": [
+          {
+            "text": "Thank you! I'm celebrating the fact that I can enjoy my own company.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "self_appreciation"
+          },
+          {
+            "text": "Not really celebrating, just enjoying some quality time with myself.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "quality_time"
+          },
+          {
+            "text": "I'm celebrating finally being comfortable doing things alone.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "comfort_milestone"
+          },
+          {
+            "text": "Every meal I enjoy is worth celebrating, especially when it's peaceful.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "mindful_dining"
+          }
+        ]
+      },
+      {
+        "id": "specific_request",
+        "text": "The server seats you at a table with a beautiful view. You settle in and start looking at the menu when you overhear other diners commenting.",
+        "dialogue": "Look at them sitting all alone. That's so sad. I could never eat by myself.",
+        "mood": "judgmental and pitying",
+        "choices": [
+          {
+            "text": "Actually, I chose to dine alone. It's quite liberating and peaceful.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "educate_others"
+          },
+          {
+            "text": "I can hear you, and dining alone is a choice, not a tragedy.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "direct_response"
+          },
+          {
+            "text": "Some of us enjoy our own company. You should try it sometime.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 3 },
+            "next": "confident_retort"
+          },
+          {
+            "text": "[Continue reading menu and ignore the comment]",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 2 },
+            "next": "ignore_judgment"
+          }
+        ]
+      },
+      {
+        "id": "uncertain_solo",
+        "text": "The server reassures you that solo diners are welcome. As you settle in, you notice the restaurant has a nice, relaxed atmosphere.",
+        "dialogue": "Of course it's okay! We have many guests who prefer to dine alone. Take your time with the menu.",
+        "mood": "reassuring and professional",
+        "choices": [
+          {
+            "text": "Thank you for making me feel welcome. This is actually my first time dining alone.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "first_time_honesty"
+          },
+          {
+            "text": "That's really nice to hear. I was worried people might think it's weird.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 2 },
+            "next": "worried_perception"
+          },
+          {
+            "text": "I appreciate that. I'm trying to build confidence in doing things alone.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "confidence_building"
+          },
+          {
+            "text": "Thank you. Maybe you could recommend something popular from the menu?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "seek_recommendation"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've enjoyed a wonderful solo dining experience and grown more confident in your ability to enjoy your own company in public. You've learned that dining alone can be peaceful, empowering, and entirely normal.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Dining alone is an act of self-care and independence. Most restaurant staff appreciate solo diners, and confident solo dining can inspire others to try it themselves. Your comfort with yourself matters more than others' opinions."
+      }
+    ]
+  },
+  "peer-support-group": {
+    "title": "Joining Support Group",
+    "description": "You're taking the first step into peer support when therapy isn't accessible.",
+    "character": { "name": "Group Facilitator", "avatar": "🤝", "mood": "warm and experienced" },
+    "difficulty": "beginner",
+    "category": "peer-support",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've arrived at your first support group meeting. The facilitator welcomes you before the session starts.",
+        "dialogue": "Welcome! First time joining us? We're glad you're here. Would you like to share your name or just listen today?",
+        "mood": "gentle and non-pressuring",
+        "choices": [
+          {
+            "text": "I'm [name]. I'm new and a bit nervous, but ready to listen and learn.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "open_introduction"
+          },
+          {
+            "text": "I'd prefer to just listen today if that's okay.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "observer_mode"
+          },
+          {
+            "text": "I'm [name]. I'm here because therapy is too expensive, but I need support.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "honest_need"
+          },
+          {
+            "text": "I'm not sure if this is right for me, but I'm willing to try.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 1 },
+            "next": "tentative_approach"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully taken the first step into peer support. You feel welcomed and hopeful about this new resource.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Peer support groups provide valuable community and understanding when professional therapy isn't accessible. Shared experiences create powerful healing."
+      }
+    ]
+  },
+  "new-kid-school": {
+    "title": "New Kid at School",
+    "description": "You're navigating the anxiety of being new and making friends in unfamiliar settings.",
+    "character": { "name": "Classmate", "avatar": "🎒", "mood": "curious and friendly" },
+    "difficulty": "beginner",
+    "category": "social-integration",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "It's your first day at a new school. A classmate approaches you during lunch.",
+        "dialogue": "Hey, you're new here, right? I'm Alex. Want to sit with me and my friends?",
+        "mood": "welcoming and genuine",
+        "choices": [
+          {
+            "text": "That would be great, thank you! I'm still figuring everything out here.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "accept_invitation"
+          },
+          {
+            "text": "I appreciate the offer, but I'm still feeling a bit overwhelmed. Maybe tomorrow?",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "polite_decline"
+          },
+          {
+            "text": "Sure! I'm [name]. I was hoping someone would reach out.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "grateful_acceptance"
+          },
+          {
+            "text": "I'm not really the social type, but thanks.",
+            "impact": { "empathy": 1, "trust": 1, "effectiveness": 1 },
+            "next": "defensive_decline"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully navigated your first social interaction at the new school. You feel more hopeful about making connections.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Being new is always challenging, but most people remember that feeling and want to help. Accepting kindness opens doors to new friendships."
+      }
+    ]
+  },
+  "handling-unkind-responses": {
+    "title": "Handling Unkind Responses",
+    "description": "Practice protecting yourself when others respond cruelly to your mental health needs.",
+    "character": { "name": "Unkind Person", "avatar": "🛡️", "mood": "dismissive and cruel" },
+    "difficulty": "advanced",
+    "category": "protective-responses",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've shared your mental health struggles with someone, and they respond with cruelty and dismissal.",
+        "dialogue": "Oh please, everyone's 'depressed' these days. You just need to toughen up and stop being so dramatic.",
+        "mood": "cold and dismissive",
+        "choices": [
+          {
+            "text": "I don't need your approval or understanding. I'm ending this conversation.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "firm_boundary"
+          },
+          {
+            "text": "Your response tells me more about you than it does about me.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "deflect_cruelty"
+          },
+          {
+            "text": "I deserve better than this cruelty. I'm choosing my mental health over this conversation.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "prioritize_self"
+          },
+          {
+            "text": "Maybe you're right. I should just deal with it.",
+            "impact": { "empathy": 0, "trust": -2, "effectiveness": 0 },
+            "next": "internalize_shame"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully protected yourself from cruelty while maintaining your dignity. You chose your mental health over someone else's ignorance.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "You don't owe anyone an explanation for your mental health needs. Protecting yourself from cruelty is self-care, not selfishness."
+      }
+    ]
+  },
+  "workplace-hostility": {
+    "title": "Workplace Mental Health Hostility",
+    "description": "Navigate coworker attacks and maintain boundaries when facing workplace cruelty.",
+    "character": { "name": "Hostile Coworker", "avatar": "⚔️", "mood": "aggressive and attacking" },
+    "difficulty": "advanced",
+    "category": "workplace-protection",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "A coworker has discovered you're taking mental health days and confronts you aggressively.",
+        "dialogue": "So now you're taking 'mental health days'? Some of us actually show up to work instead of making excuses.",
+        "mood": "hostile and accusatory",
+        "choices": [
+          {
+            "text": "My health decisions are between me and HR. This conversation is over.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "professional_boundary"
+          },
+          {
+            "text": "Mental health is health. I wouldn't expect someone who attacks struggling people to understand.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "educate_deflect"
+          },
+          {
+            "text": "I'm documenting this conversation and reporting it to management.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "document_threat"
+          },
+          {
+            "text": "You're right, I should just push through it.",
+            "impact": { "empathy": 0, "trust": -2, "effectiveness": 0 },
+            "next": "capitulate_bullying"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully defended yourself against workplace harassment while protecting your mental health rights.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Workplace mental health harassment is illegal. Document everything, set firm boundaries, and don't hesitate to involve HR or legal resources."
+      }
+    ]
+  },
+  "family-shame-cruelty": {
+    "title": "Family Shame & Cruelty",
+    "description": "Handle family members who shame you for seeking mental health treatment.",
+    "character": { "name": "Family Member", "avatar": "💔", "mood": "shaming and cruel" },
+    "difficulty": "expert",
+    "category": "family-cruelty",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "A family member attacks you for being in therapy and taking medication, using shame and family loyalty as weapons.",
+        "dialogue": "You're embarrassing our family. What will people think? We don't air our dirty laundry to strangers.",
+        "mood": "angry and shaming",
+        "choices": [
+          {
+            "text": "My mental health is more important than your reputation concerns.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "prioritize_health"
+          },
+          {
+            "text": "I'm not discussing my healthcare decisions with you anymore.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "information_diet"
+          },
+          {
+            "text": "Your shame about mental health says more about you than me.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "reflect_shame"
+          },
+          {
+            "text": "Maybe you're right. I should stop therapy.",
+            "impact": { "empathy": 0, "trust": -3, "effectiveness": 0 },
+            "next": "family_pressure_wins"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've maintained your mental health boundaries despite family pressure and cruelty. Your healing is not negotiable.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Family loyalty never requires sacrificing your mental health. You can love your family while protecting yourself from their harmful attitudes."
+      }
+    ]
+  },
+  "online-mental-health-bullying": {
+    "title": "Online Mental Health Bullying",
+    "description": "Respond to cruel social media comments about your mental health journey.",
+    "character": { "name": "Online Bully", "avatar": "📱", "mood": "cruel and anonymous" },
+    "difficulty": "advanced",
+    "category": "digital-protection",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You shared something about mental health awareness online and received cruel comments attacking your struggles.",
+        "dialogue": "Stop attention-seeking. Real people with real problems don't post about it for sympathy.",
+        "mood": "vicious and anonymous",
+        "choices": [
+          {
+            "text": "Block and delete. I don't engage with cruelty.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "digital_boundary"
+          },
+          {
+            "text": "Sharing my story helps others feel less alone. Your cruelty doesn't change that.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "purpose_driven"
+          },
+          {
+            "text": "Screenshot this for my collection of why mental health stigma is dangerous.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "document_evidence"
+          },
+          {
+            "text": "Maybe I should stop sharing about my mental health.",
+            "impact": { "empathy": 0, "trust": -1, "effectiveness": 0 },
+            "next": "silence_victim"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've protected yourself from online cruelty while maintaining your right to share your mental health journey.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Online harassment about mental health is common but not acceptable. Block, document, and don't let trolls silence your story."
+      }
+    ]
+  },
+  "dismissive-healthcare": {
+    "title": "Dismissive Healthcare Provider",
+    "description": "Navigate medical gaslighting and advocate for yourself with dismissive providers.",
+    "character": { "name": "Dismissive Doctor", "avatar": "🩺", "mood": "condescending and dismissive" },
+    "difficulty": "expert",
+    "category": "medical-advocacy",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Your doctor dismisses your mental health concerns and suggests you're overreacting or attention-seeking.",
+        "dialogue": "I think you're just stressed. Have you tried exercise and eating better? A lot of people think they have depression these days.",
+        "mood": "patronizing and dismissive",
+        "choices": [
+          {
+            "text": "I need a second opinion. Please note in my chart that you're refusing to address my mental health concerns.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "documentation_demand"
+          },
+          {
+            "text": "I'm experiencing specific symptoms that require evaluation. I need a mental health referral.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "specific_advocacy"
+          },
+          {
+            "text": "Your dismissive attitude toward mental health is unprofessional and harmful.",
+            "impact": { "empathy": 2, "trust": 0, "effectiveness": 3 },
+            "next": "direct_confrontation"
+          },
+          {
+            "text": "You're probably right. I'll try to exercise more.",
+            "impact": { "empathy": 0, "trust": -2, "effectiveness": 0 },
+            "next": "accept_dismissal"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully advocated for proper mental healthcare despite medical dismissal. You protected your right to appropriate treatment.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Medical gaslighting is real and harmful. Demand documentation of refusals, seek second opinions, and never let dismissive providers silence your healthcare needs."
+      }
+    ]
+  },
+  "toxic-positivity": {
+    "title": "Toxic Positivity",
+    "description": "Handle people who dismiss your struggles with 'just think positive' responses.",
+    "character": { "name": "Toxic Positive Person", "avatar": "😤", "mood": "aggressively cheerful" },
+    "difficulty": "intermediate",
+    "category": "boundary-setting",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've shared your mental health struggles and someone responds with toxic positivity, dismissing your pain.",
+        "dialogue": "Just think positive! Everything happens for a reason. You just need to choose happiness and stop focusing on the negative.",
+        "mood": "overbearing and dismissive",
+        "choices": [
+          {
+            "text": "Positive thinking doesn't cure depression any more than it cures diabetes.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "medical_analogy"
+          },
+          {
+            "text": "I need support, not dismissal of my struggles. Toxic positivity isn't helpful.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "name_behavior"
+          },
+          {
+            "text": "You're right, I should just think positive thoughts.",
+            "impact": { "empathy": 0, "trust": -1, "effectiveness": 0 },
+            "next": "fake_agreement"
+          },
+          {
+            "text": "I appreciate your intent, but dismissing my feelings isn't supportive.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 2 },
+            "next": "educate_gently"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully addressed toxic positivity while maintaining your right to experience and process difficult emotions.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Toxic positivity dismisses real struggles and prevents genuine healing. Your feelings are valid and don't need to be 'fixed' with forced optimism."
+      }
+    ]
+  },
+  "workplace-accommodation": {
+    "title": "Work Accommodations",
+    "description": "Request mental health accommodations while protecting your privacy.",
+    "character": { "name": "HR Representative", "avatar": "📝", "mood": "professional and cautious" },
+    "difficulty": "intermediate",
+    "category": "workplace-rights",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You're meeting with HR to request reasonable accommodations for your mental health condition.",
+        "dialogue": "I understand you'd like to discuss possible workplace accommodations. Can you tell me what you're looking for?",
+        "mood": "professional but guarded",
+        "choices": [
+          {
+            "text": "I have a medical condition that requires some workplace modifications under the ADA.",
+            "impact": { "empathy": 1, "trust": 2, "effectiveness": 4 },
+            "next": "legal_framework"
+          },
+          {
+            "text": "I'm dealing with anxiety and depression and need flexible scheduling options.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "specific_disclosure"
+          },
+          {
+            "text": "I need accommodations but prefer not to discuss specific medical details.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "privacy_boundary"
+          },
+          {
+            "text": "My doctor says I need workplace accommodations for my mental health.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "medical_backing"
+          }
+        ]
+      },
+      {
+        "id": "legal_framework",
+        "text": "The HR representative becomes more formal when you mention the ADA, pulling out documentation.",
+        "dialogue": "Yes, we're familiar with ADA requirements. What specific functional limitations are we addressing?",
+        "mood": "more careful and procedural",
+        "choices": [
+          {
+            "text": "I have difficulty with concentration and need a quieter workspace and flexible deadlines.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 4 },
+            "next": "functional_needs"
+          },
+          {
+            "text": "I need the ability to work from home during particularly difficult days.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "remote_work_request"
+          },
+          {
+            "text": "I may need time off for medical appointments and occasional mental health days.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "time_off_needs"
+          },
+          {
+            "text": "I need modifications to my schedule to attend therapy and manage symptoms.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "schedule_modifications"
+          }
+        ]
+      },
+      {
+        "id": "specific_disclosure",
+        "text": "Your openness about your conditions makes the HR representative more empathetic and solution-focused.",
+        "dialogue": "Thank you for sharing that. Many employees benefit from flexible arrangements. What would be most helpful for you?",
+        "mood": "understanding and collaborative",
+        "choices": [
+          {
+            "text": "A later start time would help with morning medication side effects.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "medication_accommodation"
+          },
+          {
+            "text": "I'd like permission to use noise-cancelling headphones to manage sensory overwhelm.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "sensory_accommodation"
+          },
+          {
+            "text": "Could I have a private space for breaks when I'm feeling overwhelmed?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "break_space_request"
+          },
+          {
+            "text": "I need the option to work from home when my anxiety is particularly severe.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "anxiety_accommodation"
+          }
+        ]
+      },
+      {
+        "id": "privacy_boundary",
+        "text": "The HR representative respects your privacy preference but needs some functional information.",
+        "dialogue": "I understand. We can work with functional limitations without specific diagnoses. What work functions are affected?",
+        "mood": "respectful and professional",
+        "choices": [
+          {
+            "text": "I have periods where concentration is severely impacted, affecting my productivity.",
+            "impact": { "empathy": 2, "trust": 4, "effectiveness": 4 },
+            "next": "concentration_issues"
+          },
+          {
+            "text": "I sometimes need flexibility in my schedule for medical management.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "medical_flexibility"
+          },
+          {
+            "text": "Certain work environments can exacerbate my condition and impact performance.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "environment_sensitivity"
+          },
+          {
+            "text": "I may need additional time to complete tasks during difficult periods.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "deadline_flexibility"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully negotiated reasonable workplace accommodations that will help you manage your mental health while maintaining productivity. The HR representative understands your needs and is implementing appropriate modifications to support your success at work.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "You're entitled to reasonable accommodations for mental health conditions under the ADA. Focus on functional limitations rather than diagnoses, and remember that accommodations should enable you to perform essential job functions effectively."
+      }
+    ]
+  },
+  "crisis-response": {
+    "title": "Crisis Response",
+    "description": "Someone you care about has just expressed thoughts of suicide. Practice appropriate crisis intervention techniques.",
+    "character": { "name": "Jordan", "avatar": "😰", "mood": "in crisis" },
+    "difficulty": "advanced",
+    "category": "crisis-response",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "During a phone call, Jordan mentions they've been having thoughts of ending their life. Your heart races as you realize this is a crisis situation.",
+        "dialogue": "I've been thinking... maybe everyone would be better off if I wasn't here anymore.",
+        "mood": "hopeless and desperate",
+        "choices": [
+          {
+            "text": "Jordan, are you thinking about hurting yourself?",
+            "description": "Direct assessment",
+            "impact": { "effectiveness": 3, "trust": 2 },
+            "next": "direct_assessment"
+          },
+          {
+            "text": "I'm really concerned about you. Can you tell me more about these thoughts?",
+            "description": "Gentle exploration",
+            "impact": { "empathy": 3, "trust": 3 },
+            "next": "explore_thoughts"
+          },
+          {
+            "text": "That sounds incredibly painful. I'm here with you right now.",
+            "description": "Validation and presence",
+            "impact": { "empathy": 3, "trust": 3 },
+            "next": "validate_pain"
+          },
+          {
+            "text": "Don't say that! Think about all the people who care about you.",
+            "description": "Dismissive response",
+            "impact": { "empathy": -2, "trust": -1 },
+            "next": "dismissive_response"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully provided crisis support and helped connect Jordan with professional resources. Your calm, caring response potentially saved a life.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "If someone expresses suicidal thoughts: Take it seriously, ask directly about suicide, don't leave them alone, and help connect them with crisis resources: 988 Suicide & Crisis Lifeline."
+      }
+    ]
+  },
+  "workplace-mental-health": {
+    "title": "Workplace Mental Health Discussion",
+    "description": "You need to have a conversation with your manager about mental health accommodations.",
+    "character": { "name": "Manager Kim", "avatar": "💼", "mood": "busy but approachable" },
+    "difficulty": "intermediate",
+    "category": "workplace-mental-health",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You've scheduled a private meeting with your manager. They seem pressed for time but are giving you their attention.",
+        "dialogue": "Thanks for scheduling this. What can I help you with today?",
+        "mood": "professional but rushed",
+        "choices": [
+          {
+            "text": "I wanted to discuss some challenges I've been facing and potential accommodations.",
+            "impact": { "effectiveness": 3, "trust": 2 },
+            "next": "professional_approach"
+          },
+          {
+            "text": "I've been struggling with my mental health and it's affecting my work.",
+            "impact": { "empathy": 2, "trust": 3 },
+            "next": "direct_disclosure"
+          },
+          {
+            "text": "I need to talk about some adjustments to my work schedule.",
+            "impact": { "effectiveness": 2, "trust": 1 },
+            "next": "indirect_approach"
+          },
+          {
+            "text": "I'm dealing with some health issues that impact my performance.",
+            "impact": { "effectiveness": 2, "trust": 2 },
+            "next": "health_framing"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully advocated for your mental health needs at work. Your manager is supportive and willing to work with you on accommodations.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "Remember: You have rights to reasonable accommodations for mental health conditions. Be specific about your needs and focus on solutions."
+      }
+    ]
+  },
+  "therapy-suggestion": {
+    "title": "Suggesting Therapy to a Friend",
+    "description": "Your friend Sam has been sharing their struggles but seems resistant to professional help.",
+    "character": { "name": "Sam", "avatar": "😞", "mood": "struggling but defensive" },
+    "difficulty": "intermediate",
+    "category": "friend-support",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Sam has been telling you about their anxiety and depression for weeks. You think therapy could help, but they've brushed off the suggestion before.",
+        "dialogue": "I don't know... therapy seems expensive and I'm not sure it would even help. What if they think I'm just being dramatic?",
+        "mood": "resistant and worried",
+        "choices": [
+          {
+            "text": "Therapy has helped so many people I know. Your feelings are completely valid.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 2 },
+            "next": "normalize_therapy"
+          },
+          {
+            "text": "What specifically worries you most about trying therapy?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 2 },
+            "next": "explore_concerns"
+          },
+          {
+            "text": "Many therapists offer sliding scale fees, and some insurance covers it.",
+            "impact": { "effectiveness": 3, "trust": 1 },
+            "next": "practical_solutions"
+          },
+          {
+            "text": "You don't have to commit to anything long-term. Even one session might be helpful.",
+            "impact": { "effectiveness": 2, "trust": 2 },
+            "next": "low_pressure"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "Sam is now open to considering therapy and feels supported rather than pressured. You've successfully planted the seed for them to seek professional help.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "When suggesting therapy: Address specific concerns, normalize the experience, provide practical information, and avoid being pushy."
+      }
+    ]
+  },
+  "family-conversation": {
+    "title": "Family Mental Health Discussion",
+    "description": "You want to talk to a family member about mental health, navigating generational differences.",
+    "character": { "name": "Parent", "avatar": "👨‍👩‍👧", "mood": "concerned but uncertain" },
+    "difficulty": "intermediate",
+    "category": "family-dynamics",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You're visiting family and want to check in with a relative who seems to be struggling, but there are generational differences about mental health.",
+        "dialogue": "Mental health? We didn't have that when I was growing up. We just dealt with our problems.",
+        "mood": "skeptical but caring",
+        "choices": [
+          {
+            "text": "I understand things were different then, but we know more about mental health now.",
+            "impact": { "empathy": 2, "effectiveness": 2 },
+            "next": "bridge_generations"
+          },
+          {
+            "text": "You were strong to handle things on your own, but having support doesn't make someone weak.",
+            "impact": { "empathy": 3, "trust": 2 },
+            "next": "reframe_strength"
+          },
+          {
+            "text": "What if someone you cared about was physically hurt? Mental health is similar.",
+            "impact": { "effectiveness": 3, "trust": 1 },
+            "next": "physical_analogy"
+          },
+          {
+            "text": "I'm worried about [specific person/situation]. Can we talk about how to help?",
+            "impact": { "empathy": 2, "trust": 3 },
+            "next": "focus_concern"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully bridged the generational gap and helped your family member understand the importance of mental health support.",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "When discussing mental health across generations: Acknowledge different perspectives, use relatable analogies, and focus on care and concern."
+      }
+    ]
+  }
+}

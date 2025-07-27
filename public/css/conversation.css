@@ -1,0 +1,557 @@
+/* Conversation interface styles with HBO Max dark theme */
+
+.conversation-interface {
+    background: var(--bg-card);
+    border: 2px solid var(--border-accent);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-secondary);
+    display: none;
+    animation: fadeIn 0.6s ease-out;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.conversation-interface.active {
+    display: block;
+}
+
+.conversation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-primary);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scenario-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.scenario-info h3 {
+    color: var(--hbo-bright-purple);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-info p {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Story Container */
+.story-container {
+    margin-bottom: 2rem;
+}
+
+.story-text {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--hbo-bright-purple);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.story-text.typing::after {
+    content: '|';
+    color: var(--hbo-bright-purple);
+    animation: blink 1s infinite;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Character Dialogue */
+.character-dialogue {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-primary);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: none;
+}
+
+.character-dialogue.active {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+
+.character-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.character-avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--hbo-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.character-details {
+    flex: 1;
+}
+
+.character-name {
+    color: var(--hbo-bright-purple);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.character-mood {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.dialogue-text {
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Choices */
+.choices-container {
+    margin-bottom: 2rem;
+}
+
+.choices-container h4 {
+    color: var(--hbo-bright-purple);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.choice-button {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    color: var(--text-primary);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.choice-button:hover {
+    border-color: var(--hbo-bright-purple);
+    transform: translateX(8px);
+    background: var(--bg-card);
+}
+
+.choice-button:focus {
+    outline: none;
+    border-color: var(--hbo-bright-purple);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.choice-header {
+    font-weight: 600;
+    color: var(--hbo-bright-purple);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.choice-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.choice-impact {
+    font-size: 0.85rem;
+    color: var(--hbo-bright-purple);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.choice-impact::before {
+    content: '📊';
+    font-size: 1rem;
+}
+
+/* Rehearsal Progress Stats */
+.scenario-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    border: 1px solid var(--border-primary);
+}
+
+.scenario-stats .stat-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scenario-stats .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scenario-stats .stat-bar {
+    background: var(--bg-primary);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scenario-stats .stat-fill {
+    height: 100%;
+    transition: width 0.8s ease;
+    border-radius: 6px;
+    position: relative;
+}
+
+.scenario-stats .stat-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.scenario-stats .stat-fill.empathy {
+    background: linear-gradient(135deg, var(--success-green), #059669);
+}
+
+.scenario-stats .stat-fill.trust {
+    background: linear-gradient(135deg, var(--warning-yellow), #d97706);
+}
+
+.scenario-stats .stat-fill.effectiveness {
+    background: linear-gradient(135deg, var(--hbo-bright-purple), var(--hbo-purple));
+}
+
+.scenario-stats .stat-value {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Nathan's Analysis Enhanced */
+.rehearsal-analysis {
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid var(--hbo-bright-purple);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.rehearsal-analysis h4 {
+    color: var(--hbo-bright-purple);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rehearsal-analysis p {
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+}
+
+.flowchart-actions {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.flowchart-btn {
+    background: var(--hbo-gradient);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.flowchart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+/* Protective Resources */
+.protective-resources {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid var(--danger-red);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.protective-resources h3 {
+    color: var(--danger-red);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.protective-resources p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.resource-item {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.resource-item strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.resource-item a {
+    color: var(--hbo-bright-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.resource-item a:hover {
+    text-decoration: underline;
+}
+
+/* Completion Analysis */
+.completion-analysis {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    border: 2px solid var(--border-primary);
+}
+
+.completion-analysis.success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--success-green);
+}
+
+.completion-analysis h2 {
+    margin-bottom: 2rem;
+    color: var(--hbo-bright-purple);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.analysis-content {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    font-family: 'Courier New', monospace;
+    text-align: left;
+    border: 1px solid var(--border-primary);
+}
+
+.analysis-content pre {
+    white-space: pre-wrap;
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.completion-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.completion-buttons .choice-button {
+    max-width: 250px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.completion-buttons .choice-button.primary {
+    background: var(--hbo-gradient);
+    color: white;
+    border-color: var(--hbo-bright-purple);
+}
+
+.completion-buttons .choice-button.secondary {
+    background: var(--bg-secondary);
+    border-color: var(--border-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .conversation-interface {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .conversation-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .scenario-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .scenario-stats .stat-item {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+    }
+    
+    .scenario-stats .stat-label {
+        min-width: 80px;
+    }
+    
+    .scenario-stats .stat-bar {
+        flex: 1;
+    }
+    
+    .story-text {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .character-dialogue {
+        padding: 1.2rem;
+    }
+    
+    .choice-button {
+        padding: 1.2rem;
+    }
+    
+    .choice-button:hover {
+        transform: none;
+    }
+    
+    .completion-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .completion-buttons .choice-button {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .conversation-interface {
+        padding: 1rem;
+    }
+    
+    .character-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .character-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .story-text {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+    
+    .completion-analysis {
+        padding: 2rem 1rem;
+    }
+    
+    .completion-analysis h2 {
+        font-size: 1.8rem;
+    }
+}

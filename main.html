@@ -7,12 +7,12 @@
     <meta name="description" content="Practice difficult mental health conversations in a safe, supportive environment. Inspired by The Rehearsal.">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="public/css/main.css">
-    <link rel="stylesheet" href="public/css/scenarios.css">
-    <link rel="stylesheet" href="public/css/conversation.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/scenarios.css">
+    <link rel="stylesheet" href="css/conversation.css">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="public/data/scenarios.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="data/scenarios.json" as="fetch" crossorigin="anonymous">
     
     <!-- Meta tags for social sharing -->
     <meta property="og:title" content="The Rehearsal AI - Mental Health Conversation Practice">
@@ -73,11 +73,18 @@
                 inspired by HBO's "The Rehearsal"
             </p>
             
+            <!-- Inspirational Quote -->
+            <div class="hero-quote">
+                <blockquote>
+                    <p><em>"Mental health communication can seem scary, but remember: the opposite of illness is wholeness, and humans are only whole when they feel a part of their community."</em></p>
+                </blockquote>
+            </div>
+            
             <!-- Action Buttons -->
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="beginRehearsal()">
+                <a href="#practice" class="btn btn-primary">
                     🎭 Begin Your Rehearsal
-                </button>
+                </a>
                 <a href="director-studio.html" class="btn btn-secondary">
                     📽️ Director's Studio
                 </a>
@@ -762,11 +769,11 @@
     </div>
 
     <!-- JavaScript Files -->
-    <script src="public/js/config.js"></script>
-    <script src="public/js/auth.js"></script>
-    <script src="public/js/scenarios.js"></script>
-    <script src="public/js/conversation.js"></script>
-    <script src="public/js/analytics.js"></script>
-    <script src="public/js/main.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/scenarios.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

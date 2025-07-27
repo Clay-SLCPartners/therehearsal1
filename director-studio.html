@@ -689,7 +689,7 @@
                 <div id="userStatus" style="display: none; background: rgba(255, 215, 0, 0.1); border: 1px solid var(--director-gold); border-radius: 8px; padding: 0.5rem 1rem; color: var(--director-gold); font-size: 0.9rem;">
                     <span id="userStatusText">Not logged in</span>
                 </div>
-                <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">← Back to Rehearsals</a>
+                <a href="main.html" style="color: var(--text-secondary); text-decoration: none;">← Back to Rehearsals</a>
                 <button class="btn-secondary" onclick="saveScript()" style="padding: 0.75rem 1.5rem;">Save Script</button>
             </div>
         </nav>
@@ -1563,7 +1563,7 @@ Note for future calls: Maybe don't explain what letters stand for.`,
                 // Show login redirect message instead of generic alert
                 showNathanNotification('Please log in to use AI enhancement. Return to main app to authenticate.');
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = 'main.html';
                 }, 2000);
                 return;
             }
@@ -2397,7 +2397,7 @@ PURPOSE: Mental Health Conversation Practice through Artistic Absurdity
             if (!currentUser) {
                 showNathanNotification('Please log in to save your script. Redirecting to main app...');
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = 'main.html';
                 }, 2000);
                 return;
             }

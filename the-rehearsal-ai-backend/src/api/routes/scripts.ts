@@ -4,16 +4,16 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import { PrismaClient } from '@prisma/client';
-import { asyncHandler } from '../middleware/error.js';
-import { authenticateToken, AuthRequest } from '../middleware/auth.js';
+import { asyncHandler } from '../middleware/error';
+import { authenticateToken, AuthRequest } from '../middleware/auth';
 import { 
   ApiResponse, 
   successResponse, 
   NATHAN_CONSTANTS
-} from '../../types/index.js';
-import { RehearsalError } from '../../utils/errors.js';
-import { aiService } from '../../services/ai.js';
-import prisma from '../../config/database.js';
+} from '../../types/index';
+import { RehearsalError } from '../../utils/errors';
+import { aiService } from '../../services/ai';
+import prisma from '../../config/database';
 
 const router = Router();
 

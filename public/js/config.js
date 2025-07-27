@@ -3,7 +3,7 @@ const CONFIG = {
     API_BASE_URL: window.location.origin,
     SCENARIOS_API: '/api/scenarios',
     CONVERSATION_API: '/api/conversations',
-    SCENARIOS_DATA_URL: 'public/data/scenarios.json',
+    SCENARIOS_DATA_URL: '/data/scenarios.json',
     
     // Animation timings
     TYPE_SPEED: 30,

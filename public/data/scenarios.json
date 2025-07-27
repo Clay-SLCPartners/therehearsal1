@@ -1275,6 +1275,146 @@
         ]
       },
       {
+        "id": "open_introduction",
+        "text": "The facilitator smiles warmly and the group welcomes you. You notice other people nodding in understanding.",
+        "dialogue": "Thank you for sharing. That takes courage. Would you like to tell us a bit about what brought you here today?",
+        "mood": "encouraging and supportive",
+        "choices": [
+          {
+            "text": "I've been dealing with anxiety and depression, and I need community support.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "share_struggles"
+          },
+          {
+            "text": "I'm going through a difficult time and heard this might help.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "general_sharing"
+          },
+          {
+            "text": "I'm not sure therapy is for me, but I need some kind of support.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "alternative_support"
+          },
+          {
+            "text": "I'd rather hear from others first before sharing more.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "cautious_participation"
+          }
+        ]
+      },
+      {
+        "id": "observer_mode",
+        "text": "The facilitator nods understandingly and the group accepts your preference without judgment.",
+        "dialogue": "Of course! Many people start by listening. Feel free to jump in whenever you feel ready. Sarah, would you like to share how your week went?",
+        "mood": "respectful and inclusive",
+        "choices": [
+          {
+            "text": "Actually, hearing Sarah's story makes me feel comfortable sharing too.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "inspired_to_share"
+          },
+          {
+            "text": "I appreciate how supportive everyone is here. This feels safe.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 2 },
+            "next": "recognize_safety"
+          },
+          {
+            "text": "I can relate to what Sarah is saying about feeling isolated.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "find_connection"
+          },
+          {
+            "text": "I'm content to listen and learn from everyone's experiences today.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 2 },
+            "next": "continue_observing"
+          }
+        ]
+      },
+      {
+        "id": "honest_need",
+        "text": "Several group members nod knowingly, and the facilitator acknowledges the reality of mental health accessibility.",
+        "dialogue": "You're not alone in that situation. Many of us have found real healing through peer support. What's your biggest concern about starting this journey?",
+        "mood": "understanding and validating",
+        "choices": [
+          {
+            "text": "I'm worried I won't get the same quality help as professional therapy.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "quality_concerns"
+          },
+          {
+            "text": "I'm scared of being judged or not fitting in with the group.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 2 },
+            "next": "fear_judgment"
+          },
+          {
+            "text": "I don't know if talking about my problems will actually help.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "doubt_effectiveness"
+          },
+          {
+            "text": "I'm just grateful to have found something affordable that might help.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "grateful_opportunity"
+          }
+        ]
+      },
+      {
+        "id": "share_struggles",
+        "text": "The group responds with empathy and understanding, sharing that many of them have similar experiences.",
+        "dialogue": "Thank you for being so open. Anxiety and depression are common experiences here. What's been the most challenging part for you lately?",
+        "mood": "compassionate and engaged",
+        "choices": [
+          {
+            "text": "The hardest part is feeling so alone with my thoughts and feelings.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I struggle with not having professional support when things get really bad.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "It's the daily management - just getting through each day feels overwhelming.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I need to learn coping strategies that actually work for my situation.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "recognize_safety",
+        "text": "The group smiles at your observation and the facilitator emphasizes the importance of feeling safe.",
+        "dialogue": "That's exactly what we aim for - a space where people can be authentic without fear. Would you feel comfortable sharing a bit about what brought you here?",
+        "mood": "warm and inviting",
+        "choices": [
+          {
+            "text": "Yes, I think I'm ready to share a little about my struggles.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I'd like to hear more from others first, but I feel hopeful about this group.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 2 },
+            "next": "success"
+          },
+          {
+            "text": "This feeling of safety is something I haven't experienced in a long time.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I think this group could be really helpful for me. I want to keep coming.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
         "id": "success",
         "text": "You've successfully taken the first step into peer support. You feel welcomed and hopeful about this new resource.",
         "isEnd": true,
@@ -1319,11 +1459,229 @@
         ]
       },
       {
+        "id": "accept_invitation",
+        "text": "Alex smiles and gestures toward a table with several students. As you walk over together, you feel your nervousness mixing with excitement.",
+        "dialogue": "Great! Don't worry, everyone's really cool. We were all new once too. What brings your family to town?",
+        "mood": "encouraging and interested",
+        "choices": [
+          {
+            "text": "My parent got a new job here. It's been a big adjustment for all of us.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "share_honestly"
+          },
+          {
+            "text": "Just a family move. I'm hoping to get involved in some activities here.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "focus_forward"
+          },
+          {
+            "text": "Long story, but I'm trying to make the best of it.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "keep_private"
+          }
+        ]
+      },
+      {
+        "id": "polite_decline",
+        "text": "Alex nods understandingly, showing genuine empathy for your situation.",
+        "dialogue": "I totally get that. Starting somewhere new can feel overwhelming. How about I show you where the library is? It's usually quieter there.",
+        "mood": "understanding and supportive",
+        "choices": [
+          {
+            "text": "That would actually be really helpful. Thank you for understanding.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "accept_alternative"
+          },
+          {
+            "text": "I think I just need some time alone today, but I appreciate you asking.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "need_space"
+          },
+          {
+            "text": "Maybe we could try the lunch thing tomorrow instead?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "plan_tomorrow"
+          }
+        ]
+      },
+      {
+        "id": "grateful_acceptance",
+        "text": "Alex's face lights up with a genuine smile as you introduce yourself enthusiastically.",
+        "dialogue": "Awesome! I love your energy. Come on, let me introduce you to everyone. We have this tradition of helping new students feel welcome.",
+        "mood": "excited and welcoming",
+        "choices": [
+          {
+            "text": "That's such a nice tradition. I was worried about feeling left out.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "express_relief"
+          },
+          {
+            "text": "I'd love to be part of something like that. How can I help other new students too?",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "want_to_contribute"
+          },
+          {
+            "text": "This school seems really welcoming. I'm excited to get involved.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "show_enthusiasm"
+          }
+        ]
+      },
+      {
+        "id": "defensive_decline",
+        "text": "Alex pauses for a moment, recognizing your hesitation but not giving up entirely.",
+        "dialogue": "Hey, no pressure at all. I just remember feeling pretty lost my first week here. If you change your mind, we're usually at that table over there.",
+        "mood": "patient and understanding",
+        "choices": [
+          {
+            "text": "Sorry, I didn't mean to sound rude. I'm just feeling anxious about everything.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "acknowledge_anxiety"
+          },
+          {
+            "text": "I appreciate you not giving up on me. Maybe I could just observe from nearby today?",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "gradual_approach"
+          },
+          {
+            "text": "Thanks for understanding. I'll keep that in mind.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "maintain_distance"
+          }
+        ]
+      },
+      {
+        "id": "share_honestly",
+        "text": "The group welcomes you warmly as Alex introduces you. Your honesty about the family situation helps others share their own experiences.",
+        "dialogue": "Oh, that's tough! My family moved here two years ago for my mom's work. It gets easier, I promise. What's been the hardest part so far?",
+        "mood": "empathetic and connecting",
+        "choices": [
+          {
+            "text": "Just missing my old friends and familiar places. Everything feels so different.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Honestly, just feeling like I belong somewhere again.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "focus_forward",
+        "text": "The group appreciates your positive attitude and starts discussing different clubs and activities available.",
+        "dialogue": "That's a great attitude! What kind of activities are you interested in? We can give you the inside scoop on which clubs are actually fun.",
+        "mood": "helpful and encouraging",
+        "choices": [
+          {
+            "text": "I'm interested in [specific activity]. Is there a good group for that here?",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I'm open to trying new things. What do you all recommend?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "keep_private",
+        "text": "The group respects your privacy while still making an effort to include you in their conversation.",
+        "dialogue": "Fair enough! We all have our stories. What matters is you're here now. Want to hear about some of the fun stuff happening around school?",
+        "mood": "respectful and inclusive",
+        "choices": [
+          {
+            "text": "Yes, I'd love to know what I should look forward to.",
+            "impact": { "empathy": 2, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "That would be really helpful. Thanks for not pushing.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "accept_alternative",
+        "text": "Alex walks with you toward the library, pointing out important locations along the way.",
+        "dialogue": "The library is actually my favorite spot too when I need to recharge. Mrs. Johnson, the librarian, is super nice. She helped me a lot when I was new.",
+        "mood": "supportive and informative",
+        "choices": [
+          {
+            "text": "Thank you for taking the time to help me. This means a lot.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I really appreciate having someone who understands what it's like to be new.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "plan_tomorrow",
+        "text": "Alex's face lights up as you suggest trying again tomorrow.",
+        "dialogue": "Absolutely! Tomorrow sounds perfect. I'll save you a spot at our table. Take your time settling in today - there's no rush.",
+        "mood": "patient and encouraging",
+        "choices": [
+          {
+            "text": "Thank you for being so understanding. I'll look forward to tomorrow.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "This is exactly the kind of support I was hoping to find here.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "acknowledge_anxiety",
+        "text": "Alex's expression becomes more understanding as you open up about your feelings.",
+        "dialogue": "Oh, you weren't rude at all! Anxiety is totally normal in new situations. I felt the same way. Want to just sit nearby and see how you feel?",
+        "mood": "compassionate and patient",
+        "choices": [
+          {
+            "text": "That actually sounds manageable. Thank you for understanding.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Yes, taking it slow sounds perfect right now.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "gradual_approach",
+        "text": "Alex nods enthusiastically at your compromise suggestion.",
+        "dialogue": "That's a perfect idea! Sometimes observing first helps you get a feel for the group dynamic. We'll wave you over if you decide you want to join us.",
+        "mood": "encouraging and flexible",
+        "choices": [
+          {
+            "text": "Thank you for meeting me where I am. This feels much more comfortable.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "I appreciate you giving me options instead of pressure.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
         "id": "success",
-        "text": "You've successfully navigated your first social interaction at the new school. You feel more hopeful about making connections.",
+        "text": "You've successfully navigated your first social interaction at the new school. Whether through direct engagement or finding a comfortable middle ground, you've opened the door to future connections and shown that seeking support doesn't have to be overwhelming.",
         "isEnd": true,
         "outcome": "success",
-        "criticalInfo": "Being new is always challenging, but most people remember that feeling and want to help. Accepting kindness opens doors to new friendships."
+        "criticalInfo": "Being new is always challenging, but most people remember that feeling and want to help. There are many ways to connect - from jumping in fully to taking gradual steps. The key is finding an approach that feels authentic to you while remaining open to kindness from others."
       }
     ]
   },
@@ -1363,11 +1721,175 @@
         ]
       },
       {
+        "id": "firm_boundary",
+        "text": "Your firm boundary surprises them, but they try to continue their attack.",
+        "dialogue": "Oh, so now you're being dramatic about this conversation too? You can't just run away from reality.",
+        "mood": "escalating and aggressive",
+        "choices": [
+          {
+            "text": "Watch me. I'm leaving now and I won't be discussing this topic with you again.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "maintain_boundary"
+          },
+          {
+            "text": "I've said what I needed to say. This conversation is over.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "end_firmly"
+          },
+          {
+            "text": "Your attempts to continue this aren't going to work. I'm done.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 3 },
+            "next": "refuse_engagement"
+          }
+        ]
+      },
+      {
+        "id": "deflect_cruelty",
+        "text": "Your response catches them off guard, but they double down on their cruelty.",
+        "dialogue": "What's that supposed to mean? I'm just being honest with you. You're the one with the problems, not me.",
+        "mood": "defensive and nastier",
+        "choices": [
+          {
+            "text": "Exactly my point. Someone secure in themselves doesn't need to tear others down.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "expose_insecurity"
+          },
+          {
+            "text": "I'm going to end this here. I came to you in good faith and this is what I get.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "express_disappointment"
+          },
+          {
+            "text": "Your reaction confirms that I was right to trust my instincts about this conversation.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 3 },
+            "next": "trust_instincts"
+          }
+        ]
+      },
+      {
+        "id": "prioritize_self",
+        "text": "Your self-advocacy seems to anger them further as they realize they can't manipulate you.",
+        "dialogue": "You're being way too sensitive. This is exactly why people don't want to deal with you.",
+        "mood": "manipulative and cruel",
+        "choices": [
+          {
+            "text": "The people who matter to me don't treat me this way. I'm surrounding myself with better people.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "affirm_support_system"
+          },
+          {
+            "text": "I'd rather be 'too sensitive' than cruel to someone who's struggling.",
+            "impact": { "empathy": 4, "trust": 2, "effectiveness": 4 },
+            "next": "embrace_sensitivity"
+          },
+          {
+            "text": "This conversation is proving exactly why I need to prioritize my mental health.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "validate_choice"
+          }
+        ]
+      },
+      {
+        "id": "internalize_shame",
+        "text": "They sense your vulnerability and continue their attack, becoming even more cruel.",
+        "dialogue": "See? Deep down you know I'm right. Stop making excuses and just get over it like everyone else does.",
+        "mood": "predatory and triumphant",
+        "choices": [
+          {
+            "text": "Actually, no. I don't agree with you and I'm going to get help from people who actually care.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "recover_self_worth"
+          },
+          {
+            "text": "You know what? I was wrong to doubt myself. I deserve support, not this.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "reclaim_worth"
+          },
+          {
+            "text": "I think I need to end this conversation and talk to someone who understands.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "seek_real_support"
+          }
+        ]
+      },
+      {
+        "id": "maintain_boundary",
+        "text": "You follow through on your boundary, walking away despite their continued attempts to engage.",
+        "dialogue": "Fine, run away! But you'll have to face reality eventually!",
+        "mood": "frustrated and defeated",
+        "choices": [
+          {
+            "text": "I don't respond and continue walking away, protecting my peace.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "I keep walking, knowing that my reality includes caring people who support me.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "expose_insecurity",
+        "text": "Your insight clearly hits a nerve, as their anger escalates to reveal their own insecurities.",
+        "dialogue": "You don't know anything about me! You're just trying to make this about me when you're the one with issues!",
+        "mood": "exposed and lashing out",
+        "choices": [
+          {
+            "text": "I'm not trying to make this about anything other than ending this harmful conversation.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're right, I don't know you. And based on this interaction, I don't need to.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "affirm_support_system",
+        "text": "Your confidence in your support system clearly frustrates them as they realize their manipulation isn't working.",
+        "dialogue": "Well, good luck with that. Don't come crying to me when your 'support system' gets tired of your drama.",
+        "mood": "bitter and defeated",
+        "choices": [
+          {
+            "text": "I won't need to, because real support doesn't come with conditions.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "The people who care about me don't see my struggles as drama. That's how I know they're real support.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "reclaim_worth",
+        "text": "Your recovery of self-worth clearly surprises them, and they make one last attempt to undermine you.",
+        "dialogue": "Oh please, now you're just being dramatic again. You can't just flip a switch and pretend you're confident.",
+        "mood": "desperate and grasping",
+        "choices": [
+          {
+            "text": "I'm not pretending anything. I'm choosing to trust myself over your cruelty.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're right, it's not a switch. It's a choice I'm making right now to value myself.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
         "id": "success",
-        "text": "You've successfully protected yourself from cruelty while maintaining your dignity. You chose your mental health over someone else's ignorance.",
+        "text": "You've successfully protected yourself from cruelty while maintaining your dignity. Whether through firm boundaries, deflecting attacks, or reclaiming your worth, you chose your mental health over someone else's ignorance and cruelty.",
         "isEnd": true,
         "outcome": "success",
-        "criticalInfo": "You don't owe anyone an explanation for your mental health needs. Protecting yourself from cruelty is self-care, not selfishness."
+        "criticalInfo": "You don't owe anyone an explanation for your mental health needs. Protecting yourself from cruelty is self-care, not selfishness. People who respond to vulnerability with cruelty are revealing their own character, not commenting accurately on yours."
       }
     ]
   },
@@ -1451,11 +1973,157 @@
         ]
       },
       {
+        "id": "prioritize_health",
+        "text": "Your family member escalates, trying to use guilt and family obligation as manipulation tools.",
+        "dialogue": "So you care more about yourself than our family name? This is selfish. We've always handled our problems privately.",
+        "mood": "manipulative and guilt-inducing",
+        "choices": [
+          {
+            "text": "Taking care of my mental health helps me be a better family member, not a worse one.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "reframe_benefit"
+          },
+          {
+            "text": "I'm not willing to sacrifice my wellbeing for appearances. That's not selfish, that's necessary.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "stand_firm"
+          },
+          {
+            "text": "Your definition of 'handling problems' has clearly not been working for me.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "challenge_method"
+          }
+        ]
+      },
+      {
+        "id": "information_diet",
+        "text": "They become more aggressive when they realize you're cutting off their access to shame you.",
+        "dialogue": "You can't just shut me out! I'm your family! I have a right to know what's going on with you!",
+        "mood": "demanding and controlling",
+        "choices": [
+          {
+            "text": "Being family doesn't give you the right to my private medical information.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 4 },
+            "next": "assert_privacy"
+          },
+          {
+            "text": "You've shown me that sharing leads to attacks, so I'm protecting myself.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "explain_consequence"
+          },
+          {
+            "text": "Family members who truly care support each other, they don't demand information to use as weapons.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "define_support"
+          }
+        ]
+      },
+      {
+        "id": "reflect_shame",
+        "text": "Your family member becomes defensive and doubles down on their shaming tactics.",
+        "dialogue": "Don't you dare turn this around on me! I'm trying to protect this family from embarrassment and you're being ungrateful!",
+        "mood": "defensive and escalating",
+        "choices": [
+          {
+            "text": "Protection would look like supporting my healing, not attacking me for seeking help.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "redefine_protection"
+          },
+          {
+            "text": "I'm not ungrateful for genuine support. This isn't support, this is control.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "distinguish_support"
+          },
+          {
+            "text": "Your embarrassment about mental health is not my problem to solve.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 3 },
+            "next": "boundary_embarrassment"
+          }
+        ]
+      },
+      {
+        "id": "family_pressure_wins",
+        "text": "Seeing your compliance, they continue to pressure you and make demands about your healthcare.",
+        "dialogue": "Good, I'm glad you're finally seeing sense. Now, I want you to stop taking those medications too. They're changing you.",
+        "mood": "controlling and emboldened",
+        "choices": [
+          {
+            "text": "Actually, no. I'm keeping my therapy and my medication. I made a mistake agreeing with you.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "reclaim_decision"
+          },
+          {
+            "text": "Wait, I think I was wrong to agree. My therapist has been helping me.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 3 },
+            "next": "second_thoughts"
+          },
+          {
+            "text": "I need to think about this more before I make any decisions about my medication.",
+            "impact": { "empathy": 1, "trust": 0, "effectiveness": 2 },
+            "next": "buy_time"
+          }
+        ]
+      },
+      {
+        "id": "reframe_benefit",
+        "text": "Your logical response seems to confuse them, as they expected you to crumble under pressure.",
+        "dialogue": "That's... that's not the point. People will judge us. They'll think we raised you wrong.",
+        "mood": "uncertain but still defensive",
+        "choices": [
+          {
+            "text": "People who would judge a family for supporting mental health aren't people whose opinions matter.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You raised me to take care of myself and get help when I need it. That's good parenting.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "assert_privacy",
+        "text": "Your firm boundary about privacy forces them to confront their sense of entitlement.",
+        "dialogue": "This is ridiculous! Since when do we have secrets in this family?",
+        "mood": "frustrated and grasping",
+        "choices": [
+          {
+            "text": "Since family members started using personal information as ammunition instead of offering support.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Privacy isn't secrecy. I'm protecting my mental health from people who attack it.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "reclaim_decision",
+        "text": "Your recovery of your own decision-making power clearly frustrates them as they lose control.",
+        "dialogue": "You can't just change your mind like that! You said you would stop!",
+        "mood": "angry and losing control",
+        "choices": [
+          {
+            "text": "I can absolutely change my mind when I realize I was wrong. That's what healthy people do.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "I'm allowed to change my mind about my own healthcare. That's my right.",
+            "impact": { "empathy": 2, "trust": 1, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
         "id": "success",
-        "text": "You've maintained your mental health boundaries despite family pressure and cruelty. Your healing is not negotiable.",
+        "text": "You've maintained your mental health boundaries despite intense family pressure and cruelty. You've shown that your healing is not negotiable, even when facing manipulation from people who claim to love you.",
         "isEnd": true,
         "outcome": "success",
-        "criticalInfo": "Family loyalty never requires sacrificing your mental health. You can love your family while protecting yourself from their harmful attitudes."
+        "criticalInfo": "Family loyalty never requires sacrificing your mental health. You can love your family while protecting yourself from their harmful attitudes. True family support looks like encouraging your healing, not attacking it."
       }
     ]
   },
@@ -1495,11 +2163,175 @@
         ]
       },
       {
+        "id": "digital_boundary",
+        "text": "After blocking, you notice several supportive comments from your real community appeared while you were dealing with the troll.",
+        "dialogue": "Thank you for sharing this. It really helped me today. Don't let the trolls win. 💙",
+        "mood": "supportive and genuine",
+        "choices": [
+          {
+            "text": "Thank you. This is exactly why I share - to help people like you.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "community_reinforcement"
+          },
+          {
+            "text": "Comments like yours make dealing with the trolls worth it.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "value_support"
+          },
+          {
+            "text": "I'm so glad this helped you. That's what matters.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "focus_impact"
+          }
+        ]
+      },
+      {
+        "id": "purpose_driven",
+        "text": "Your response draws more trolls, but also attracts genuine supporters who appreciate your advocacy.",
+        "dialogue": "Keep going! Your posts have helped me understand my own struggles better. Thank you for being brave.",
+        "mood": "grateful and encouraging",
+        "choices": [
+          {
+            "text": "Messages like this remind me why advocacy is important, even when it's hard.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "strengthen_resolve"
+          },
+          {
+            "text": "I'll keep sharing because people like you need to know they're not alone.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "commitment_others"
+          },
+          {
+            "text": "Thank you for seeing the real purpose behind my posts.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "feel_understood"
+          }
+        ]
+      },
+      {
+        "id": "document_evidence",
+        "text": "Your documentation strategy catches the attention of mental health advocates who want to help amplify the issue.",
+        "dialogue": "We've been collecting examples of mental health stigma too. Would you like to collaborate on raising awareness about this problem?",
+        "mood": "professional and purposeful",
+        "choices": [
+          {
+            "text": "Yes! Turning individual cruelty into systemic change sounds powerful.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "systematic_change"
+          },
+          {
+            "text": "I'd love to help show how common this harassment really is.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "expose_pattern"
+          },
+          {
+            "text": "That would be amazing. Individual screenshots become data for change.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "data_advocacy"
+          }
+        ]
+      },
+      {
+        "id": "silence_victim",
+        "text": "As you consider stopping your posts, you receive a private message from someone whose life you've impacted.",
+        "dialogue": "Please don't stop posting. Your honesty about mental health literally saved my life last month. One cruel person shouldn't silence that.",
+        "mood": "desperate and grateful",
+        "choices": [
+          {
+            "text": "Thank you for telling me this. I won't let trolls silence something that saves lives.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "reclaim_voice"
+          },
+          {
+            "text": "I needed to hear this reminder of why I share. Thank you.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "remember_purpose"
+          },
+          {
+            "text": "Your message means more than all the cruel comments combined.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "prioritize_impact"
+          }
+        ]
+      },
+      {
+        "id": "community_reinforcement",
+        "text": "Your community rallies around you, creating a shield of support that overwhelms the negativity.",
+        "dialogue": "We're reporting that troll and filling your comments with love. Mental health advocacy matters. Keep going! 🌟",
+        "mood": "protective and united",
+        "choices": [
+          {
+            "text": "This is what real community looks like. Thank you for having my back.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Your support makes me feel stronger than any troll could make me feel small.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "strengthen_resolve",
+        "text": "Your advocacy grows stronger as you see the real impact of your vulnerability in helping others.",
+        "dialogue": "You've inspired me to start sharing my story too. If you can be brave, so can I.",
+        "mood": "inspired and determined",
+        "choices": [
+          {
+            "text": "That's exactly what I hoped for - turning one voice into many voices.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Your courage multiplies mine. Together we break the silence.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "systematic_change",
+        "text": "Your decision to turn personal pain into systemic advocacy creates lasting impact beyond just your own experience.",
+        "dialogue": "Together we're building a database that will help social media platforms understand the scope of mental health harassment.",
+        "mood": "determined and collaborative",
+        "choices": [
+          {
+            "text": "Using my pain to prevent others' pain feels like the most powerful response possible.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "This gives my harassment a purpose beyond just hurting me.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "reclaim_voice",
+        "text": "Your decision to continue advocating despite harassment shows the troll that their cruelty failed to silence you.",
+        "dialogue": "Thank you for not letting them win. Your voice matters more than their noise.",
+        "mood": "relieved and empowered",
+        "choices": [
+          {
+            "text": "Trolls try to silence voices that challenge stigma. I won't give them that power.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "My story is too important to let cruelty silence it.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
         "id": "success",
-        "text": "You've protected yourself from online cruelty while maintaining your right to share your mental health journey.",
+        "text": "You've successfully protected yourself from online cruelty while maintaining your right to share your mental health journey. Whether through blocking, advocacy, or community support, you've shown that trolls cannot silence important conversations about mental health.",
         "isEnd": true,
         "outcome": "success",
-        "criticalInfo": "Online harassment about mental health is common but not acceptable. Block, document, and don't let trolls silence your story."
+        "criticalInfo": "Online harassment about mental health is common but not acceptable. Your voice and story matter more than anonymous cruelty. Block when necessary, document when possible, and remember that real community will always outweigh trolls."
       }
     ]
   },
@@ -1896,6 +2728,760 @@
         "isEnd": true,
         "outcome": "success",
         "criticalInfo": "When discussing mental health across generations: Acknowledge different perspectives, use relatable analogies, and focus on care and concern."
+      }
+    ]
+  },
+  "coming-out-support": {
+    "title": "Supporting Someone Coming Out",
+    "description": "A friend is sharing their LGBTQ+ identity with you and seems anxious about acceptance and mental health challenges.",
+    "character": { "name": "Alex", "avatar": "🏳️‍🌈", "mood": "nervous but hopeful" },
+    "difficulty": "intermediate",
+    "category": "lgbtq-support",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Your friend Alex has asked to talk privately. They seem nervous but determined to share something important with you.",
+        "dialogue": "I've been wanting to tell you something for a while... I'm transgender, and I've been struggling with a lot of anxiety about how people will react. I trust you, but I'm scared.",
+        "mood": "vulnerable and anxious",
+        "choices": [
+          {
+            "text": "Thank you for trusting me with this. I'm honored you felt safe sharing this with me.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "validation_response"
+          },
+          {
+            "text": "I'm so glad you told me. How are you feeling about everything? This must have taken courage.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "emotional_check"
+          },
+          {
+            "text": "I support you completely. What do you need from me right now?",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "direct_support"
+          },
+          {
+            "text": "That doesn't change anything about our friendship. You're still the same person I care about.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 2 },
+            "next": "continuity_reassurance"
+          }
+        ]
+      },
+      {
+        "id": "validation_response",
+        "text": "Alex's shoulders relax slightly at your supportive response, but you can see they're still carrying worry.",
+        "dialogue": "I've been so anxious about this. I keep having panic attacks thinking about telling my family. And I'm worried about finding healthcare providers who understand... it all feels overwhelming.",
+        "mood": "relieved but still anxious",
+        "choices": [
+          {
+            "text": "Anxiety around coming out is completely normal. Have you been able to talk to anyone else about these feelings?",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "normalize_anxiety"
+          },
+          {
+            "text": "That sounds like a lot to carry alone. Would it help to break this down into smaller steps?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "practical_approach"
+          },
+          {
+            "text": "The panic attacks sound really difficult. Have you considered talking to a therapist who specializes in LGBTQ+ issues?",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "therapy_suggestion"
+          },
+          {
+            "text": "I'm here for you through all of this. You don't have to figure everything out at once.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "ongoing_support"
+          }
+        ]
+      },
+      {
+        "id": "normalize_anxiety",
+        "text": "Alex nods, seeming grateful that their feelings are being validated rather than minimized.",
+        "dialogue": "Not really... I found some online support groups, but I haven't posted anything. I'm scared even there. What if I'm not 'trans enough' or doing this wrong?",
+        "mood": "vulnerable and seeking validation",
+        "choices": [
+          {
+            "text": "There's no wrong way to be transgender. Your identity is valid regardless of how you express it or what steps you take.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "identity_validation"
+          },
+          {
+            "text": "Imposter syndrome is common in the LGBTQ+ community. Your feelings and experiences are real and valid.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "identity_validation"
+          },
+          {
+            "text": "Those online communities can be really supportive once you feel ready. Maybe just reading others' experiences could help for now?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "community_support"
+          },
+          {
+            "text": "What would help you feel more confident about connecting with others who understand?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "confidence_building"
+          }
+        ]
+      },
+      {
+        "id": "identity_validation",
+        "text": "Alex tears up at your words of validation, a weight seeming to lift from their shoulders.",
+        "dialogue": "I needed to hear that. I've been questioning myself constantly. Maybe I should look into finding a therapist who gets this stuff. Do you think that would help?",
+        "mood": "hopeful and more confident",
+        "choices": [
+          {
+            "text": "Absolutely. A therapist experienced with LGBTQ+ issues can provide both emotional support and practical guidance.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "It could be really helpful. They can support you with anxiety management and navigating coming out to family.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "I think it's a great idea. And remember, I'm here to support you through this process too.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Yes, and finding LGBTQ+-affirming healthcare providers is important too. A therapist might have referrals.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "community_support",
+        "text": "Alex considers your suggestion about online communities.",
+        "dialogue": "Maybe you're right. I could start by just reading and seeing if anyone else feels like I do. It might help to know I'm not the only one going through this.",
+        "mood": "tentatively hopeful",
+        "choices": [
+          {
+            "text": "Taking it slow is perfectly fine. You can engage at whatever level feels comfortable.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Seeing other people's stories often helps us feel less alone and more normal about our experiences.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "And when you're ready, those communities can also connect you with local resources and LGBTQ+-friendly therapists.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're definitely not alone. There's a whole community of people who understand exactly what you're going through.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "confidence_building",
+        "text": "Alex thinks about what might help them feel more ready to connect with the LGBTQ+ community.",
+        "dialogue": "I think I need to work on feeling more secure in my own identity first. Maybe talking to a therapist would help me feel more confident before I try connecting with others?",
+        "mood": "thoughtful and planning ahead",
+        "choices": [
+          {
+            "text": "That's really wise self-awareness. Building confidence in yourself can make connecting with others feel less scary.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "A good therapist can help you process these feelings and develop coping strategies for anxiety around your identity.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Taking care of your mental health first is always a good foundation for everything else.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "And remember, I'm here to support you through this journey, whether you need someone to talk through therapy options or just listen.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully provided affirming support while helping Alex think about professional resources. Your validation of their identity and practical suggestions have given them hope and direction.",
+        "dialogue": "Thank you for being so supportive. I feel like I can actually do this now, knowing I have people who understand and care about me.",
+        "mood": "grateful and empowered",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "When supporting LGBTQ+ individuals: Validate their identity, normalize their feelings, avoid assumptions, suggest affirming professional resources, and offer ongoing support."
+      }
+    ]
+  },
+  "lgbtq-family-rejection": {
+    "title": "LGBTQ+ Family Rejection Support",
+    "description": "Your LGBTQ+ friend is dealing with family rejection and mental health struggles after coming out.",
+    "character": { "name": "Jordan", "avatar": "💔", "mood": "devastated and isolated" },
+    "difficulty": "advanced",
+    "category": "lgbtq-crisis",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "Jordan calls you crying. They came out to their family last week and it didn't go well. They sound defeated and you're worried about their mental state.",
+        "dialogue": "My parents said I'm 'choosing to be confused' and that I need to 'pray it away.' My dad won't even look at me. I feel like I've lost my whole family... maybe they're right and I'm just messed up.",
+        "mood": "heartbroken and questioning themselves",
+        "choices": [
+          {
+            "text": "I'm so sorry they reacted that way. Their reaction doesn't reflect your worth or the validity of who you are.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "validate_pain"
+          },
+          {
+            "text": "That sounds incredibly painful. You're not messed up - your identity is valid regardless of their reaction.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "identity_affirmation"
+          },
+          {
+            "text": "Some families need time to process. That doesn't excuse their hurtful words, but people can change.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 2 },
+            "next": "cautious_hope"
+          },
+          {
+            "text": "I'm here for you. You haven't lost everyone - you have people who love and accept you exactly as you are.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "chosen_family"
+          }
+        ]
+      },
+      {
+        "id": "validate_pain",
+        "text": "Jordan continues crying, but seems to hear your words of support.",
+        "dialogue": "I just feel so alone. And the worst part is, I'm starting to believe them. Maybe I am just confused. Maybe this is all a mistake and I'm ruining my life for nothing.",
+        "mood": "doubting themselves deeply",
+        "choices": [
+          {
+            "text": "Rejection from family can make anyone doubt themselves, but that doesn't mean they're right about who you are.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "internalized_doubt"
+          },
+          {
+            "text": "When we're hurt by people we love, we sometimes turn that pain inward. You knew who you were before they reacted.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "pain_projection"
+          },
+          {
+            "text": "You're not alone in this. Many LGBTQ+ people face family rejection, and it doesn't make their identity less real.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "shared_experience"
+          },
+          {
+            "text": "I'm worried about how this is affecting your mental health. Have you been having thoughts of hurting yourself?",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "safety_check"
+          }
+        ]
+      },
+      {
+        "id": "safety_check",
+        "text": "Jordan pauses at your direct question, and you can hear them taking shaky breaths.",
+        "dialogue": "I... yeah, sometimes I think about it. Like, maybe everyone would be better off without me causing problems. But I'm scared to feel that way.",
+        "mood": "vulnerable and at-risk",
+        "choices": [
+          {
+            "text": "I'm glad you told me, and I'm glad you're scared - that shows you want to stay safe. You matter deeply.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "crisis_validation"
+          },
+          {
+            "text": "Those thoughts are a sign you're in real pain, not that the world would be better without you. Can we talk about getting you immediate support?",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "immediate_help"
+          },
+          {
+            "text": "I need you to know that you're not causing problems by being yourself. Your family's reaction is about their limitations, not your worth.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "reframe_blame"
+          },
+          {
+            "text": "Can you promise me you'll reach out before doing anything to hurt yourself? I'm here, and there are crisis resources available 24/7.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "safety_planning"
+          }
+        ]
+      },
+      {
+        "id": "immediate_help",
+        "text": "Jordan seems relieved that you're taking their pain seriously and offering concrete help.",
+        "dialogue": "I think I do need help. I can't keep feeling this way. But I'm scared about finding someone who won't judge me like my family did.",
+        "mood": "ready for help but apprehensive",
+        "choices": [
+          {
+            "text": "There are LGBTQ+-affirming therapists and crisis counselors who understand exactly what you're going through.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "affirming_resources"
+          },
+          {
+            "text": "Let's find you immediate support tonight, and then we can work on finding longer-term affirming care.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "immediate_and_longterm"
+          },
+          {
+            "text": "The Trevor Project has 24/7 crisis support specifically for LGBTQ+ youth and young adults. Would you like me to help you call?",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "trevor_project"
+          },
+          {
+            "text": "You deserve support from people who affirm who you are. Your family's rejection doesn't reflect how all people will treat you.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "future_hope"
+          }
+        ]
+      },
+      {
+        "id": "trevor_project",
+        "text": "Jordan expresses relief at having a specific, LGBTQ+-focused resource to turn to.",
+        "dialogue": "Yes, please. I think I need to talk to someone tonight who gets this. And maybe... maybe I need to start building my chosen family instead of waiting for my biological one to come around.",
+        "mood": "vulnerable but gaining strength",
+        "choices": [
+          {
+            "text": "That's incredibly wise. Chosen family can be just as meaningful and supportive as biological family - sometimes more so.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "chosen_family_validation"
+          },
+          {
+            "text": "I'm proud of you for recognizing what you need. You're taking steps to protect and care for yourself.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "self_advocacy_pride"
+          },
+          {
+            "text": "You're part of my chosen family, and I'll support you through this journey of building your community.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "belonging_affirmation"
+          },
+          {
+            "text": "Let's call The Trevor Project now, and tomorrow we can start looking into LGBTQ+ support groups in your area.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "concrete_next_steps"
+          }
+        ]
+      },
+      {
+        "id": "chosen_family_validation",
+        "text": "Jordan seems to find strength in this concept of chosen family.",
+        "dialogue": "I never really thought about it that way - that I could create my own family with people who actually love me for who I am. That gives me hope.",
+        "mood": "gaining hope and perspective",
+        "choices": [
+          {
+            "text": "Chosen family often loves more authentically because they choose to be there through understanding, not obligation.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're already starting with people like me who care about you. That's the beginning of your chosen family.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "And as you connect with LGBTQ+ community and allies, you'll find more people who celebrate your authentic self.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Your worth isn't determined by people who can't see how amazing you are - it's inherent in who you are.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "self_advocacy_pride",
+        "text": "Jordan draws strength from your recognition of their self-advocacy.",
+        "dialogue": "I guess I am standing up for myself, aren't I? Even when it's scary. Maybe that's something to be proud of instead of ashamed of.",
+        "mood": "finding inner strength",
+        "choices": [
+          {
+            "text": "Absolutely. Coming out takes incredible courage, especially when you know there might be rejection.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You chose authenticity over comfort, which is one of the bravest things a person can do.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Your willingness to live truthfully despite the risks shows tremendous strength of character.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're modeling authenticity and self-acceptance for others who might be struggling with the same fears.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "belonging_affirmation",
+        "text": "Jordan tears up at your inclusion and support.",
+        "dialogue": "That means everything to me right now. I was feeling so rejected and alone, but you're reminding me that I do have people who love me.",
+        "mood": "emotionally moved and grateful",
+        "choices": [
+          {
+            "text": "You are loved, valued, and you belong exactly as you are. That will never change.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Rejection from some people doesn't diminish the love that exists for you from others.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "You're part of a community that sees your worth and celebrates who you are.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Your biological family's inability to see your value doesn't change how valuable you are.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "concrete_next_steps",
+        "text": "Jordan appreciates having a clear plan for moving forward.",
+        "dialogue": "Yes, let's call them now. And having a plan for tomorrow makes this feel less overwhelming. Thank you for helping me see that there's a path through this.",
+        "mood": "determined and hopeful",
+        "choices": [
+          {
+            "text": "There's always a path through, even when it's hard to see. You're not walking it alone.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Taking one step at a time makes even the biggest challenges manageable.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "I'm proud of you for choosing to reach out and build the support you deserve.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "You're going to build such a beautiful chosen family filled with people who celebrate all of who you are.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully provided crisis support while affirming Jordan's identity and helping them access LGBTQ+-specific resources. Your intervention has moved them from a dangerous mental state toward hope and community building.",
+        "dialogue": "Thank you for seeing me and believing in me when I couldn't believe in myself. I feel like there might be a way forward now.",
+        "mood": "grateful and cautiously hopeful",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "When supporting LGBTQ+ individuals in crisis: Assess safety first, validate their identity, provide LGBTQ+-specific resources, help build chosen family concepts, and follow up consistently."
+      }
+    ]
+  },
+  "lgbtq-dating-navigation": {
+    "title": "LGBTQ+ Dating Navigation",
+    "description": "You're navigating the complexities of dating as an LGBTQ+ person, dealing with disclosure, safety, and authentic connection.",
+    "character": { "name": "Sam", "avatar": "💕", "mood": "excited but nervous about dating" },
+    "difficulty": "intermediate",
+    "category": "lgbtq-dating",
+    "scenes": [
+      {
+        "id": "intro",
+        "text": "You're talking with your friend Sam about your dating experiences as an LGBTQ+ person. They're also part of the community and understand the unique challenges.",
+        "dialogue": "Dating is so complicated for us, isn't it? I never know when to come out to someone, or if it's even safe. And don't get me started on dating apps - do I put it in my bio or wait?",
+        "mood": "seeking advice and validation",
+        "choices": [
+          {
+            "text": "It really is different for us. What's been your biggest challenge so far?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "explore_challenges"
+          },
+          {
+            "text": "Safety has to come first, but authenticity matters too. It's about finding the right balance for you.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "safety_authenticity"
+          },
+          {
+            "text": "Every LGBTQ+ person navigates this differently. What feels right for your comfort level?",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "personal_comfort"
+          },
+          {
+            "text": "Dating apps can be tricky. Have you considered LGBTQ+-specific platforms where you don't have to navigate coming out?",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "app_suggestions"
+          }
+        ]
+      },
+      {
+        "id": "explore_challenges",
+        "text": "Sam looks relieved to have someone who understands these specific dating challenges.",
+        "dialogue": "The worst part is the anxiety before every date. Will they accept me? Will they have weird questions or fetishize me? And I hate feeling like I have to 'disclose' myself like I'm some kind of warning label.",
+        "mood": "frustrated and vulnerable",
+        "choices": [
+          {
+            "text": "That anxiety is so valid. You're not a disclosure or a warning - you're a whole person looking for connection.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "reframe_disclosure"
+          },
+          {
+            "text": "The fetishization thing is real and gross. You deserve someone who sees you as a complete person, not a curiosity.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "validate_frustration"
+          },
+          {
+            "text": "Have you developed any strategies for gauging someone's attitudes before getting too invested?",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "vetting_strategies"
+          },
+          {
+            "text": "Those pre-date jitters are the worst. Do you have ways to manage that anxiety?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "anxiety_management"
+          }
+        ]
+      },
+      {
+        "id": "reframe_disclosure",
+        "text": "Sam nods emphatically, seeming to feel understood and validated.",
+        "dialogue": "Exactly! I'm not broken or dangerous. I just want to find someone who gets me. But it's scary because rejection feels so much worse when it's about your identity, you know?",
+        "mood": "feeling heard but still worried",
+        "choices": [
+          {
+            "text": "Identity-based rejection does hit differently. But remember, the right person will celebrate who you are, not just tolerate it.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "right_person_perspective"
+          },
+          {
+            "text": "It's hard not to take that rejection personally, but it says more about their limitations than about you.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "rejection_reframe"
+          },
+          {
+            "text": "What if we thought about it as filtering out incompatible people rather than facing rejection?",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "filtering_mindset"
+          },
+          {
+            "text": "Have you connected with other LGBTQ+ folks about their dating experiences? Sometimes community wisdom helps.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "community_support"
+          }
+        ]
+      },
+      {
+        "id": "right_person_perspective",
+        "text": "Sam's expression brightens a bit at this perspective shift.",
+        "dialogue": "I never thought about it that way - celebration versus toleration. I guess I've been so focused on just finding acceptance that I forgot I deserve enthusiasm. How do you know when someone is genuinely excited about who you are?",
+        "mood": "hopeful but seeking guidance",
+        "choices": [
+          {
+            "text": "They ask thoughtful questions, show interest in your experiences, and make you feel proud of who you are, not ashamed.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "positive_signs"
+          },
+          {
+            "text": "You feel like you can be fully yourself around them without editing or explaining yourself constantly.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 3 },
+            "next": "authentic_self"
+          },
+          {
+            "text": "They treat your identity as a natural part of who you are, not something exotic or complicated to navigate.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "natural_acceptance"
+          },
+          {
+            "text": "Trust your gut. When someone truly celebrates you, your nervous system relaxes instead of staying on high alert.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "intuitive_recognition"
+          }
+        ]
+      },
+      {
+        "id": "positive_signs",
+        "text": "Sam is taking mental notes and seems to be gaining confidence about what to look for in potential partners.",
+        "dialogue": "That's really helpful. I think I've been so worried about red flags that I forgot to look for green flags. What about the timing thing though - when do you usually share your identity?",
+        "mood": "more confident but still seeking practical advice",
+        "choices": [
+          {
+            "text": "There's no universal right time. Some people prefer to be upfront, others wait until they feel safer. What feels right for you?",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "timing_flexibility"
+          },
+          {
+            "text": "I think about it like any other important personal information - when you feel ready and when it feels relevant to share.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 3 },
+            "next": "personal_information_analogy"
+          },
+          {
+            "text": "Some people front-load it for safety and efficiency. Others prefer to build connection first. Both are valid strategies.",
+            "impact": { "empathy": 2, "trust": 2, "effectiveness": 4 },
+            "next": "strategy_options"
+          },
+          {
+            "text": "Consider your safety, your emotional energy, and how invested you want to get before sharing. There's no wrong choice.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "decision_factors"
+          }
+        ]
+      },
+      {
+        "id": "decision_factors",
+        "text": "Sam seems relieved to have a framework for thinking about this decision rather than feeling like there's one 'right' way.",
+        "dialogue": "That's so much better than feeling like I'm doing it wrong either way. I think I want to start being more upfront because the anxiety of hiding it is worse than potential rejection. At least then I know where I stand.",
+        "mood": "empowered and more decisive",
+        "choices": [
+          {
+            "text": "That sounds like you're honoring both your safety and your authentic self. That's really brave.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "validate_decision"
+          },
+          {
+            "text": "Being upfront can actually reduce anxiety and help you find people who are genuinely excited about all of you.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "upfront_benefits"
+          },
+          {
+            "text": "You can always adjust your approach based on how it feels. Dating is an experiment in finding what works for you.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "flexible_approach"
+          },
+          {
+            "text": "Remember that anyone who has a problem with who you are isn't someone you'd want to date anyway.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "incompatible_filter"
+          }
+        ]
+      },
+      {
+        "id": "validate_decision",
+        "text": "Sam's confidence grows as you validate their approach to dating authenticity.",
+        "dialogue": "It does feel braver, doesn't it? I'm tired of starting connections based on hiding part of myself. I want someone who's excited about all of me from the beginning.",
+        "mood": "confident and self-assured",
+        "choices": [
+          {
+            "text": "That mindset will attract people who are capable of loving all of you, not just the parts they're comfortable with.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Starting from a place of authenticity builds stronger foundations for real relationships.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You deserve nothing less than someone who thinks you're amazing exactly as you are.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Your courage to be authentic will inspire others and help create more accepting dating spaces.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "upfront_benefits",
+        "text": "Sam considers the practical advantages of being upfront about their identity.",
+        "dialogue": "You're right - the mental energy I spend worrying about when and how to tell someone could be used for actually getting to know them instead.",
+        "mood": "relieved and practical",
+        "choices": [
+          {
+            "text": "Exactly! You can focus on whether you actually like them instead of managing anxiety about disclosure.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "And you'll know that anyone who continues pursuing you is genuinely interested in the real you.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "It also helps you build confidence in owning your identity rather than treating it like something to manage.",
+            "impact": { "empathy": 3, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Plus, you're helping normalize LGBTQ+ visibility in dating spaces, which benefits everyone.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "flexible_approach",
+        "text": "Sam appreciates having permission to adapt their approach as they learn what works.",
+        "dialogue": "That's reassuring. I don't have to commit to one strategy forever. I can see what feels good and adjust from there.",
+        "mood": "experimental and open",
+        "choices": [
+          {
+            "text": "Dating is all about learning what works for you. Give yourself permission to try different approaches.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Your comfort level might change as you gain more experience and confidence too.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "The most important thing is that you feel empowered and authentic in however you choose to navigate it.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          },
+          {
+            "text": "Trust yourself to know what feels right in each situation. You're the expert on your own experience.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 4 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "incompatible_filter",
+        "text": "Sam finds this reframing helpful for dealing with potential rejection.",
+        "dialogue": "That's true. If someone has a problem with who I am, they're not my person anyway. Better to find out early than invest time in someone who won't accept me.",
+        "mood": "practical and self-protective",
+        "choices": [
+          {
+            "text": "Exactly. You're looking for your people, not trying to convince people to become your people.",
+            "impact": { "empathy": 4, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "Rejection becomes less personal when you see it as incompatibility rather than judgment.",
+            "impact": { "empathy": 3, "trust": 2, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "You're protecting your energy for people who are capable of appreciating what you bring to the table.",
+            "impact": { "empathy": 3, "trust": 3, "effectiveness": 4 },
+            "next": "success"
+          },
+          {
+            "text": "And when you do find someone who celebrates you, it'll be so much sweeter because you know it's genuine.",
+            "impact": { "empathy": 4, "trust": 4, "effectiveness": 3 },
+            "next": "success"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "text": "You've successfully helped Sam develop a more confident and strategic approach to LGBTQ+ dating. They feel empowered to seek genuine celebration rather than mere tolerance, and have practical frameworks for making decisions that honor both their safety and authenticity.",
+        "dialogue": "Thank you for helping me think through this. I feel like I can approach dating with more confidence now, knowing what I deserve and how to recognize it.",
+        "mood": "confident and grateful",
+        "isEnd": true,
+        "outcome": "success",
+        "criticalInfo": "LGBTQ+ dating involves unique considerations around safety, timing of disclosure, and finding genuine acceptance. Focus on seeking celebration rather than tolerance, trust your instincts, and remember that you deserve someone who embraces all of who you are."
       }
     ]
   }

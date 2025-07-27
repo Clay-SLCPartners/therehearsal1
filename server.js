@@ -16,6 +16,7 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrcAttr: ["'unsafe-inline'"],
       imgSrc: ["'self'", "data:", "https:"],
       connectSrc: ["'self'"],
       fontSrc: ["'self'"],
@@ -40,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 // Serve the main HTML file first (before static files)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'main.html'));
 });
 
 // Serve the Director's Studio page
@@ -469,7 +470,7 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-// Start the server
+// Start the server - serving main.html
 app.listen(PORT, () => {
   console.log(`🚀 The Rehearsal AI server is running on port ${PORT}`);
   console.log(`📱 Visit http://localhost:${PORT} to access the application`);
@@ -480,4 +481,5 @@ app.listen(PORT, () => {
   }
 });
 
-module.exports = app;
+module.exports = app; 
+ 

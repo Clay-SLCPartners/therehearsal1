@@ -113,6 +113,21 @@ function setupGlobalEventListeners() {
     // Window resize
     window.addEventListener('resize', handleWindowResize);
     
+    // Handle navigation links
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('a[href="#practice"]')) {
+            e.preventDefault();
+            beginRehearsal();
+        }
+    });
+    
+    // Handle hash changes
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash === '#practice') {
+            beginRehearsal();
+        }
+    });
+    
     // Handle escape key globally
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -272,7 +287,30 @@ function handleEscapeKey() {
 
 // Show initial view
 function showInitialView() {
-    // Show the hero section by default
+    // Check URL hash and parameters first
+    const hash = window.location.hash;
+    const urlParams = new URLSearchParams(window.location.search);
+    const scenarioParam = urlParams.get('scenario');
+    
+    // If we're navigating to practice section or have a scenario parameter, show scenarios
+    if (hash === '#practice' || scenarioParam) {
+        if (scenarioParam) {
+            // Load scenarios first, then select specific scenario
+            beginRehearsal().then(() => {
+                if (appState.scenarios && appState.scenarios[scenarioParam]) {
+                    setTimeout(() => {
+                        ScenariosModule.selectScenario(scenarioParam);
+                    }, 1000);
+                }
+            });
+        } else {
+            // Just show the practice section
+            beginRehearsal();
+        }
+        return;
+    }
+    
+    // Otherwise show the hero section by default
     showHeroSection();
     
     // Hide scenarios section initially
@@ -285,21 +323,6 @@ function showInitialView() {
     
     if (conversationInterface) {
         conversationInterface.style.display = 'none';
-    }
-    
-    // Check URL parameters for direct scenario loading
-    const urlParams = new URLSearchParams(window.location.search);
-    const scenarioParam = urlParams.get('scenario');
-    
-    if (scenarioParam) {
-        // Load scenarios first, then select specific scenario
-        beginRehearsal().then(() => {
-            if (appState.scenarios && appState.scenarios[scenarioParam]) {
-                setTimeout(() => {
-                    ScenariosModule.selectScenario(scenarioParam);
-                }, 1000);
-            }
-        });
     }
     
     // Show welcome message for first-time users

@@ -1,0 +1,2641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rehearsal AI - Director's Studio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* HBO Max Color Scheme */
+            --hbo-primary: #1C1C1E;
+            --hbo-secondary: #2D1B69;
+            --hbo-accent: #5C2D91;
+            --hbo-purple: #8B5CF6;
+            --hbo-bright-purple: #A855F7;
+            --hbo-dark-purple: #1F1B2E;
+            --hbo-gradient: linear-gradient(135deg, #2D1B69 0%, #5C2D91 50%, #8B5CF6 100%);
+            --hbo-gradient-reverse: linear-gradient(135deg, #8B5CF6 0%, #5C2D91 50%, #2D1B69 100%);
+            
+            /* Director's Studio Special Colors */
+            --director-gold: #FFD700;
+            --script-blue: #1E90FF;
+            --production-red: #DC143C;
+            --storyboard-green: #32CD32;
+            
+            /* Text Colors */
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            
+            /* Background Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1C1C1E;
+            --bg-card: #2A2A2E;
+            --bg-overlay: rgba(28, 28, 30, 0.95);
+            
+            /* Effects */
+            --shadow-primary: 0 4px 20px rgba(139, 92, 246, 0.15);
+            --shadow-intense: 0 20px 60px rgba(139, 92, 246, 0.4);
+            --shadow-gold: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Director's Studio Header */
+        .studio-header {
+            background: var(--bg-overlay);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--director-gold);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .studio-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .studio-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .studio-logo h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--director-gold) 0%, var(--hbo-bright-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .director-badge {
+            background: var(--director-gold);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Studio Layout */
+        .studio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            gap: 2rem;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* Left Sidebar - Skit Templates */
+        .templates-sidebar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .templates-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .templates-header h3 {
+            color: var(--director-gold);
+            font-size: 1.2rem;
+        }
+
+        .template-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .template-category h4 {
+            color: var(--hbo-bright-purple);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .template-item {
+            background: var(--bg-secondary);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-item:hover {
+            border-color: var(--director-gold);
+            transform: translateX(5px);
+        }
+
+        .template-item.selected {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--director-gold);
+        }
+
+        /* Main Work Area */
+        .workspace {
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workspace::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--director-gold) 0%, var(--hbo-bright-purple) 50%, var(--script-blue) 100%);
+        }
+
+        .workspace-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .workspace-title {
+            font-size: 1.5rem;
+            color: var(--director-gold);
+        }
+
+        .nathan-meter {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--director-gold);
+        }
+
+        .nathan-meter-label {
+            font-size: 0.9rem;
+            color: var(--director-gold);
+            font-weight: 600;
+        }
+
+        .nathan-meter-bar {
+            width: 150px;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .nathan-meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--director-gold) 0%, var(--hbo-bright-purple) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Script Writing Area */
+        .script-editor {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .script-editor textarea {
+            width: 100%;
+            min-height: 350px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            resize: vertical;
+            outline: none;
+        }
+
+        .script-editor textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* AI Enhancement Panel */
+        .ai-enhancement {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--hbo-bright-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-enhancement h4 {
+            color: var(--hbo-bright-purple);
+            margin-bottom: 1rem;
+        }
+
+        .enhancement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .enhancement-option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .enhancement-option:hover {
+            border-color: var(--hbo-bright-purple);
+            transform: translateY(-2px);
+        }
+
+        .enhancement-option.active {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--hbo-bright-purple);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-generate {
+            background: var(--hbo-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-intense);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--hbo-bright-purple);
+            padding: 1rem 2rem;
+            border: 2px solid var(--hbo-bright-purple);
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--hbo-bright-purple);
+            color: var(--bg-primary);
+        }
+
+        /* Right Sidebar - Nathan's Notes */
+        .nathan-sidebar {
+            background: var(--bg-card);
+            border: 2px solid var(--director-gold);
+            border-radius: 16px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .nathan-portrait {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nathan-portrait::after {
+            content: "🎬";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nathan-quote {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--director-gold);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .nathan-quote p {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .nathan-quote .attribution {
+            color: var(--director-gold);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .nathan-tips {
+            margin-bottom: 1.5rem;
+        }
+
+        .nathan-tips h4 {
+            color: var(--director-gold);
+            margin-bottom: 1rem;
+        }
+
+        .nathan-tip {
+            background: var(--bg-secondary);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Generated Script Display */
+        .generated-script {
+            background: var(--bg-secondary);
+            border: 2px solid var(--script-blue);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .generated-script.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .generated-script.minimized {
+            padding: 1rem 2rem;
+        }
+
+        .generated-script.minimized .script-content,
+        .generated-script.minimized .production-notes,
+        .generated-script.minimized .storyboard-preview,
+        .generated-script.minimized #downloadBtn {
+            display: none;
+        }
+
+        .script-header {
+            background: linear-gradient(90deg, var(--script-blue) 0%, var(--hbo-bright-purple) 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px 8px 0 0;
+            margin: -2rem -2rem 1.5rem -2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .script-header:hover {
+            background: linear-gradient(90deg, var(--script-blue) 0%, var(--hbo-bright-purple) 80%, var(--director-gold) 100%);
+        }
+
+        .script-header h3 {
+            margin: 0;
+            flex: 1;
+        }
+
+        .minimize-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .minimize-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .minimize-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .script-stats {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .script-content {
+            font-family: 'Courier Prime', monospace;
+            line-height: 2;
+            white-space: pre-wrap;
+        }
+
+        .character-name {
+            color: var(--director-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .stage-direction {
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+
+        .dialogue {
+            color: var(--text-primary);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Production Notes */
+        .production-notes {
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid var(--production-red);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .production-notes h5 {
+            color: var(--production-red);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Storyboard Preview */
+        .storyboard-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .storyboard-frame {
+            background: var(--bg-secondary);
+            border: 2px solid var(--storyboard-green);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame-number {
+            color: var(--storyboard-green);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .frame-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .frame-description {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Loading Animation */
+        .loading-nathan {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading-nathan.active {
+            display: block;
+        }
+
+        .loading-text {
+            color: var(--director-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .loading-fill {
+            height: 100%;
+            background: var(--hbo-gradient);
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Rehearsal Stats */
+        .rehearsal-stats {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid var(--director-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--director-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .studio-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .templates-sidebar,
+            .nathan-sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .studio-header {
+                padding: 1rem;
+            }
+
+            .studio-logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .workspace {
+                padding: 1.5rem;
+            }
+
+            .enhancement-options {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Studio Header -->
+    <header class="studio-header">
+        <nav class="studio-nav">
+            <div class="studio-logo">
+                <h1>Director's Studio</h1>
+                <span class="director-badge">Nathan Mode</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <div id="userStatus" style="display: none; background: rgba(255, 215, 0, 0.1); border: 1px solid var(--director-gold); border-radius: 8px; padding: 0.5rem 1rem; color: var(--director-gold); font-size: 0.9rem;">
+                    <span id="userStatusText">Not logged in</span>
+                </div>
+                <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">← Back to Rehearsals</a>
+                <button class="btn-secondary" onclick="saveScript()" style="padding: 0.75rem 1.5rem;">Save Script</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Studio Container -->
+    <div class="studio-container">
+        <!-- Left Sidebar - Templates -->
+        <aside class="templates-sidebar">
+            <div class="templates-header">
+                <span style="font-size: 1.5rem;">📝</span>
+                <h3>Skit Templates</h3>
+            </div>
+
+            <div class="template-category">
+                <h4>Mental Health Scenarios</h4>
+                <div class="template-item" onclick="selectTemplate('therapy-first-time')">
+                    <strong>First Therapy Session</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Overthinking every word</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('medication-stigma')">
+                    <strong>Taking Medication</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Secret pill organization</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('family-dinner-anxiety')">
+                    <strong>Family Dinner Anxiety</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Rehearsing small talk</p>
+                </div>
+            </div>
+
+            <div class="template-category">
+                <h4>Social Situations</h4>
+                <div class="template-item" onclick="selectTemplate('party-exit-strategy')">
+                    <strong>Party Exit Planning</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">47 escape routes</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('coffee-order-practice')">
+                    <strong>Coffee Shop Rehearsal</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Ordering without panic</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('phone-call-prep')">
+                    <strong>Phone Call Preparation</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Script for pizza delivery</p>
+                </div>
+            </div>
+
+            <div class="template-category">
+                <h4>Difficult Conversations</h4>
+                <div class="template-item" onclick="selectTemplate('addiction-intervention')">
+                    <strong>Addiction Conversation</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">147 ways to show you care</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('substance-concern')">
+                    <strong>Expressing Concern</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Without judgment flowchart</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('recovery-support')">
+                    <strong>Supporting Recovery</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Being helpful vs enabling</p>
+                </div>
+            </div>
+
+            <div class="template-category">
+                <h4>Workplace Awkwardness</h4>
+                <div class="template-item" onclick="selectTemplate('bathroom-encounter')">
+                    <strong>Bathroom Small Talk</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Avoiding eye contact</p>
+                </div>
+                <div class="template-item" onclick="selectTemplate('elevator-strategy')">
+                    <strong>Elevator Conversations</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Floor button politics</p>
+                </div>
+            </div>
+
+            <!-- Saved Scripts Section -->
+            <div class="template-category" style="border-top: 1px solid var(--border-primary); padding-top: 1rem; margin-top: 1rem;">
+                <h4>📁 Your Saved Scripts</h4>
+                <div id="savedScriptsList">
+                    <div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1rem;">
+                        No saved scripts yet.<br>
+                        Create your first masterpiece!
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                    <button onclick="refreshSavedScripts()" style="flex: 1; padding: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: 6px; color: var(--text-secondary); cursor: pointer; font-size: 0.8rem;">
+                        🔄 Refresh
+                    </button>
+                    <button onclick="minimizeCurrentScript()" id="quickMinimizeBtn" style="flex: 1; padding: 0.5rem; background: var(--hbo-bright-purple); border: 1px solid var(--hbo-bright-purple); border-radius: 6px; color: white; cursor: pointer; font-size: 0.8rem; display: none;">
+                        📋 Minimize Script
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <div class="workspace-header">
+                <h2 class="workspace-title">Write Your Skit</h2>
+                <div class="nathan-meter">
+                    <span class="nathan-meter-label">Nathan Fielder Level:</span>
+                    <div class="nathan-meter-bar">
+                        <div class="nathan-meter-fill" id="nathanMeter"></div>
+                    </div>
+                    <span id="nathanLevel">0%</span>
+                </div>
+            </div>
+
+            <!-- Script Editor -->
+            <div class="script-editor">
+                <textarea id="scriptInput" placeholder="INT. THERAPIST'S WAITING ROOM - DAY
+
+PROTAGONIST sits rigidly in a chair, having arrived 47 minutes early. They've rehearsed their opening line 312 times.
+
+PROTAGONIST
+(inner monologue)
+What if I say 'hello' wrong? Is there a wrong way to say hello? I should have practiced more hellos.
+
+[Start writing your Nathan Fielder-style mental health skit here...]"></textarea>
+            </div>
+
+            <!-- AI Enhancement Options -->
+            <div class="ai-enhancement">
+                <h4>🤖 AI Enhancement Options</h4>
+                <div class="enhancement-options">
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'awkwardness')">
+                        <strong>Maximize Awkwardness</strong>
+                        <p style="font-size: 0.8rem;">+200% cringe factor</p>
+                    </div>
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'overthinking')">
+                        <strong>Extreme Overthinking</strong>
+                        <p style="font-size: 0.8rem;">Analysis paralysis mode</p>
+                    </div>
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'preparation')">
+                        <strong>Over-Preparation</strong>
+                        <p style="font-size: 0.8rem;">147-step plan minimum</p>
+                    </div>
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'diagrams')">
+                        <strong>Add Flowcharts</strong>
+                        <p style="font-size: 0.8rem;">Decision trees required</p>
+                    </div>
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'statistics')">
+                        <strong>Fake Statistics</strong>
+                        <p style="font-size: 0.8rem;">73.4% more believable</p>
+                    </div>
+                    <div class="enhancement-option" onclick="toggleEnhancement(this, 'replicas')">
+                        <strong>Build Replicas</strong>
+                        <p style="font-size: 0.8rem;">1:1 scale environments</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-generate" onclick="generateScript()">
+                    🎬 Generate Nathan-Level Script
+                </button>
+                <button class="btn-secondary" onclick="addProductionNotes()">
+                    📋 Add Production Notes
+                </button>
+                <button class="btn-secondary" onclick="createStoryboard()">
+                    🎨 Create Storyboard
+                </button>
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="loading-nathan" id="loadingAnimation">
+                <div class="loading-text">Nathan is meticulously crafting your script...</div>
+                <div class="loading-bar">
+                    <div class="loading-fill"></div>
+                </div>
+                <p style="color: var(--text-muted);">Calculating awkwardness levels... Adding unnecessary complexity...</p>
+            </div>
+
+            <!-- Generated Script Display -->
+            <div class="generated-script" id="generatedScript">
+                <div class="script-header" onclick="toggleScriptMinimize()">
+                    <h3 id="scriptTitle">Your Nathan Fielder-Inspired Mental Health Skit</h3>
+                    <div class="minimize-controls">
+                        <div class="script-stats">
+                            <span id="scriptWordCount">0 words</span> • 
+                            <span id="scriptComplexity">Nathan Level: 0%</span>
+                        </div>
+                        <button class="minimize-btn" id="minimizeBtn">
+                            <span id="minimizeIcon">📄</span> <span id="minimizeText">Minimize</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="script-content" id="scriptContent">
+                    <!-- Generated content will appear here -->
+                </div>
+                
+                <!-- Production Notes -->
+                <div class="production-notes" id="productionNotes" style="display: none;">
+                    <h5>📝 Production Notes</h5>
+                    <ul id="productionNotesList"></ul>
+                </div>
+
+                <!-- Storyboard Preview -->
+                <div class="storyboard-preview" id="storyboardPreview" style="display: none;">
+                    <!-- Storyboard frames will appear here -->
+                </div>
+            </div>
+
+            <!-- Rehearsal Stats -->
+            <div class="rehearsal-stats" style="display: none;" id="rehearsalStats">
+                <div class="stat-item">
+                    <span class="stat-number" id="awkwardnessScore">0</span>
+                    <span class="stat-label">Awkwardness Score</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="rehearsalCount">0</span>
+                    <span class="stat-label">Rehearsals Needed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="complexityRating">0</span>
+                    <span class="stat-label">Complexity Rating</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Nathan's Notes -->
+        <aside class="nathan-sidebar">
+            <div class="nathan-portrait">
+                <span>🎭</span>
+            </div>
+
+            <div class="nathan-quote">
+                <p>"The key to a good mental health skit is making it so awkward that the actual situation feels comfortable by comparison."</p>
+                <div class="attribution">- Nathan Fielder (probably)</div>
+            </div>
+
+            <div class="nathan-tips">
+                <h4>Nathan's Writing Tips</h4>
+                <div class="nathan-tip">
+                    💡 Always include at least 3 backup plans for every social interaction
+                </div>
+                <div class="nathan-tip">
+                    📊 Reference fake statistics you calculated yourself
+                </div>
+                <div class="nathan-tip">
+                    🏗️ Consider building a replica therapy office in your garage
+                </div>
+                <div class="nathan-tip">
+                    ⏱️ Time every pause to the millisecond
+                </div>
+                <div class="nathan-tip">
+                    📝 Document everything, even your documentation process
+                </div>
+            </div>
+
+            <div style="background: rgba(139, 92, 246, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1.5rem;">
+                <h4 style="color: var(--hbo-bright-purple); margin-bottom: 0.5rem;">Current Project</h4>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Working on: <span id="currentProject">Untitled Mental Health Skit</span></p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Draft #<span id="draftNumber">1</span> of approximately 147</p>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Global state for Director's Studio with backend integration
+        const studioState = {
+            currentTemplate: null,
+            enhancements: [],
+            nathanLevel: 0,
+            draftNumber: 1,
+            scriptHistory: [],
+            productionNotes: [],
+            storyboardFrames: [],
+            currentScriptId: null,
+            isAuthenticated: false,
+            user: null
+        };
+
+        // Backend API configuration
+        const API_BASE = '/api'; // Assuming backend is on same domain
+        const API_ENDPOINTS = {
+            scripts: `${API_BASE}/scripts`,
+            templates: `${API_BASE}/scripts/templates`,
+            enhance: (id) => `${API_BASE}/scripts/${id}/enhance`,
+            analyze: (id) => `${API_BASE}/scripts/${id}/analyze`,
+            auth: `${API_BASE}/auth`
+        };
+
+        // Authentication helper - check for main app's auth system
+        function getAuthToken() {
+            // Check if user is logged in via main app
+            const currentUser = JSON.parse(localStorage.getItem('rehearsal_current_user'));
+            return currentUser ? 'authenticated' : null;
+        }
+
+        function getCurrentUser() {
+            return JSON.parse(localStorage.getItem('rehearsal_current_user'));
+        }
+
+        // API request helper
+        async function apiRequest(url, options = {}) {
+            const token = getAuthToken();
+            const defaultOptions = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token && { 'Authorization': `Bearer ${token}` })
+                }
+            };
+
+            const response = await fetch(url, {
+                ...defaultOptions,
+                ...options,
+                headers: {
+                    ...defaultOptions.headers,
+                    ...options.headers
+                }
+            });
+
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({ message: 'Network error' }));
+                throw new Error(error.message || `HTTP ${response.status}`);
+            }
+
+            return response.json();
+        }
+
+        // Template definitions
+        const templates = {
+            'therapy-first-time': {
+                title: 'First Therapy Session',
+                starter: `INT. THERAPIST'S WAITING ROOM - DAY
+
+PROTAGONIST arrives 47 minutes early. They've prepared 73 potential opening statements.
+
+PROTAGONIST
+(to receptionist)
+I'm here for my 2:00. I mean, 2:00 PM. Eastern Time. Today. Tuesday. The 15th.
+
+RECEPTIONIST
+(confused)
+It's Monday.
+
+PROTAGONIST freezes. They pull out a laminated flowchart.
+
+PROTAGONIST
+(reading flowchart)
+If day confusion occurs, execute Plan B: Pretend to receive urgent phone call.
+
+Their phone is clearly off.`,
+                nathanLevel: 65
+            },
+            'medication-stigma': {
+                title: 'Secret Medication Ritual',
+                starter: `INT. BATHROOM - MORNING
+
+PROTAGONIST has constructed an elaborate 14-step medication routine to hide their antidepressants.
+
+PROTAGONIST
+(voice-over)
+Step 1: Check all windows for potential witnesses.
+Step 2: Run water to mask pill bottle sound.
+Step 3: Create decoy vitamin scenario.
+
+They accidentally knock over their elaborate pill-hiding apparatus.
+
+PROTAGONIST (CONT'D)
+This is why I built a backup hiding system. And a backup to the backup.`,
+                nathanLevel: 78
+            },
+            'party-exit-strategy': {
+                title: 'Party Escape Planning',
+                starter: `INT. HOUSE PARTY - NIGHT
+
+PROTAGONIST stands near the door with a clipboard, timing conversations.
+
+PROTAGONIST
+(into hidden microphone)
+Subject has maintained eye contact for 4.7 seconds. Preparing Exit Strategy #12: Sudden dairy intolerance.
+
+PARTY GUEST
+Hey! Want to play beer pong?
+
+PROTAGONIST
+(checking clipboard)
+I've rehearsed 47 different ways to say no. Let me find the most appropriate one.
+
+They flip through pages frantically.`,
+                nathanLevel: 82
+            },
+            'addiction-intervention': {
+                title: 'Addiction Conversation',
+                starter: `INT. LIVING ROOM - DAY
+
+PROTAGONIST has prepared 147 different conversation openings. They've built a scale model of the room to practice.
+
+PROTAGONIST
+(to themselves)
+According to my research, 73.4% of addiction conversations fail due to poor opening statements.
+
+LOVED ONE enters, clearly struggling but trying to hide it.
+
+LOVED ONE
+Hey! Sorry I'm late. Traffic was... complicated.
+
+PROTAGONIST
+(checking rehearsal notes)
+I've prepared for 12 different excuse variations. This appears to be Excuse Type #7: Vague external blame.
+
+PROTAGONIST (CONT'D)
+(putting notes away)
+Actually, I wanted to talk to you about something. I've noticed you've been struggling lately.
+
+LOVED ONE
+(defensive)
+What do you mean? I'm fine.
+
+PROTAGONIST
+(consulting mental flowchart)
+Defensive Response Path B. Proceed to Empathy Statement #23.`,
+                nathanLevel: 89
+            },
+            'substance-concern': {
+                title: 'Expressing Concern Without Judgment',
+                starter: `INT. COFFEE SHOP - DAY
+
+PROTAGONIST has arrived 93 minutes early to diagram optimal seating arrangements.
+
+PROTAGONIST
+(voice-over)
+I've calculated that sitting at a 47-degree angle minimizes confrontational body language while maintaining 83.6% eye contact capability.
+
+FRIEND arrives, orders black coffee with shaky hands.
+
+PROTAGONIST
+(consulting laminated cards under table)
+I'm concerned about your drinking. I mean... I've noticed... 
+(flipping cards)
+Wait, that's too direct. Let me try Opening Statement #14.
+
+FRIEND
+Are you reading from cards?
+
+PROTAGONIST
+I prepared 73 different ways to say I care about you. None of them felt adequate.
+
+The honesty breaks the ice.`,
+                nathanLevel: 91
+            },
+            'recovery-support': {
+                title: 'Supporting Recovery Without Enabling',
+                starter: `INT. PROTAGONIST'S APARTMENT - DAY
+
+The walls are covered with flowcharts labeled "ENABLING vs SUPPORTING: A 147-POINT GUIDE"
+
+PROTAGONIST
+(on phone)
+Day 37 of your recovery. I've created a spreadsheet tracking optimal support frequency.
+
+FRIEND IN RECOVERY
+(on phone)
+You made a spreadsheet?
+
+PROTAGONIST
+Multiple spreadsheets. Also a 3D model of your trigger locations with avoidance routes calculated to the meter.
+
+FRIEND IN RECOVERY
+That's... actually kind of helpful?
+
+PROTAGONIST
+(checking charts)
+According to my data, expressing pride increases recovery success by 23.7%. So... I'm proud of you.
+(pause)
+Did that sound natural? I practiced it 47 times.`,
+                nathanLevel: 94
+            },
+            'bathroom-encounter': {
+                title: 'Bathroom Small Talk',
+                starter: `INT. OFFICE BATHROOM - DAY
+
+PROTAGONIST enters the bathroom carrying 14 different contingency plans for potential social encounters.
+
+PROTAGONIST
+(voice-over)
+I've timed bathroom visits to avoid peak usage hours. But Steve from Accounting is unexpectedly here.
+
+STEVE approaches the sink next to PROTAGONIST, who immediately stares directly at the floor.
+
+STEVE
+Hey! How's your day going?
+
+PROTAGONIST
+(panic)
+My day? Like... today? This specific day? Of the week? Which is Tuesday?
+
+STEVE
+(confused)
+It's Thursday.
+
+PROTAGONIST
+(consulting mental flowchart)
+Thursday Small Talk Protocol: Initiate weather discussion or inquire about weekend plans. But weekends are still 27 hours away.
+
+STEVE
+You okay, buddy?
+
+PROTAGONIST
+I'm practicing optimal bathroom etiquette. Did you know most people wash their hands for only 6 seconds when the CDC recommends 20?
+
+PROTAGONIST begins demonstrating proper handwashing technique.
+
+PROTAGONIST (CONT'D)
+I've developed a 73-step bathroom interaction flowchart. Step 47 is "Exit gracefully if conversation exceeds 90 seconds."
+
+They check their watch - it's been 91 seconds.
+
+PROTAGONIST (CONT'D)
+(abruptly)
+Time exceeded. Implementing Emergency Exit Strategy #12.
+
+PROTAGONIST walks directly into the door, which they try to pull instead of push.`,
+                nathanLevel: 87
+            },
+            'elevator-strategy': {
+                title: 'Elevator Conversations',
+                starter: `INT. OFFICE BUILDING ELEVATOR - DAY
+
+PROTAGONIST enters the elevator with a laminated card listing floors 1-47 and appropriate small talk for each.
+
+PROTAGONIST
+(voice-over)
+I've calculated that elevator rides between floors 3-8 require exactly 23 seconds of polite conversation.
+
+COWORKER enters at Floor 3.
+
+COWORKER
+Oh hey! Going up?
+
+PROTAGONIST
+(checking card)
+Statistically, yes. Floor 7. You?
+
+COWORKER
+Same! Crazy coincidence.
+
+PROTAGONIST
+(calculating)
+Actually, given that we both work on Floor 7, the probability is roughly 73.4%. Not that crazy.
+
+Awkward silence. PROTAGONIST checks their conversation card.
+
+PROTAGONIST (CONT'D)
+(reading directly from card)
+"How about this weather?" No wait, we're inside. 
+(flipping card)
+"Any weekend plans?" But it's Tuesday.
+
+COWORKER
+Are you reading something?
+
+PROTAGONIST
+I've prepared conversation topics organized by floor, time of day, and social relationship proximity. We're classified as "Professional Acquaintance Level 3."
+
+The elevator stops at Floor 6.
+
+PROTAGONIST (CONT'D)
+(panicking)
+This isn't Floor 7! My calculations didn't account for additional stops! I need to recalibrate the entire conversation matrix!
+
+COWORKER
+We can just... wait one more floor?
+
+PROTAGONIST
+(relieved)
+Yes. That works. I'll add "unexpected stops" to my contingency planning.
+
+They ride in silence for 0.7 seconds.
+
+PROTAGONIST (CONT'D)
+So... how about that weather outside that we can't currently see?`,
+                nathanLevel: 85
+            },
+            'family-dinner-anxiety': {
+                title: 'Family Dinner Anxiety',
+                starter: `INT. PROTAGONIST'S CAR - OUTSIDE PARENTS' HOUSE - DAY
+
+PROTAGONIST sits in their car with 73 index cards, each containing a conversation topic and backup discussion points.
+
+PROTAGONIST
+(voice-over, practicing)
+"How's work?" Answer duration: 37-52 seconds. Include one mildly interesting detail, avoid mentioning therapy.
+
+They flip to the next card.
+
+PROTAGONIST (CONT'D)
+"Did you see that thing on the news?" Proceed only if 67% certain they actually watch news.
+
+PROTAGONIST checks their watch, pulls out a laminated seating chart.
+
+PROTAGONIST (CONT'D)
+If I sit here, Uncle Jerry can't ask about my dating life. If I sit there, Mom can't reach my plate to add more food.
+
+They walk to the door carrying a briefcase.
+
+COUSIN MIKE
+(opening door)
+Why do you have a briefcase?
+
+PROTAGONIST
+(checking mental flowchart)
+This question wasn't in my preparation. Activating improvisation protocol.
+
+PROTAGONIST (CONT'D)
+It's... my emotional support briefcase. It contains my conversation emergency kit.
+
+COUSIN MIKE
+Your what?
+
+PROTAGONIST
+47 conversation starters, 23 deflection techniques, and a detailed analysis of everyone's personality triggers.
+
+PROTAGONIST (CONT'D)
+(opening briefcase)
+I also brought backup gifts in case someone else brings the same thing, and alternative seating arrangements optimized for minimal personal questions.
+
+COUSIN MIKE
+You made blueprints of our dining room?
+
+PROTAGONIST
+Multiple blueprints. I have contingencies for if someone brings a new boyfriend, if politics gets mentioned, or if Dad starts the "when I was your age" speech.
+
+PROTAGONIST (CONT'D)
+(consulting papers)
+Speaking of which, you're supposed to ask me about work now. I've prepared a 73-second response that reveals nothing personal while seeming engaged.`,
+                nathanLevel: 92
+            },
+            'coffee-order-practice': {
+                title: 'Coffee Shop Rehearsal',
+                starter: `INT. COFFEE SHOP - DAY
+
+PROTAGONIST has been observing the coffee shop for 3 hours, documenting barista behavioral patterns.
+
+PROTAGONIST
+(voice-over)
+I've identified optimal ordering times, memorized the menu, and prepared contingencies for 14 different scenarios.
+
+They approach the counter with a laminated card.
+
+BARISTA
+Hi! What can I get you?
+
+PROTAGONIST
+(reading directly from card)
+I would like one medium coffee. Black. No modifications.
+
+BARISTA
+We have Pike Place, Blonde, or Dark Roast. Also, it's called a "Grande."
+
+PROTAGONIST
+(panic, flipping cards frantically)
+This deviation wasn't anticipated. I need to recalibrate my order protocol.
+
+PROTAGONIST (CONT'D)
+(to themselves)
+Dark roast has higher caffeine content but bitter taste profile may affect social interactions. Blonde roast is less intimidating but might suggest indecisiveness...
+
+BARISTA
+Sir? There are people behind you.
+
+PROTAGONIST
+(looking back)
+Yes, 7 people. I calculated optimal timing to avoid lines, but my data didn't account for the Tuesday afternoon specialty drink promotion.
+
+PROTAGONIST (CONT'D)
+(back to barista)
+I'll take the Pike Place. Actually, make it a small. Medium. No, small. I mean "Tall" - I studied your sizing system.
+
+BARISTA
+Name for the order?
+
+PROTAGONIST
+(consulting another card)
+I've prepared 5 different name options depending on barista personality type. You seem friendly but efficient, so... Kevin.
+
+BARISTA
+Kevin?
+
+PROTAGONIST
+It's not my real name. I chose it because it's phonetically clear and unlikely to be misspelled. My real name has caused 73 ordering complications across 47 different establishments.
+
+PROTAGONIST (CONT'D)
+(as barista writes "Kevin")
+Perfect execution. This interaction lasted exactly 47 seconds, within optimal range.`,
+                nathanLevel: 88
+            },
+            'phone-call-prep': {
+                title: 'Phone Call Preparation',
+                starter: `INT. PROTAGONIST'S APARTMENT - DAY
+
+PROTAGONIST sits at a desk with 14 different scripts laid out, a stopwatch, and a voice recorder.
+
+PROTAGONIST
+(voice-over)
+Phone call anxiety requires extensive preparation. I've written scripts for every possible conversation path.
+
+They pick up their phone, then put it down immediately.
+
+PROTAGONIST (CONT'D)
+(practicing with recorder)
+"Hi, I'd like to order a pizza." No, too casual. 
+(trying again)
+"Hello, I would like to place an order for delivery." Better. Professional but approachable.
+
+They check Script #7.
+
+PROTAGONIST (CONT'D)
+If they ask about toppings, proceed to backup script B. If they ask about size, use the pre-calculated decision matrix.
+
+PROTAGONIST dials the number, hangs up after one ring.
+
+PROTAGONIST (CONT'D)
+(to themselves)
+What if they ask questions I haven't prepared for? What if they have a different accent than I practiced with?
+
+They pull out a flowchart labeled "PIZZA ORDERING: COMPREHENSIVE DECISION TREE"
+
+PROTAGONIST (CONT'D)
+(redialing, phone rings)
+
+PIZZA WORKER
+Tony's Pizza, what can I get you?
+
+PROTAGONIST
+(consulting script)
+Hello, I would like to place an order for delivery. I require one large pizza with pepperoni, estimated delivery time 25-30 minutes.
+
+PIZZA WORKER
+Sure thing. What's your address?
+
+PROTAGONIST
+(panic - flipping through papers)
+Address protocol! I prepared this! Where's Emergency Script #12?
+
+PROTAGONIST (CONT'D)
+(finding the right script)
+My address is... wait, I wrote down my address 73 times to practice saying it naturally, and now it sounds fake.
+
+PIZZA WORKER
+Sir?
+
+PROTAGONIST
+(reading robotically)
+123 Main Street, Apartment 4B. That's Main Street with an "M" like "Mozzarella." The apartment is 4B like "B" for "Before-preparation-prevents-poor-performance."
+
+PIZZA WORKER
+Okay... that'll be $18.50, about 30 minutes.
+
+PROTAGONIST
+(checking stopwatch)
+Perfect! This call lasted 73 seconds, within my projected range. Thank you for your cooperation with my ordering system.
+
+They hang up, immediately start taking notes.
+
+PROTAGONIST (CONT'D)
+Note for future calls: Maybe don't explain what letters stand for.`,
+                nathanLevel: 90
+            }
+        };
+
+        // Select template
+        function selectTemplate(templateId) {
+            console.log('selectTemplate called with:', templateId);
+            
+            // Clear previous selection
+            document.querySelectorAll('.template-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // Find and select the clicked template item
+            const targetElement = document.querySelector(`[onclick*="${templateId}"]`);
+            if (targetElement) {
+                targetElement.classList.add('selected');
+                console.log('Template item selected:', targetElement);
+            }
+            
+            const template = templates[templateId];
+            console.log('Template found:', template);
+            
+            if (template) {
+                studioState.currentTemplate = templateId;
+                
+                // Update script input
+                const scriptInput = document.getElementById('scriptInput');
+                if (scriptInput) {
+                    scriptInput.value = template.starter;
+                    console.log('Script input updated');
+                } else {
+                    console.error('Script input element not found');
+                }
+                
+                // Update current project title
+                const currentProject = document.getElementById('currentProject');
+                if (currentProject) {
+                    currentProject.textContent = template.title;
+                    console.log('Current project updated to:', template.title);
+                } else {
+                    console.error('Current project element not found');
+                }
+                
+                updateNathanLevel(template.nathanLevel);
+                
+                // Show Nathan's commentary for this template
+                if (typeof showNathanNotification === 'function') {
+                    showNathanNotification(`Excellent choice! I've prepared ${Math.floor(Math.random() * 50) + 20} variations of this scenario.`);
+                }
+            } else {
+                console.error('Template not found for ID:', templateId);
+                console.log('Available templates:', Object.keys(templates));
+            }
+        }
+
+        // Toggle enhancement options
+        function toggleEnhancement(element, enhancement) {
+            element.classList.toggle('active');
+            
+            const index = studioState.enhancements.indexOf(enhancement);
+            if (index > -1) {
+                studioState.enhancements.splice(index, 1);
+            } else {
+                studioState.enhancements.push(enhancement);
+            }
+            
+            // Update Nathan level based on enhancements
+            const baseLevel = studioState.nathanLevel;
+            const enhancementBonus = studioState.enhancements.length * 5;
+            updateNathanLevel(Math.min(100, baseLevel + enhancementBonus));
+        }
+
+        // Update Nathan Fielder level meter
+        function updateNathanLevel(level) {
+            studioState.nathanLevel = level;
+            document.getElementById('nathanMeter').style.width = `${level}%`;
+            document.getElementById('nathanLevel').textContent = `${level}%`;
+            
+            // Change meter color based on level
+            const meterFill = document.getElementById('nathanMeter');
+            if (level < 30) {
+                meterFill.style.background = 'linear-gradient(90deg, #gray 0%, #silver 100%)';
+            } else if (level < 60) {
+                meterFill.style.background = 'linear-gradient(90deg, #bronze 0%, var(--director-gold) 100%)';
+            } else if (level < 80) {
+                meterFill.style.background = 'linear-gradient(90deg, var(--director-gold) 0%, var(--hbo-bright-purple) 100%)';
+            } else {
+                meterFill.style.background = 'linear-gradient(90deg, var(--director-gold) 0%, var(--hbo-bright-purple) 50%, var(--script-blue) 100%)';
+            }
+        }
+
+        // Quick minimize function for sidebar button
+        function minimizeCurrentScript() {
+            const generatedScript = document.getElementById('generatedScript');
+            if (generatedScript.classList.contains('active') && !generatedScript.classList.contains('minimized')) {
+                toggleScriptMinimize();
+            }
+        }
+
+        // Enhanced script generation with actual AI-style processing
+        async function generateScript() {
+            const input = document.getElementById('scriptInput').value;
+            if (!input.trim()) {
+                alert('Please write something first. Nathan would have at least 47 drafts by now.');
+                return;
+            }
+            
+            // Check authentication using main app's system
+            const currentUser = getCurrentUser();
+            if (!currentUser) {
+                // Show login redirect message instead of generic alert
+                showNathanNotification('Please log in to use AI enhancement. Return to main app to authenticate.');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                return;
+            }
+            
+            // Show loading animation
+            document.getElementById('loadingAnimation').classList.add('active');
+            document.getElementById('generatedScript').classList.remove('active');
+            
+            // Simulate AI processing with actual script enhancement
+            setTimeout(() => {
+                const enhancedScript = generateNathanFielderScript(input);
+                displayGeneratedScript(enhancedScript);
+                
+                // Update stats
+                updateRehearsalStats();
+                
+                // Hide loading, show result
+                document.getElementById('loadingAnimation').classList.remove('active');
+                document.getElementById('generatedScript').classList.add('active');
+                document.getElementById('generatedScript').classList.remove('minimized'); // Ensure it shows expanded first
+                document.getElementById('rehearsalStats').style.display = 'grid';
+                
+                // Show quick minimize button in sidebar
+                document.getElementById('quickMinimizeBtn').style.display = 'block';
+                
+                // Increment draft number
+                studioState.draftNumber++;
+                document.getElementById('draftNumber').textContent = studioState.draftNumber;
+                
+                // Save to history
+                studioState.scriptHistory.push(enhancedScript);
+                
+                // Add download button
+                addDownloadButton(enhancedScript);
+                
+                // Show success notification with user's name
+                showNathanNotification(`Script generated for ${currentUser.name}! Click the header to minimize and explore other scenarios.`);
+                
+            }, 3000);
+        }
+
+        // Generate a full Nathan Fielder-style script based on user input
+        function generateNathanFielderScript(userInput) {
+            const prompt = userInput.toLowerCase();
+            let enhancedScript = userInput + "\n\n";
+            
+            // Analyze user input for mental health themes
+            const themes = {
+                therapy: prompt.includes('therapy') || prompt.includes('therapist') || prompt.includes('session'),
+                anxiety: prompt.includes('anxiety') || prompt.includes('anxious') || prompt.includes('nervous'),
+                depression: prompt.includes('depression') || prompt.includes('depressed') || prompt.includes('sad'),
+                medication: prompt.includes('medication') || prompt.includes('pills') || prompt.includes('antidepressant'),
+                social: prompt.includes('social') || prompt.includes('party') || prompt.includes('friends'),
+                work: prompt.includes('work') || prompt.includes('job') || prompt.includes('office'),
+                family: prompt.includes('family') || prompt.includes('parents') || prompt.includes('mom') || prompt.includes('dad')
+            };
+
+            // Generate continuation based on themes and enhancements
+            if (themes.therapy) {
+                enhancedScript += generateTherapyScenario();
+            } else if (themes.anxiety) {
+                enhancedScript += generateAnxietyScenario();
+            } else if (themes.medication) {
+                enhancedScript += generateMedicationScenario();
+            } else if (themes.social) {
+                enhancedScript += generateSocialScenario();
+            } else {
+                enhancedScript += generateGenericNathanScenario();
+            }
+
+            // Apply selected enhancements
+            if (studioState.enhancements.includes('awkwardness')) {
+                enhancedScript += generateAkwardnessEnhancement();
+            }
+            
+            if (studioState.enhancements.includes('overthinking')) {
+                enhancedScript += generateOverthinkingEnhancement();
+            }
+            
+            if (studioState.enhancements.includes('preparation')) {
+                enhancedScript += generatePreparationEnhancement();
+            }
+            
+            if (studioState.enhancements.includes('diagrams')) {
+                enhancedScript += generateDiagramEnhancement();
+            }
+            
+            if (studioState.enhancements.includes('statistics')) {
+                enhancedScript += generateStatisticsEnhancement();
+            }
+            
+            if (studioState.enhancements.includes('replicas')) {
+                enhancedScript += generateReplicaEnhancement();
+            }
+
+            // Add Nathan's signature ending
+            enhancedScript += generateNathanEnding();
+
+            return enhancedScript;
+        }
+
+        // Generate therapy-specific scenario
+        function generateTherapyScenario() {
+            return `
+[CONTINUATION - NATHAN FIELDER ENHANCEMENT]
+
+THERAPIST
+How are you feeling today?
+
+PROTAGONIST
+(consulting hidden notes)
+I've prepared 73 different answers to that question, ranging from "fine" to a detailed emotional breakdown with supporting charts.
+(pause)
+Should I start with the overview or dive directly into the subsections?
+
+THERAPIST
+(confused)
+Just... however you feel comfortable.
+
+PROTAGONIST
+(pulls out flowchart)
+Comfort Level Analysis indicates we should begin with Low-Stakes Emotional Disclosure #12.
+(reading from card)
+"I've been experiencing mild existential uncertainty with occasional spikes in social performance anxiety."
+
+THERAPIST
+That sounds rehearsed.
+
+PROTAGONIST
+(panicking)
+I have 146 backup responses! Wait, let me find the one about seeming natural while being deeply unnatural.
+
+[AWKWARD PAUSE - 11.7 seconds]
+
+PROTAGONIST (CONT'D)
+This is going worse than my 247 practice sessions predicted.`;
+        }
+
+        // Generate anxiety-specific scenario
+        function generateAnxietyScenario() {
+            return `
+[CONTINUATION - ANXIETY AMPLIFICATION]
+
+PROTAGONIST
+(voice-over)
+My anxiety about having anxiety has created a meta-anxiety feedback loop that I've documented across 47 spreadsheets.
+
+PROTAGONIST pulls out a complex diagram labeled "ANXIETY INCEPTION: LEVELS 1-12"
+
+PROTAGONIST (CONT'D)
+As you can see, I'm currently operating at Anxiety Level 7, which triggers my backup anxiety about not managing my primary anxiety effectively.
+
+FRIEND
+Are you... okay?
+
+PROTAGONIST
+(checking anxiety meter on phone)
+Define "okay." According to my biometric tracking, my heart rate suggests I'm either having a panic attack or watching an exciting documentary about organizational systems.
+(pause)
+It's the panic attack.
+
+PROTAGONIST (CONT'D)
+But I've prepared for this! 
+(pulls out laminated card)
+Anxiety Management Protocol #23: Acknowledge the anxiety while maintaining conversational flow through predetermined transition phrases.
+
+FRIEND
+You laminated your coping mechanisms?
+
+PROTAGONIST
+I laminated everything. My therapist said it was "concerning" but I prefer "thorough."`;
+        }
+
+        // Generate medication scenario
+        function generateMedicationScenario() {
+            return `
+[CONTINUATION - MEDICATION MANAGEMENT PROTOCOL]
+
+INT. BATHROOM - MORNING (PRECISELY 7:23 AM)
+
+PROTAGONIST has constructed an elaborate medication routine involving mirrors, timers, and backup pills hidden in 12 locations.
+
+PROTAGONIST
+(to reflection)
+Day 147 of antidepressant protocol. Side effects include: slight nausea, vivid dreams about organizing spice racks, and the compulsive need to document everything.
+(pause)
+Including this documentation process.
+
+PROTAGONIST opens a pill organizer that's actually a disguised briefcase with compartments for different scenarios.
+
+PROTAGONIST (CONT'D)
+Regular dose for normal Tuesday. Backup dose for high-stress Tuesday. Emergency dose for "why is it Tuesday again" Tuesday.
+
+ROOMMATE
+(from outside bathroom)
+Are you having a full conversation in there?
+
+PROTAGONIST
+(panicking)
+I'm practicing... dental hygiene! Very complicated dental hygiene that requires... extensive verbal instruction!
+
+PROTAGONIST realizes they've been holding their toothbrush the entire time.
+
+PROTAGONIST (CONT'D)
+(whispering to mirror)
+Abort Medication Protocol. Initiate Dental Hygiene Cover Story #7.`;
+        }
+
+        // Generate social scenario
+        function generateSocialScenario() {
+            return `
+[CONTINUATION - SOCIAL INTERACTION PROTOCOLS]
+
+INT. PARTY - NIGHT
+
+PROTAGONIST stands in corner with a detailed floor plan of the party, marking conversation clusters and optimal exit routes.
+
+PROTAGONIST
+(into hidden recording device)
+Party Analysis: 23 people, 7 conversation groups, 12 potential small talk topics. I've prepared responses for weather, current events, and 15 types of casual compliments.
+
+PARTY HOST approaches.
+
+PARTY HOST
+Hey! Thanks for coming! How do you know Sarah?
+
+PROTAGONIST
+(consulting mental flowchart)
+Connection Type: Mutual friend. Response Category: Brief but friendly. Estimated conversation duration: 2.7 minutes.
+(out loud)
+We met through... circumstances. Social circumstances. The kind where people meet.
+
+PARTY HOST
+(confused)
+Okay... enjoy the party!
+
+PROTAGONIST
+(calling after them)
+I've calculated the optimal party enjoyment duration at 47 minutes! Should I set a timer?
+
+[PARTY HOST backs away slowly]
+
+PROTAGONIST (CONT'D)
+(to recording device)
+Note: Timer suggestion decreased social approval rating by approximately 73%. Adjusting algorithm for future interactions.`;
+        }
+
+        // Generate generic Nathan scenario
+        function generateGenericNathanScenario() {
+            return `
+[CONTINUATION - GENERAL NATHAN FIELDER PROTOCOL]
+
+PROTAGONIST
+(voice-over)
+I've spent 73 hours preparing for this exact moment, including building a scale model of this interaction in my garage.
+
+PROTAGONIST pulls out a briefcase containing charts, graphs, and what appears to be a small architectural model.
+
+PROTAGONIST (CONT'D)
+According to my research, 91.7% of human interactions follow predictable patterns. I've memorized 147 of them.
+(pause)
+This appears to be Pattern #148, which I didn't prepare for.
+
+OTHER PERSON
+What's in the briefcase?
+
+PROTAGONIST
+(panicking)
+Backup plans for my backup plans. Also, a backup briefcase in case this one becomes compromised.
+(whispering)
+Which it now has.
+
+PROTAGONIST (CONT'D)
+(normal volume)
+Would you like to see my flowchart for this exact situation? I call it "When People Ask About the Briefcase: A 23-Step Response Guide."
+
+OTHER PERSON
+(slowly backing away)
+I'm... going to get some coffee.
+
+PROTAGONIST
+(calling after them)
+I have a chart for coffee shop interactions too! It's color-coded!`;
+        }
+
+        // Enhancement generators
+        function generateAkwardnessEnhancement() {
+            return `
+
+[AWKWARDNESS AMPLIFICATION PROTOCOL ACTIVATED]
+
+[PROLONGED UNCOMFORTABLE SILENCE - 47.3 seconds]
+
+PROTAGONIST
+(clearing throat repeatedly)
+So... this is happening. Right now. In real time. With witnesses.
+
+[Makes direct eye contact for exactly 7.8 seconds, then looks away]
+
+PROTAGONIST (CONT'D)
+I practiced this conversation 247 times, but none of my rehearsals included this specific type of uncomfortable silence.
+(pause)
+Should I start over? I can start over.`;
+        }
+
+        function generateOverthinkingEnhancement() {
+            return `
+
+[OVERTHINKING SPIRAL INITIATED]
+
+PROTAGONIST
+(inner monologue, spoken aloud accidentally)
+Did I say that right? Was my tone too high? Too low? What's the optimal pitch for conveying sincerity without seeming rehearsed even though everything is deeply rehearsed?
+
+OTHER PERSON
+Are you... talking to yourself?
+
+PROTAGONIST
+(realizing the error)
+I was... checking my inner voice for... quality control. Standard procedure.
+(pause)
+Which I now realize sounds worse than just admitting I talk to myself.
+
+PROTAGONIST (CONT'D)
+(to self, loudly)
+Note: Add "Accidental Inner Monologue Exposure" to list of scenarios requiring preparation.`;
+        }
+
+        function generatePreparationEnhancement() {
+            return `
+
+[OVER-PREPARATION PROTOCOL ENGAGED]
+
+PROTAGONIST reveals a 147-page binder labeled "HUMAN INTERACTION MANUAL VOL. 7: CASUAL CONVERSATIONS"
+
+PROTAGONIST
+I've prepared for 73 different responses to that statement, organized by emotional tone, facial expression, and atmospheric pressure.
+(flipping through pages)
+Are we operating under Normal Tuesday conditions or High-Stress Tuesday conditions? The humidity affects everything.
+
+OTHER PERSON
+It's... just a normal conversation.
+
+PROTAGONIST
+(consulting index)
+"Normal Conversation" - Page 47, Subsection C, Sub-subsection 12.
+(reading)
+"Maintain eye contact for 3.7 second intervals while nodding at 47-degree angles."
+
+PROTAGONIST (CONT'D)
+(looking up from manual)
+Am I doing this right? I have backup manuals if this approach isn't working.`;
+        }
+
+        function generateDiagramEnhancement() {
+            return `
+
+[VISUAL AID DEPLOYMENT INITIATED]
+
+PROTAGONIST unfolds a complex flowchart and attaches it to a portable easel that they apparently brought.
+
+PROTAGONIST
+As you can see from this decision tree, we currently have 17 potential conversation paths, each color-coded by emotional risk level.
+(pointing with laser pointer)
+The red zones indicate topics that could lead to awkward silences, blue zones are safe small talk, and the yellow zones are what I call "Moderate Discomfort Territory."
+
+OTHER PERSON
+You brought visual aids to a casual conversation?
+
+PROTAGONIST
+(consulting another chart)
+This response falls under "Incredulous Inquiry About Preparation Level" - Chart 23-B.
+(flipping to new chart)
+I have 12 pre-planned responses, ranging from defensive to educational to complete conversational restart.
+
+PROTAGONIST (CONT'D)
+(pointing to chart)
+I recommend we proceed to Safe Zone #7: Weather-Related Small Talk. I have 47 weather observations prepared.`;
+        }
+
+        function generateStatisticsEnhancement() {
+            return `
+
+[STATISTICAL VERIFICATION PROTOCOL ACTIVE]
+
+PROTAGONIST
+According to my research, 83.7% of conversations like this one fail due to inadequate statistical support.
+(pulling out calculator)
+I've calculated that we're currently operating at 73.2% efficiency, which falls below my optimal conversation threshold of 74.9%.
+
+OTHER PERSON
+You calculated... our conversation efficiency?
+
+PROTAGONIST
+(showing spreadsheet on phone)
+I track 47 different conversational metrics in real-time, including word-to-pause ratios, eye contact percentages, and what I call "Mutual Comfort Indicators."
+(pause)
+Your confusion about my statistics actually lowers our efficiency to 71.8%. We need to adjust our approach.
+
+PROTAGONIST (CONT'D)
+Studies show that 91.3% of people find excessive statistics annoying, but I'm betting you're in the 8.7% who appreciate thoroughness.
+(pause)
+Was I right? I need this data for my algorithm.`;
+        }
+
+        function generateReplicaEnhancement() {
+            return `
+
+[REPLICA CONSTRUCTION REFERENCE MODULE]
+
+PROTAGONIST
+Actually, I built a full-scale replica of this exact scenario in my garage. Would you like to see the blueprints?
+(pulling out architectural drawings)
+It took 73 days to construct, including accurate lighting, sound dampening, and a fully functional coffee machine that dispenses at the same rate as the one we're currently near.
+
+OTHER PERSON
+You built a replica of... this coffee shop?
+
+PROTAGONIST
+Not just the coffee shop. I built a replica of this exact corner, at this time of day, with actors playing everyone currently in your line of sight.
+(pointing around)
+That woman reading the newspaper? Hired actress. The barista? Method actor who actually learned to make coffee. The man typing on his laptop? He's writing the same email 47 times for authenticity.
+
+PROTAGONIST (CONT'D)
+(proudly)
+We rehearsed this conversation 147 times in the replica before I felt ready for the real version.
+(pause)
+Which is going significantly worse than any of our practice runs.`;
+        }
+
+        function generateNathanEnding() {
+            return `
+
+[NATHAN FIELDER SIGNATURE CONCLUSION]
+
+PROTAGONIST
+(breaking the fourth wall, looking directly at camera that may or may not exist)
+The thing about preparing for every possible outcome is that life inevitably presents you with the one scenario you didn't consider.
+(pause)
+I call this "The 148th Possibility."
+
+PROTAGONIST (CONT'D)
+(back to conversation)
+In retrospect, I should have prepared for the possibility that over-preparation itself would become the primary obstacle to natural human connection.
+(pause)
+I'll add that to my list for next time.
+
+OTHER PERSON
+Next time?
+
+PROTAGONIST
+(checking calendar)
+I've scheduled 73 follow-up conversations to optimize this interaction. Same time next week?
+(pause)
+I'll build a new replica to practice in. This one's been compromised by reality.
+
+[FREEZE FRAME as PROTAGONIST realizes the absurdity of their own statement]
+
+NARRATOR (V.O.)
+[In Nathan's voice]
+Sometimes the most authentic moment comes when you realize how inauthentic you've been trying to be. 
+(pause)
+I probably should have prepared for that realization too.
+
+FADE TO BLACK.
+
+[END SCENE]
+
+---
+
+PRODUCTION NOTES:
+- Build exact replica of filming location
+- Hire 47 background actors for multiple takes  
+- Create 147-page script for each background character
+- Install hidden cameras to document the documentation process
+- Prepare for the possibility that this preparation becomes part of the performance
+
+NATHAN'S FINAL OBSERVATION:
+"The goal was never to eliminate awkwardness - it was to make awkwardness so deliberate that it becomes a form of art. Like a really uncomfortable, highly documented form of art."
+
+[ESTIMATED PRODUCTION TIME: 247 days]
+[ESTIMATED BUDGET: More than reasonable, less than infinite]
+[LIKELIHOOD OF SUCCESS: 73.7%]`;
+        }
+
+        // Add download functionality
+        function addDownloadButton(script) {
+            // Remove existing download button if present
+            const existingBtn = document.getElementById('downloadBtn');
+            if (existingBtn) existingBtn.remove();
+
+            // Create download button
+            const downloadBtn = document.createElement('button');
+            downloadBtn.id = 'downloadBtn';
+            downloadBtn.className = 'btn-secondary';
+            downloadBtn.innerHTML = '📥 Download Script';
+            downloadBtn.style.marginTop = '1rem';
+            downloadBtn.onclick = () => downloadScript(script);
+
+            // Add to script container
+            document.getElementById('generatedScript').appendChild(downloadBtn);
+        }
+
+        // Download script as formatted file
+        function downloadScript(script) {
+            const title = document.getElementById('currentProject').textContent || 'Nathan-Fielder-Mental-Health-Skit';
+            const timestamp = new Date().toISOString().split('T')[0];
+            const filename = `${title.replace(/\s+/g, '-')}_${timestamp}.txt`;
+
+            // Format script with metadata
+            const formattedScript = `
+THE REHEARSAL AI - DIRECTOR'S STUDIO
+=======================================
+
+TITLE: ${title}
+DATE: ${new Date().toLocaleDateString()}
+DRAFT NUMBER: ${studioState.draftNumber}
+NATHAN FIELDER LEVEL: ${studioState.nathanLevel}%
+ENHANCEMENTS APPLIED: ${studioState.enhancements.join(', ') || 'None'}
+
+=======================================
+
+${script}
+
+=======================================
+
+GENERATED BY: The Rehearsal AI Director's Studio
+INSPIRED BY: Nathan Fielder's "The Rehearsal" (HBO)
+PURPOSE: Mental Health Conversation Practice through Artistic Absurdity
+
+"The beauty of rehearsal is that failure doesn't matter. Only the final performance counts."
+- Nathan Fielder Philosophy
+
+=======================================
+`;
+
+            // Create and download file
+            const blob = new Blob([formattedScript], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            // Show Nathan-style confirmation
+            showNathanNotification(`Script downloaded as "${filename}". Nathan has documented this download in 3 separate databases.`);
+        }
+
+        // Enhanced save script function
+        async function saveScript() {
+            const script = document.getElementById('scriptInput').value;
+            const generatedScript = document.getElementById('scriptContent').innerHTML;
+            
+            if (!script.trim()) {
+                alert('Nathan insists you write something before saving.');
+                return;
+            }
+
+            try {
+                const scriptData = {
+                    title: document.getElementById('currentProject').textContent || 'Untitled Mental Health Skit',
+                    originalScript: script,
+                    generatedScript: generatedScript,
+                    template: studioState.currentTemplate || 'custom',
+                    enhancements: studioState.enhancements,
+                    nathanLevel: studioState.nathanLevel,
+                    draftNumber: studioState.draftNumber,
+                    productionNotes: studioState.productionNotes,
+                    storyboardFrames: studioState.storyboardFrames,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Save to localStorage for now (can be extended to backend later)
+                const savedScripts = JSON.parse(localStorage.getItem('rehearsal_saved_scripts')) || [];
+                const scriptId = Date.now().toString();
+                scriptData.id = scriptId;
+                
+                savedScripts.push(scriptData);
+                localStorage.setItem('rehearsal_saved_scripts', JSON.stringify(savedScripts));
+
+                studioState.currentScriptId = scriptId;
+                
+                showNathanNotification(`Script saved with ID ${scriptId}! Nathan has archived this in 7 different backup systems.`);
+                
+            } catch (error) {
+                console.error('Save error:', error);
+                alert(`Save failed: ${error.message}. Nathan is disappointed in this technical failure.`);
+            }
+        }
+
+        // Show Nathan-style notifications
+        function showNathanNotification(message) {
+            // Remove existing notification
+            const existing = document.querySelector('.nathan-notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = 'nathan-notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 120px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--director-gold) 0%, var(--hbo-bright-purple) 100%);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                z-index: 3000;
+                box-shadow: var(--shadow-gold);
+                max-width: 350px;
+                animation: slideInFromRight 0.5s ease-out;
+                border: 2px solid var(--director-gold);
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutToRight 0.5s ease-out';
+                setTimeout(() => notification.remove(), 500);
+            }, 5000);
+        }
+
+        // Add notification animations
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+            @keyframes slideInFromRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutToRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(notificationStyles);
+
+        // Load user's saved scripts
+        function loadSavedScripts() {
+            const savedScripts = JSON.parse(localStorage.getItem('rehearsal_saved_scripts')) || [];
+            return savedScripts;
+        }
+
+        // Load a specific script
+        function loadScript(scriptId) {
+            const savedScripts = loadSavedScripts();
+            const script = savedScripts.find(s => s.id === scriptId);
+            
+            if (script) {
+                document.getElementById('scriptInput').value = script.originalScript;
+                document.getElementById('currentProject').textContent = script.title;
+                studioState.currentTemplate = script.template;
+                studioState.enhancements = script.enhancements || [];
+                studioState.nathanLevel = script.nathanLevel || 0;
+                studioState.draftNumber = script.draftNumber || 1;
+                studioState.currentScriptId = scriptId;
+                
+                // Update UI
+                updateNathanLevel(studioState.nathanLevel);
+                document.getElementById('draftNumber').textContent = studioState.draftNumber;
+                
+                // Update enhancement UI
+                document.querySelectorAll('.enhancement-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                
+                studioState.enhancements.forEach(enhancement => {
+                    const option = document.querySelector(`[onclick*="${enhancement}"]`);
+                    if (option) option.classList.add('active');
+                });
+                
+                showNathanNotification(`Script "${script.title}" loaded. Nathan has verified all 47 backup systems.`);
+            }
+        }
+
+        // Toggle script minimize/maximize
+        function toggleScriptMinimize() {
+            const generatedScript = document.getElementById('generatedScript');
+            const minimizeBtn = document.getElementById('minimizeBtn');
+            const minimizeIcon = document.getElementById('minimizeIcon');
+            const minimizeText = document.getElementById('minimizeText');
+            
+            if (generatedScript.classList.contains('minimized')) {
+                // Expand the script
+                generatedScript.classList.remove('minimized');
+                minimizeIcon.textContent = '📄';
+                minimizeText.textContent = 'Minimize';
+                showNathanNotification('Script expanded! Nathan approves of reviewing your work.');
+            } else {
+                // Minimize the script
+                generatedScript.classList.add('minimized');
+                minimizeIcon.textContent = '📋';
+                minimizeText.textContent = 'Expand';
+                showNathanNotification('Script minimized! Now you can explore other scenarios while keeping your masterpiece safe.');
+            }
+        }
+
+        // Update script statistics in header
+        function updateScriptStats(script) {
+            // Count words
+            const wordCount = script.split(/\s+/).filter(word => word.length > 0).length;
+            document.getElementById('scriptWordCount').textContent = `${wordCount} words`;
+            
+            // Update complexity display
+            document.getElementById('scriptComplexity').textContent = `Nathan Level: ${studioState.nathanLevel}%`;
+            
+            // Update title based on current project
+            const currentProject = document.getElementById('currentProject').textContent;
+            if (currentProject !== 'Untitled Mental Health Skit') {
+                document.getElementById('scriptTitle').textContent = `"${currentProject}" - Generated Script`;
+            }
+        }
+
+        // Enhanced display generated script with stats
+        function displayGeneratedScript(script) {
+            const content = document.getElementById('scriptContent');
+            
+            // Parse and format script
+            const lines = script.split('\n');
+            let formatted = '';
+            
+            lines.forEach(line => {
+                if (line.includes('INT.') || line.includes('EXT.')) {
+                    formatted += `<div class="stage-direction">${line}</div>`;
+                } else if (line.match(/^[A-Z\s]+$/)) {
+                    formatted += `<div class="character-name">${line}</div>`;
+                } else if (line.includes('(') && line.includes(')')) {
+                    formatted += `<div class="stage-direction">${line}</div>`;
+                } else if (line.trim()) {
+                    formatted += `<div class="dialogue">${line}</div>`;
+                }
+            });
+            
+            content.innerHTML = formatted;
+            
+            // Update script statistics
+            updateScriptStats(script);
+        }
+
+        // Add production notes
+        function addProductionNotes() {
+            const notes = [
+                "Build exact replica of therapy office, including water stain on ceiling tile #47",
+                "Hire 73 background actors to practice different reactions",
+                "Create detailed spreadsheet tracking every micro-expression",
+                "Install hidden cameras to document the documentation process",
+                "Rehearse scene minimum 147 times before first take",
+                "Prepare 12 backup plans for each backup plan",
+                "Calculate optimal breathing patterns to 3 decimal places"
+            ];
+            
+            const notesList = document.getElementById('productionNotesList');
+            notesList.innerHTML = '';
+            
+            // Select random notes
+            const selectedNotes = [];
+            for (let i = 0; i < 4; i++) {
+                const randomNote = notes[Math.floor(Math.random() * notes.length)];
+                if (!selectedNotes.includes(randomNote)) {
+                    selectedNotes.push(randomNote);
+                }
+            }
+            
+            selectedNotes.forEach(note => {
+                const li = document.createElement('li');
+                li.textContent = note;
+                li.style.marginBottom = '0.5rem';
+                notesList.appendChild(li);
+            });
+            
+            document.getElementById('productionNotes').style.display = 'block';
+            studioState.productionNotes = selectedNotes;
+        }
+
+        // Create storyboard
+        function createStoryboard() {
+            const frames = [
+                { emoji: '😰', description: 'Protagonist sweating profusely' },
+                { emoji: '📋', description: 'Revealing elaborate charts' },
+                { emoji: '🤔', description: 'Overthinking every word' },
+                { emoji: '📊', description: 'Presenting false statistics' },
+                { emoji: '🏃', description: 'Executing exit strategy' },
+                { emoji: '🎬', description: 'Breaking fourth wall' }
+            ];
+            
+            const container = document.getElementById('storyboardPreview');
+            container.innerHTML = '';
+            container.style.display = 'grid';
+            
+            frames.slice(0, 4).forEach((frame, index) => {
+                const frameDiv = document.createElement('div');
+                frameDiv.className = 'storyboard-frame';
+                frameDiv.innerHTML = `
+                    <div class="frame-number">Frame ${index + 1}</div>
+                    <div class="frame-emoji">${frame.emoji}</div>
+                    <div class="frame-description">${frame.description}</div>
+                `;
+                container.appendChild(frameDiv);
+            });
+            
+            studioState.storyboardFrames = frames.slice(0, 4);
+        }
+
+        // Update rehearsal statistics
+        function updateRehearsalStats() {
+            // Calculate awkwardness score
+            const awkwardness = 47 + (studioState.enhancements.length * 13) + Math.floor(Math.random() * 20);
+            document.getElementById('awkwardnessScore').textContent = Math.min(100, awkwardness);
+            
+            // Calculate rehearsals needed
+            const rehearsals = 73 + (studioState.nathanLevel * 2) + Math.floor(Math.random() * 50);
+            document.getElementById('rehearsalCount').textContent = rehearsals;
+            
+            // Calculate complexity rating
+            const complexity = Math.floor(studioState.nathanLevel * 0.8 + Math.random() * 20);
+            document.getElementById('complexityRating').textContent = complexity;
+        }
+
+        // Save script with user authentication check
+        async function saveScript() {
+            const script = document.getElementById('scriptInput').value;
+            
+            if (!script.trim()) {
+                alert('Nathan insists you write something before saving.');
+                return;
+            }
+
+            const currentUser = getCurrentUser();
+            if (!currentUser) {
+                showNathanNotification('Please log in to save your script. Redirecting to main app...');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                return;
+            }
+
+            try {
+                const scriptData = {
+                    title: document.getElementById('currentProject').textContent || 'Untitled Mental Health Skit',
+                    originalScript: script,
+                    generatedScript: document.getElementById('scriptContent').innerHTML || '',
+                    template: studioState.currentTemplate || 'custom',
+                    enhancements: studioState.enhancements,
+                    nathanLevel: studioState.nathanLevel,
+                    draftNumber: studioState.draftNumber,
+                    productionNotes: studioState.productionNotes,
+                    storyboardFrames: studioState.storyboardFrames,
+                    timestamp: new Date().toISOString(),
+                    userId: currentUser.id,
+                    userName: currentUser.name
+                };
+
+                // Save to localStorage with user association
+                const savedScripts = JSON.parse(localStorage.getItem('rehearsal_saved_scripts')) || [];
+                const scriptId = Date.now().toString();
+                scriptData.id = scriptId;
+                
+                savedScripts.push(scriptData);
+                localStorage.setItem('rehearsal_saved_scripts', JSON.stringify(savedScripts));
+
+                studioState.currentScriptId = scriptId;
+                
+                showNathanNotification(`Script saved for ${currentUser.name}! Nathan has archived this in 7 different backup systems.`);
+                refreshSavedScripts();
+                
+            } catch (error) {
+                console.error('Save error:', error);
+                alert(`Save failed: ${error.message}. Nathan is disappointed in this technical failure.`);
+            }
+        }
+
+        // Load user's scripts from localStorage
+        function loadUserScripts() {
+            const currentUser = getCurrentUser();
+            if (!currentUser) return [];
+
+            const savedScripts = JSON.parse(localStorage.getItem('rehearsal_saved_scripts')) || [];
+            
+            // Filter scripts for current user
+            const userScripts = savedScripts.filter(script => script.userId === currentUser.id);
+            
+            console.log(`Loaded ${userScripts.length} scripts for ${currentUser.name}`);
+            return userScripts;
+        }
+
+
+
+
+
+
+
+        // Refresh and display saved scripts
+        function refreshSavedScripts() {
+            const savedScripts = loadSavedScripts();
+            const container = document.getElementById('savedScriptsList');
+            
+            if (savedScripts.length === 0) {
+                container.innerHTML = `
+                    <div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1rem;">
+                        No saved scripts yet.<br>
+                        Create your first masterpiece!
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            // Sort scripts by timestamp (newest first)
+            savedScripts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            savedScripts.slice(0, 5).forEach(script => { // Show only last 5 scripts
+                const scriptItem = document.createElement('div');
+                scriptItem.className = 'template-item';
+                scriptItem.style.marginBottom = '0.75rem';
+                scriptItem.onclick = () => loadScript(script.id);
+                
+                const date = new Date(script.timestamp).toLocaleDateString();
+                
+                scriptItem.innerHTML = `
+                    <strong style="color: var(--director-gold);">${script.title}</strong>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">
+                        Draft #${script.draftNumber} • Nathan Level: ${script.nathanLevel}%
+                    </p>
+                    <p style="font-size: 0.7rem; color: var(--text-muted);">
+                        ${date}
+                    </p>
+                    <div style="margin-top: 0.5rem;">
+                        <button onclick="event.stopPropagation(); deleteScript('${script.id}')" 
+                                style="background: var(--production-red); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; font-size: 0.7rem; cursor: pointer;">
+                            🗑️ Delete
+                        </button>
+                        <button onclick="event.stopPropagation(); duplicateScript('${script.id}')" 
+                                style="background: var(--hbo-bright-purple); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; font-size: 0.7rem; cursor: pointer; margin-left: 0.5rem;">
+                            📋 Duplicate
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(scriptItem);
+            });
+            
+            if (savedScripts.length > 5) {
+                const moreItem = document.createElement('div');
+                moreItem.style.cssText = 'text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 0.5rem;';
+                moreItem.textContent = `+${savedScripts.length - 5} more scripts saved`;
+                container.appendChild(moreItem);
+            }
+        }
+
+        // Delete a saved script
+        function deleteScript(scriptId) {
+            if (!confirm('Delete this script? Nathan will be disappointed but understanding.')) {
+                return;
+            }
+            
+            const savedScripts = loadSavedScripts();
+            const filteredScripts = savedScripts.filter(s => s.id !== scriptId);
+            localStorage.setItem('rehearsal_saved_scripts', JSON.stringify(filteredScripts));
+            
+            if (studioState.currentScriptId === scriptId) {
+                studioState.currentScriptId = null;
+            }
+            
+            refreshSavedScripts();
+            showNathanNotification('Script deleted. Nathan has updated all 47 database backups.');
+        }
+
+        // Duplicate a saved script
+        function duplicateScript(scriptId) {
+            const savedScripts = loadSavedScripts();
+            const originalScript = savedScripts.find(s => s.id === scriptId);
+            
+            if (!originalScript) return;
+            
+            const duplicatedScript = {
+                ...originalScript,
+                id: Date.now().toString(),
+                title: originalScript.title + ' (Copy)',
+                draftNumber: 1,
+                timestamp: new Date().toISOString()
+            };
+            
+            savedScripts.push(duplicatedScript);
+            localStorage.setItem('rehearsal_saved_scripts', JSON.stringify(savedScripts));
+            
+            refreshSavedScripts();
+            showNathanNotification(`Script duplicated! Nathan has created an identical backup reality.`);
+        }
+
+        // Update user status display
+        function updateUserStatusDisplay() {
+            const currentUser = getCurrentUser();
+            const userStatus = document.getElementById('userStatus');
+            const userStatusText = document.getElementById('userStatusText');
+            
+            if (currentUser) {
+                userStatus.style.display = 'block';
+                userStatusText.textContent = `Logged in as: ${currentUser.name}`;
+                userStatus.style.borderColor = 'var(--storyboard-green)';
+                userStatus.style.background = 'rgba(50, 205, 50, 0.1)';
+                userStatus.style.color = 'var(--storyboard-green)';
+            } else {
+                userStatus.style.display = 'block';
+                userStatusText.textContent = 'Please log in for full features';
+                userStatus.style.borderColor = 'var(--production-red)';
+                userStatus.style.background = 'rgba(220, 20, 60, 0.1)';
+                userStatus.style.color = 'var(--production-red)';
+            }
+        }
+
+        // Initialize the page with user authentication check
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            const currentUser = getCurrentUser();
+            updateUserStatusDisplay();
+            
+            if (currentUser) {
+                studioState.isAuthenticated = true;
+                studioState.user = currentUser;
+                
+                // Show welcome message with user's name
+                setTimeout(() => {
+                    showNathanNotification(`Welcome ${currentUser.name}! Nathan has prepared 73 different ways for you to create mental health skits.`);
+                }, 1000);
+            } else {
+                // Show login prompt
+                setTimeout(() => {
+                    showNathanNotification('Please log in via the main app to access all Director\'s Studio features.');
+                }, 1000);
+            }
+            
+            refreshSavedScripts();
+            
+            // Update Nathan level based on script length as user types
+            document.getElementById('scriptInput').addEventListener('input', function() {
+                const textLength = this.value.length;
+                const wordCount = this.value.split(/\s+/).filter(word => word.length > 0).length;
+                
+                // Calculate Nathan level based on complexity
+                const baseLevel = 20;
+                const lengthBonus = Math.min(30, Math.floor(textLength / 50));
+                const wordBonus = Math.min(20, Math.floor(wordCount / 10));
+                const enhancementBonus = studioState.enhancements.length * 5;
+                
+                const totalLevel = baseLevel + lengthBonus + wordBonus + enhancementBonus;
+                updateNathanLevel(Math.min(100, totalLevel));
+            });
+            
+            // Check for login status changes periodically
+            setInterval(() => {
+                updateUserStatusDisplay();
+            }, 5000);
+        });
+
+        // Nathan's random observations
+        const nathanObservations = [
+            "I once spent 6 months preparing for a 3-minute conversation",
+            "The key is to make it so awkward that reality seems normal",
+            "I've calculated there are 1,247 ways this conversation could go wrong",
+            "Have you considered building a replica of your therapist's office?",
+            "Statistics show that 91.3% of statistics are made up, including this one",
+            "Remember: every pause should be exactly 3.7 seconds for maximum discomfort"
+        ];
+
+        // Show random Nathan observation every 30 seconds
+        setInterval(() => {
+            const randomObs = nathanObservations[Math.floor(Math.random() * nathanObservations.length)];
+            console.log(`Nathan says: "${randomObs}"`);
+        }, 30000);
+    </script>
+</body>
+</html>

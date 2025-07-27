@@ -1,0 +1,73 @@
+// Director's Studio Database Schema Extensions
+// Add these to your existing Prisma schema
+
+model Script {
+  id              String   @id @default(cuid())
+  userId          String
+  title           String
+  originalScript  String
+  enhancedScript  String?
+  template        String
+  enhancements    String   // JSON array of enhancement types
+  nathanLevel     Int      @default(0)
+  draftNumber     Int      @default(1)
+  productionNotes String   // JSON array of production notes
+  storyboardFrames String  // JSON array of storyboard frames
+  status          ScriptStatus @default(DRAFT)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enhancements    ScriptEnhancement[]
+  analyses        ScriptAnalysis[]
+
+  @@index([userId])
+  @@index([template])
+  @@index([nathanLevel])
+  @@index([createdAt])
+}
+
+model ScriptEnhancement {
+  id              String   @id @default(cuid())
+  scriptId        String
+  enhancementType String
+  intensity       Int
+  aiModel         String
+  processingTime  Int      // milliseconds
+  nathanLevelBefore Int
+  nathanLevelAfter  Int
+  createdAt       DateTime @default(now())
+
+  // Relations
+  script          Script   @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+
+  @@index([scriptId])
+  @@index([enhancementType])
+  @@index([createdAt])
+}
+
+model ScriptAnalysis {
+  id              String   @id @default(cuid())
+  scriptId        String
+  awkwardnessScore Int
+  complexityRating Int
+  optimalityScore Int
+  suggestions     String   // JSON array of suggestions
+  nathanObservation String
+  aiModel         String
+  createdAt       DateTime @default(now())
+
+  // Relations
+  script          Script   @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+
+  @@index([scriptId])
+  @@index([createdAt])
+}
+
+enum ScriptStatus {
+  DRAFT
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}

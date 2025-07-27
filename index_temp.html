@@ -1,0 +1,3063 @@
+<div class="scenario-card" data-scenario="going-to-doctor" tabindex="0" role="button" aria-describedby="doctor-desc">
+                            <div class="scenario-icon">🩺</div>
+                            <h3>Going to the Doctor</h3>
+                            <p id="doctor-desc">Practice advocating for your mental health with a healthcare provider who might not take your concerns seriously.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="tough-work-conversation" tabindex="0" role="button" aria-describedby="work-conversation-desc">
+                            <div class="scenario-icon">💼</div>
+                            <h3>Tough Conversation at Work</h3>
+                            <p id="work-conversation-desc">Navigate a difficult workplace discussion about requesting mental health accommodations with your manager.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="asking-someone-out" tabindex="0" role="button" aria-describedby="dating-desc">
+                            <div class="scenario-icon">💕</div>
+                            <h3>Asking Someone Out</h3>
+                            <p id="dating-desc">Practice handling vulnerability and potential rejection while asking someone you're interested in on a date.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level beginner">Beginner</span>
+                            </div>
+                        </div><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practice difficult conversations about mental health in America. A safe space to rehearse and prepare for real-world mental health discussions.">
+    <meta name="keywords" content="mental health, conversation practice, therapy, crisis support, The Rehearsal, America, healthcare">
+    <meta name="author" content="The Rehearsal AI">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://therehearsal.ai/">
+    <meta property="og:title" content="The Rehearsal AI - Mental Health Conversation Practice">
+    <meta property="og:description" content="Addressing America's mental healthcare crisis through conversation practice and awareness">
+    <meta property="og:image" content="https://therehearsal.ai/images/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>The Rehearsal AI - Mental Health Conversation Practice</title>
+    
+    <style>
+        :root {
+            /* HBO Max Color Scheme */
+            --hbo-primary: #1C1C1E;
+            --hbo-secondary: #2D1B69;
+            --hbo-accent: #5C2D91;
+            --hbo-purple: #8B5CF6;
+            --hbo-bright-purple: #A855F7;
+            --hbo-dark-purple: #1F1B2E;
+            --hbo-gradient: linear-gradient(135deg, #2D1B69 0%, #5C2D91 50%, #8B5CF6 100%);
+            --hbo-gradient-reverse: linear-gradient(135deg, #8B5CF6 0%, #5C2D91 50%, #2D1B69 100%);
+            
+            /* Text Colors */
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --text-accent: #F3F4F6;
+            
+            /* Background Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1C1C1E;
+            --bg-card: #2A2A2E;
+            --bg-overlay: rgba(28, 28, 30, 0.95);
+            
+            /* Border and Effects */
+            --border-primary: #3A3A3E;
+            --border-accent: #5C2D91;
+            --shadow-primary: 0 4px 20px rgba(139, 92, 246, 0.15);
+            --shadow-secondary: 0 8px 40px rgba(45, 27, 105, 0.3);
+            --shadow-intense: 0 20px 60px rgba(139, 92, 246, 0.4);
+            
+            /* Alert Colors */
+            --crisis-red: #8B5CF6;
+            --success-green: #10B981;
+            --warning-yellow: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-overlay);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-primary);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--hbo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--hbo-bright-purple);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hbo-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--hbo-gradient);
+            color: var(--text-primary);
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        /* Crisis Banner */
+        .crisis-banner {
+            background: var(--hbo-gradient);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            box-shadow: 0 -4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .crisis-banner.show {
+            transform: translateY(0);
+        }
+
+        .crisis-banner strong {
+            margin-right: 1rem;
+            font-weight: 700;
+        }
+
+        .crisis-link {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+            margin: 0 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hbo-gradient);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: var(--hbo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .america-stats {
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .america-stats h3 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--hbo-bright-purple);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--hbo-gradient);
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-intense);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--hbo-bright-purple);
+            padding: 16px 32px;
+            border: 2px solid var(--hbo-bright-purple);
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--hbo-bright-purple);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .hero-illustration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hbo-gradient);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .illustration-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .main-icon {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-elements {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .floating-elements span {
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-elements span:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .floating-elements span:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Problem Statement Section */
+        .problem-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--hbo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--hbo-gradient);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-secondary);
+            border-color: var(--border-accent);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--hbo-bright-purple);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .problem-stat {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--hbo-bright-purple);
+            margin-top: 1rem;
+        }
+
+        /* Rehearsal Section */
+        .rehearsal-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        .scenario-selection {
+            margin-bottom: 4rem;
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .scenario-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-primary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--hbo-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .scenario-card:hover::before,
+        .scenario-card.selected::before {
+            transform: scaleX(1);
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-secondary);
+            border-color: var(--hbo-bright-purple);
+        }
+
+        .scenario-card.selected {
+            border-color: var(--hbo-bright-purple);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .scenario-card:focus {
+            outline: 2px solid var(--hbo-bright-purple);
+            outline-offset: 2px;
+        }
+
+        .scenario-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .scenario-card h3 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenario-difficulty {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .difficulty-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .difficulty-level {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty-level.beginner {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success-green);
+        }
+
+        .difficulty-level.intermediate {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning-yellow);
+        }
+
+        .difficulty-level.advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--crisis-red);
+        }
+
+        /* Conversation Interface */
+        .conversation-interface {
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .scenario-info h3 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-info p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 1rem;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            height: 8px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            background: var(--hbo-gradient);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: -25px;
+            right: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .conversation-controls {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            border-radius: 8px;
+        }
+
+        /* Story Container */
+        .story-container {
+            margin-bottom: 2rem;
+        }
+
+        .story-text {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--hbo-bright-purple);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .story-text.typing {
+            position: relative;
+        }
+
+        .story-text.typing::after {
+            content: '|';
+            color: var(--hbo-bright-purple);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Character Dialogue */
+        .character-dialogue {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-primary);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .character-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .character-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--hbo-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .character-details h4 {
+            color: var(--hbo-bright-purple);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .character-details p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .dialogue-text {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 3rem;
+            color: var(--hbo-bright-purple);
+            opacity: 0.3;
+        }
+
+        /* Choice Container */
+        .choice-container {
+            margin-bottom: 2rem;
+        }
+
+        .choice-container h4 {
+            color: var(--hbo-bright-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .choice-button {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            color: var(--text-primary);
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--hbo-gradient);
+            opacity: 0.1;
+            transition: left 0.3s ease;
+        }
+
+        .choice-button:hover::before {
+            left: 0;
+        }
+
+        .choice-button:hover {
+            border-color: var(--hbo-bright-purple);
+            transform: translateX(8px);
+        }
+
+        .choice-button:focus {
+            outline: 2px solid var(--hbo-bright-purple);
+            outline-offset: 2px;
+        }
+
+        .choice-header {
+            font-weight: 600;
+            color: var(--hbo-bright-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .choice-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .choice-impact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .impact-positive {
+            color: var(--success-green);
+        }
+
+        .impact-negative {
+            color: var(--crisis-red);
+        }
+
+        .impact-neutral {
+            color: var(--warning-yellow);
+        }
+
+        /* Text Input Container */
+        .text-input-container {
+            margin-bottom: 2rem;
+        }
+
+        .text-input-container h4 {
+            color: var(--hbo-bright-purple);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .text-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .text-input-box textarea {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-input-box textarea:focus {
+            border-color: var(--hbo-bright-purple);
+            outline: none;
+        }
+
+        .text-input-box textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Scenario Stats */
+        .scenario-stats {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid var(--hbo-bright-purple);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-bar {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .stat-fill.empathy {
+            background: linear-gradient(90deg, #10B981, #34D399);
+        }
+
+        .stat-fill.trust {
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+        }
+
+        .stat-fill.effectiveness {
+            background: linear-gradient(90deg, #8B5CF6, #A78BFA);
+        }
+
+        .stat-value {
+            color: var(--hbo-bright-purple);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Conversation Tips */
+        .conversation-tips {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid var(--hbo-bright-purple);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .conversation-tips h4 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .conversation-tips p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .conversation-tips ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .conversation-tips li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .conversation-tips li::before {
+            content: '•';
+            color: var(--hbo-bright-purple);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Success/Failure States */
+        .outcome-success {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success-green);
+        }
+
+        .outcome-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--warning-yellow);
+        }
+
+        .outcome-failure {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--crisis-red);
+        }
+
+        /* Crisis Modal */
+        .crisis-modal, .feedback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+
+        .crisis-modal-content, .feedback-modal-content {
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-intense);
+        }
+
+        .crisis-header, .feedback-header {
+            background: var(--hbo-gradient);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 18px 18px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .crisis-header h3, .feedback-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .crisis-body, .feedback-body {
+            padding: 2rem;
+        }
+
+        .crisis-contacts {
+            margin-top: 1.5rem;
+        }
+
+        .crisis-contact {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .crisis-contact strong {
+            color: var(--hbo-bright-purple);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .crisis-phone {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .crisis-phone:hover {
+            color: var(--hbo-bright-purple);
+        }
+
+        .crisis-contact p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Feedback Modal Specific */
+        .feedback-score {
+            background: var(--hbo-gradient);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-score h4 {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .feedback-areas {
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-area {
+            margin-bottom: 1rem;
+        }
+
+        .feedback-area h5 {
+            color: var(--hbo-bright-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-actions {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border-primary);
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: var(--hbo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            width: 20px;
+        }
+
+        .solution-visual {
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .solution-visual h3 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .practice-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .flow-step {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--hbo-bright-purple);
+        }
+
+        .flow-step h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--hbo-gradient);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff05" points="0,1000 1000,0 1000,1000"/></svg>');
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            background: white;
+            color: var(--hbo-secondary);
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 36px;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cta-secondary:hover {
+            background: white;
+            color: var(--hbo-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--hbo-bright-purple);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--hbo-bright-purple);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-primary);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                        outcome: 'success'
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                    },
+                    {
+                        outcome: 'success'
+                    }
+                ]
+            },
+            'tough-work-conversation': {
+                title: 'Tough Conversation at Work',
+                difficulty: 'intermediate',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        outcome: 'success'
+                    }
+                ]
+            },
+            'tough-work-conversation': {
+                title: 'Tough Conversation at Work',
+                difficulty: 'intermediate',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                    }
+                ]
+            },
+            'asking-someone-out': {
+                title: 'Asking Someone Out',
+                difficulty: 'beginner',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                        outcome: 'success'
+                    },
+                    {
+                        character: {
+                        },
+                        outcome: 'success'
+                    }
+                ]
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            /* Interactive scenario mobile adjustments */
+            .scenarios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conversation-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .conversation-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .scenario-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .character-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .choice-button {
+                padding: 1rem;
+            }
+
+            .choice-impact {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .crisis-modal-content, .feedback-modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+
+            .crisis-header, .feedback-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .crisis-body, .feedback-body {
+                padding: 1.5rem;
+            }
+
+            .feedback-actions {
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+            }
+
+            .story-text {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .dialogue-text {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .text-input-box textarea {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .section-container {
+                padding: 0 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .btn-primary, .btn-secondary, .btn-cta-primary, .btn-cta-secondary {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+
+            .conversation-interface {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .scenario-card {
+                padding: 2rem;
+            }
+
+            .character-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .choice-button {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .choice-header {
+                font-size: 0.95rem;
+            }
+
+            .choice-description {
+                font-size: 0.85rem;
+            }
+
+            .choice-impact {
+                font-size: 0.75rem;
+            }
+
+            .story-text {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .dialogue-text {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .scenario-stats {
+                padding: 1rem;
+            }
+
+            .stat-item {
+                font-size: 0.9rem;
+            }
+
+            .conversation-tips {
+                padding: 1rem;
+            }
+
+            .progress-text {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Dark mode adjustments for better contrast */
+        @media (prefers-color-scheme: dark) {
+            .choice-button {
+                border-color: var(--border-accent);
+            }
+            
+            .story-text {
+                border-left-color: var(--hbo-bright-purple);
+            }
+            
+            .character-dialogue {
+                border-color: var(--border-accent);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .choice-button:hover {
+                border-width: 3px;
+            }
+            
+            .stat-fill {
+                border: 1px solid currentColor;
+            }
+            
+            .progress-fill {
+                border: 1px solid var(--hbo-bright-purple);
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .choice-button, .scenario-card, .story-text, .character-dialogue {
+                transition: none;
+            }
+            
+            .stat-fill, .progress-fill {
+                transition: none;
+            }
+            
+            .fade-in, .slide-in {
+                animation: none;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles */
+        button:focus, a:focus, input:focus {
+            outline: 2px solid var(--hbo-bright-purple);
+            outline-offset: 2px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Crisis Resources Banner -->
+    <div class="crisis-banner" id="crisisBanner" role="alert" aria-live="polite">
+        <strong>Crisis Support:</strong>
+        <a href="tel:988" class="crisis-link">National Suicide Prevention Lifeline: 988</a>
+        <a href="sms:741741" class="crisis-link">Crisis Text Line: Text HOME to 741741</a>
+        <button class="close-btn" onclick="closeCrisisBanner()" aria-label="Close crisis banner" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="The Rehearsal AI Homepage">The Rehearsal AI</a>
+            
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                <li role="none"><a href="#problem" role="menuitem">The Problem</a></li>
+                <li role="none"><a href="#solution" role="menuitem">Our Solution</a></li>
+                <li role="none"><a href="#practice" role="menuitem">Start Practicing</a></li>
+                <li role="none"><a href="#resources" role="menuitem">Resources</a></li>
+            </ul>
+            
+            <a href="#practice" class="cta-button" role="button">Begin Rehearsal</a>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero" role="banner">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>The Rehearsal AI</h1>
+                    <p class="hero-subtitle">Mental Health Conversation Practice</p>
+                    <p class="hero-description">
+                        A safe space to rehearse difficult conversations about mental health. 
+                        Because in America, we need all the practice we can get.
+                    </p>
+                    
+                    <div class="america-stats">
+                        <h3>🇺🇸 America's Mental Health Crisis</h3>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">50M</span>
+                                <div class="stat-label">Adults with mental illness</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">60%</span>
+                                <div class="stat-label">Received no treatment</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">76%</span>
+                                <div class="stat-label">Wait 48+ days for care</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">$280B</span>
+                                <div class="stat-label">Annual economic burden</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#practice" class="btn-primary">Start Practicing</a>
+                        <a href="#problem" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-illustration" role="img" aria-label="Mental health conversation practice illustration">
+                        <div class="illustration-content">
+                            <div class="main-icon">🎭</div>
+                            <h3 style="color: var(--hbo-bright-purple); margin-bottom: 1rem;">Practice Makes Progress</h3>
+                            <p style="color: var(--text-secondary);">Rehearse. Reflect. Improve.</p>
+                            <div class="floating-elements">
+                                <span>🧠</span>
+                                <span>💙</span>
+                                <span>💬</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement Section -->
+        <section id="problem" class="problem-section" role="region" aria-labelledby="problem-heading">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 id="problem-heading">America's Mental Healthcare Reality</h2>
+                    <p>We have a mental health crisis, but nowhere near enough resources, professionals, or accessible care. Most people don't know how to have these crucial conversations.</p>
+                </div>
+                
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <span class="problem-icon">🏥</span>
+                        <h3>Access Crisis</h3>
+                        <p>Americans wait an average of 48 days for mental health treatment. In rural areas, some wait months or travel hundreds of miles.</p>
+                        <div class="problem-stat">120M+ Americans</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">live in mental health shortage areas</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <span class="problem-icon">💰</span>
+                        <h3>Cost Barrier</h3>
+                        <p>Mental health care is expensive and often not covered by insurance. Many Americans simply can't afford treatment.</p>
+                        <div class="problem-stat">$200+</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">average cost per therapy session</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <span class="problem-icon">🤐</span>
+                        <h3>Stigma & Silence</h3>
+                        <p>Cultural stigma prevents open mental health discussions. People don't know how to start these conversations or support others.</p>
+                        <div class="problem-stat">76%</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">feel uncomfortable discussing mental health</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <span class="problem-icon">👨‍⚕️</span>
+                        <h3>Provider Shortage</h3>
+                        <p>There aren't enough mental health professionals to meet demand. The shortage is getting worse every year.</p>
+                        <div class="problem-stat">6,500</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">additional providers needed nationwide</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <span class="problem-icon">⚰️</span>
+                        <h3>Crisis Consequences</h3>
+                        <p>Without proper support and intervention, mental health crises escalate. Suicide rates continue to climb.</p>
+                        <div class="problem-stat">48,000+</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Americans die by suicide annually</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <span class="problem-icon">🔍</span>
+                        <h3>Hidden Epidemic</h3>
+                        <p>Many people suffer in silence because they don't recognize symptoms or know how to seek help effectively.</p>
+                        <div class="problem-stat">60%</div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">of adults with mental illness receive no treatment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="solution-section" role="region" aria-labelledby="solution-heading">
+            <div class="section-container">
+                <div class="solution-content">
+                    <div class="solution-text">
+                        <h2 id="solution-heading">Our Approach: Practice Before the Real Thing</h2>
+                        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+                            Inspired by Nathan Fielder's meticulous preparation philosophy, we believe practicing difficult conversations can save lives and improve outcomes.
+                        </p>
+                        
+                        <ul class="solution-features">
+                            <li>Practice mental health conversations in a judgment-free environment</li>
+                            <li>Learn to recognize crisis warning signs and respond appropriately</li>
+                            <li>Build confidence before real-world situations</li>
+                            <li>Access crisis resources and professional help immediately</li>
+                            <li>Understand the limits of peer support vs. professional care</li>
+                            <li>Reduce stigma through education and normalization</li>
+                        </ul>
+                        
+                        <p style="color: var(--text-muted); font-style: italic;">
+                            "The rehearsal prepares you for the performance, but more importantly, it prepares you to be genuinely helpful when someone needs it most."
+                        </p>
+                    </div>
+                    
+                    <div class="solution-visual">
+                        <h3>How It Works</h3>
+                        <div class="practice-flow">
+                            <div class="flow-step">
+                                <h4>1. Choose Your Scenario</h4>
+                                <p>Select from real-world situations: checking on a friend, suggesting therapy, or crisis response</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4>2. Practice the Conversation</h4>
+                                <p>Engage with AI that responds realistically, including resistance and emotional complexity</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4>3. Receive Feedback</h4>
+                                <p>Get constructive guidance on your approach, empathy, and effectiveness</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4>4. Learn & Improve</h4>
+                                <p>Access resources, crisis contacts, and professional referral information</p>
+                            </div>
+                            <div class="flow-step">
+                                <h4>5. Be Prepared</h4>
+                                <p>Feel confident and equipped for real conversations that could make a difference</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversation Rehearsal Section -->
+        <section id="practice" class="rehearsal-section" role="region" aria-labelledby="rehearsal-heading">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 id="rehearsal-heading">Choose Your Conversation to Rehearse</h2>
+                    <p>Select a scenario and practice your approach. Remember, this is a safe space to learn and grow.</p>
+                </div>
+
+                <!-- Scenario Selection -->
+                <div class="scenario-selection" id="scenarioSelection">
+                    <div class="scenarios-grid">
+                        <div class="scenario-card" data-scenario="friend-checkin" tabindex="0" role="button" aria-describedby="friend-checkin-desc">
+                            <div class="scenario-icon">🫂</div>
+                            <h3>Checking on a Friend</h3>
+                            <p id="friend-checkin-desc">Practice reaching out to someone who seems to be struggling lately. Learn active listening and supportive responses.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level beginner">Beginner</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="therapy-suggestion" tabindex="0" role="button" aria-describedby="therapy-suggestion-desc">
+                            <div class="scenario-icon">💭</div>
+                            <h3>Suggesting Therapy</h3>
+                            <p id="therapy-suggestion-desc">Learn how to gently suggest professional help to someone you care about while addressing their concerns.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="workplace-mental-health" tabindex="0" role="button" aria-describedby="workplace-desc">
+                            <div class="scenario-icon">💼</div>
+                            <h3>Workplace Mental Health</h3>
+                            <p id="workplace-desc">Navigate mental health conversations in professional settings with appropriate boundaries.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="family-conversation" tabindex="0" role="button" aria-describedby="family-desc">
+                            <div class="scenario-icon">👨‍👩‍👧‍👦</div>
+                            <h3>Family Discussion</h3>
+                            <p id="family-desc">Approach mental health topics with family members sensitively, considering generational differences.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="crisis-response" tabindex="0" role="button" aria-describedby="crisis-desc">
+                            <div class="scenario-icon">🚨</div>
+                            <h3>Crisis Response</h3>
+                            <p id="crisis-desc">Learn how to respond when someone expresses suicidal thoughts or is in immediate crisis.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level advanced">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card" data-scenario="self-advocacy" tabindex="0" role="button" aria-describedby="self-advocacy-desc">
+                            <div class="scenario-icon">🗣️</div>
+                            <h3>Self-Advocacy</h3>
+                            <p id="self-advocacy-desc">Practice asking for help and communicating your own mental health needs effectively.</p>
+                            <div class="scenario-difficulty">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <span class="difficulty-level beginner">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversation Interface -->
+                <div class="conversation-interface" id="conversationInterface" style="display: none;">
+                    <div class="conversation-header">
+                        <div class="scenario-info">
+                            <h3 id="currentScenarioTitle">Scenario Title</h3>
+                            <p id="currentScenarioDesc">Scenario description will appear here</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                                <span class="progress-text" id="progressText">Scene 1 of 5</span>
+                            </div>
+                        </div>
+                        <div class="conversation-controls">
+                            <button class="btn-secondary btn-small" onclick="getHint()" type="button">💡 Get Hint</button>
+                            <button class="btn-secondary btn-small" onclick="restartConversation()" type="button">🔄 Restart</button>
+                            <button class="btn-secondary btn-small" onclick="endConversation()" type="button">✅ End Practice</button>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <div class="story-text" id="storyText" role="region" aria-live="polite">
+                            <!-- Story text will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="character-dialogue" id="characterDialogue" style="display: none;">
+                            <div class="character-info">
+                                <div class="character-avatar" id="characterAvatar">👤</div>
+                                <div class="character-details">
+                                    <h4 id="characterName">Character Name</h4>
+                                    <p id="characterMood">Current mood</p>
+                                </div>
+                            </div>
+                            <div class="dialogue-text" id="dialogueText">
+                                <!-- Character dialogue will appear here -->
+                            </div>
+                        </div>
+
+                        <div class="choice-container" id="choiceContainer">
+                            <h4>What do you do?</h4>
+                            <div class="choices" id="choices">
+                                <!-- Choices will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="text-input-container" id="textInputContainer" style="display: none;">
+                            <h4>What do you say?</h4>
+                            <div class="text-input-box">
+                                <textarea id="userTextInput" placeholder="Type your response here..." rows="3"></textarea>
+                                <button onclick="submitTextResponse()" class="btn-primary">Send Response</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scenario-stats" id="scenarioStats">
+                        <div class="stat-item">
+                            <span class="stat-label">Empathy</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill empathy" id="empathyBar"></div>
+                            </div>
+                            <span class="stat-value" id="empathyValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Trust</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill trust" id="trustBar"></div>
+                            </div>
+                            <span class="stat-value" id="trustValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Effectiveness</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill effectiveness" id="effectivenessBar"></div>
+                            </div>
+                            <span class="stat-value" id="effectivenessValue">0</span>
+                        </div>
+                    </div>
+
+                    <div class="conversation-tips" id="conversationTips">
+                        <h4>💡 Current Situation</h4>
+                        <p id="situationTip">Choose your approach carefully - your decisions will affect how the conversation develops.</p>
+                    </div>
+                </div>
+
+                <!-- Crisis Resources Modal -->
+                <div class="crisis-modal" id="crisisModal" style="display: none;" role="dialog" aria-labelledby="crisis-title" aria-hidden="true">
+                    <div class="crisis-modal-content">
+                        <div class="crisis-header">
+                            <h3 id="crisis-title">🚨 Crisis Resources</h3>
+                            <button onclick="closeCrisisModal()" class="close-btn" aria-label="Close crisis resources">&times;</button>
+                        </div>
+                        <div class="crisis-body">
+                            <p><strong>If you or someone you know is in immediate danger, call 911.</strong></p>
+                            <div class="crisis-contacts">
+                                <div class="crisis-contact">
+                                    <strong>National Suicide Prevention Lifeline</strong>
+                                    <a href="tel:988" class="crisis-phone">988</a>
+                                    <p>24/7 crisis support and suicide prevention</p>
+                                </div>
+                                <div class="crisis-contact">
+                                    <strong>Crisis Text Line</strong>
+                                    <a href="sms:741741" class="crisis-phone">Text HOME to 741741</a>
+                                    <p>24/7 text-based crisis support</p>
+                                </div>
+                                <div class="crisis-contact">
+                                    <strong>Trevor Project (LGBTQ+ Youth)</strong>
+                                    <a href="tel:18664887386" class="crisis-phone">1-866-488-7386</a>
+                                    <p>Crisis support for LGBTQ+ young people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Modal -->
+                <div class="feedback-modal" id="feedbackModal" style="display: none;" role="dialog" aria-labelledby="feedback-title" aria-hidden="true">
+                    <div class="feedback-modal-content">
+                        <div class="feedback-header">
+                            <h3 id="feedback-title">📝 Conversation Feedback</h3>
+                            <button onclick="closeFeedbackModal()" class="close-btn" aria-label="Close feedback">&times;</button>
+                        </div>
+                        <div class="feedback-body" id="feedbackContent">
+                            <!-- Feedback content will be populated by JavaScript -->
+                        </div>
+                        <div class="feedback-actions">
+                            <button onclick="restartConversation()" class="btn-primary">Try Again</button>
+                            <button onclick="chooseNewScenario()" class="btn-secondary">Choose New Scenario</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" role="region" aria-labelledby="cta-heading">
+            <div class="section-container">
+                <div class="cta-content">
+                    <h2 id="cta-heading">Ready to Make a Difference?</h2>
+                    <p>
+                        Start practicing today. Every conversation could save a life, 
+                        improve someone's day, or help break the silence around mental health in America.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#practice" class="btn-cta-primary">Begin Your First Rehearsal</a>
+                        <a href="#resources" class="btn-cta-secondary">View Crisis Resources</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>The Rehearsal AI</h4>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                    A mental health awareness project inspired by HBO's The Rehearsal.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Not affiliated with HBO or Nathan Fielder. Created for educational purposes to address America's mental health crisis.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Crisis Resources</h4>
+                <ul>
+                    <li><a href="tel:988">National Suicide Prevention: 988</a></li>
+                    <li><a href="sms:741741">Crisis Text Line: 741741</a></li>
+                    <li><a href="tel:18664887386">Trevor Project: 1-866-488-7386</a></li>
+                    <li><a href="https://nami.org" target="_blank" rel="noopener">NAMI</a></li>
+                    <li><a href="https://samhsa.gov" target="_blank" rel="noopener">SAMHSA</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#practice">Practice Scenarios</a></li>
+                    <li><a href="/mental-health-guide">Mental Health Guide</a></li>
+                    <li><a href="/crisis-response">Crisis Response</a></li>
+                    <li><a href="/professional-help">Find Professional Help</a></li>
+                    <li><a href="/about-america">Mental Health in America</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal & Contact</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
+                    <li><a href="mailto:hello@therehearsal.ai">Contact Us</a></li>
+                    <li><a href="/feedback">Give Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Rehearsal AI. This is a tribute project for mental health awareness.</p>
+            <p>If you or someone you know is in crisis, please reach out for help immediately.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Global variables for interactive story system
+        let currentScenario = null;
+        let currentScene = 0;
+        let scenarioData = {};
+        let playerStats = { empathy: 0, trust: 0, effectiveness: 0 };
+        let storyChoices = [];
+        let typingInterval = null;
+
+        // Interactive scenario definitions with branching storylines
+        const interactiveScenarios = {
+            'friend-checkin': {
+                title: 'Checking on a Friend',
+                difficulty: 'beginner',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                    },
+                    {
+                    }
+                ]
+            },
+            'therapy-suggestion': {
+                title: 'Suggesting Therapy',
+                difficulty: 'intermediate',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    }
+                ]
+            },
+            'crisis-response': {
+                title: 'Crisis Response',
+                difficulty: 'advanced',
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        character: {
+                        },
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Initialize the interactive system
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScenarioSelection();
+            setTimeout(showCrisisBanner, 10000);
+        });
+
+        // Scenario selection functionality
+        function initializeScenarioSelection() {
+            const scenarioCards = document.querySelectorAll('.scenario-card');
+            
+            scenarioCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    selectScenario(this.dataset.scenario);
+                });
+                
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectScenario(this.dataset.scenario);
+                    }
+                });
+            });
+        }
+
+        function selectScenario(scenarioId) {
+            // Remove previous selection
+            document.querySelectorAll('.scenario-card').forEach(card => {
+                card.classList.remove('selected');
+                card.setAttribute('aria-checked', 'false');
+            });
+
+            // Select new scenario
+            const selectedCard = document.querySelector(`[data-scenario="${scenarioId}"]`);
+            selectedCard.classList.add('selected');
+            selectedCard.setAttribute('aria-checked', 'true');
+
+            currentScenario = scenarioId;
+            
+            if (interactiveScenarios[scenarioId]) {
+                scenarioData = interactiveScenarios[scenarioId];
+                setTimeout(() => {
+                    if (confirm(`Begin "${scenarioData.title}"?`)) {
+                        startInteractiveScenario();
+                    }
+            } else {
+                alert('This scenario is not yet available. Please choose another one.');
+            }
+        }
+
+        // Interactive scenario system
+        function startInteractiveScenario() {
+            if (!currentScenario || !scenarioData) {
+                alert('Please select a scenario first.');
+                return;
+            }
+
+            // Hide scenario selection and show conversation interface
+            document.getElementById('scenarioSelection').style.display = 'none';
+            document.getElementById('conversationInterface').style.display = 'block';
+
+            // Initialize scenario
+            currentScene = 0;
+            playerStats = { empathy: 0, trust: 0, effectiveness: 0 };
+            storyChoices = [];
+
+            // Update interface
+            document.getElementById('currentScenarioTitle').textContent = scenarioData.title;
+            document.getElementById('currentScenarioDesc').textContent = scenarioData.description;
+            
+            updateProgress();
+            updateStats();
+            
+            // Start first scene
+            displayScene(scenarioData.scenes[0]);
+
+            // Scroll to conversation
+            document.getElementById('conversationInterface').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function displayScene(scene) {
+            // Hide all containers first
+            document.getElementById('choiceContainer').style.display = 'none';
+            document.getElementById('textInputContainer').style.display = 'none';
+            document.getElementById('characterDialogue').style.display = 'none';
+
+            // Display story text with typing effect
+            typeText(scene.text, 'storyText', () => {
+                // After story text is complete, show character dialogue if it exists
+                if (scene.character && scene.character.dialogue) {
+                    setTimeout(() => {
+                        displayCharacterDialogue(scene.character);
+                        
+                        // Then show choices or text input
+                        setTimeout(() => {
+                            if (scene.input_type === 'text') {
+                                showTextInput(scene);
+                            } else if (scene.choices) {
+                                displayChoices(scene.choices);
+                            } else if (scene.isEnding) {
+                                endScenario(scene);
+                            }
+                        }, 1000);
+                    }, 500);
+                } else {
+                    // Show choices immediately if no character dialogue
+                    setTimeout(() => {
+                        if (scene.choices) {
+                            displayChoices(scene.choices);
+                        }
+                    }, 500);
+                }
+            });
+
+            updateSituationTip(scene);
+        }
+
+        function typeText(text, elementId, callback) {
+            const element = document.getElementById(elementId);
+            element.textContent = '';
+            element.classList.add('typing');
+            
+            let index = 0;
+            typingInterval = setInterval(() => {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(typingInterval);
+                    element.classList.remove('typing');
+                    if (callback) callback();
+                }
+            }, 30);
+        }
+
+        function displayCharacterDialogue(character) {
+            const dialogueContainer = document.getElementById('characterDialogue');
+            const avatar = document.getElementById('characterAvatar');
+            const name = document.getElementById('characterName');
+            const mood = document.getElementById('characterMood');
+            const dialogue = document.getElementById('dialogueText');
+
+            avatar.textContent = scenarioData.character.avatar;
+            name.textContent = scenarioData.character.name;
+            mood.textContent = character.mood;
+            
+            dialogueContainer.style.display = 'block';
+            dialogueContainer.classList.add('fade-in');
+            
+            // Type the dialogue
+            typeText(character.dialogue, 'dialogueText');
+        }
+
+        function displayChoices(choices) {
+            const container = document.getElementById('choiceContainer');
+            const choicesDiv = document.getElementById('choices');
+            
+            choicesDiv.innerHTML = '';
+            
+            choices.forEach((choice, index) => {
+                const button = createChoiceButton(choice, index);
+                choicesDiv.appendChild(button);
+            });
+            
+            container.style.display = 'block';
+            container.classList.add('slide-in');
+        }
+
+        function createChoiceButton(choice, index) {
+            const button = document.createElement('button');
+            button.className = 'choice-button';
+            button.onclick = () => makeChoice(choice);
+            
+            const header = document.createElement('div');
+            header.className = 'choice-header';
+            header.textContent = choice.text;
+            
+            const description = document.createElement('div');
+            description.className = 'choice-description';
+            description.textContent = choice.description;
+            
+            const impact = document.createElement('div');
+            impact.className = 'choice-impact';
+            
+            if (choice.impact) {
+                Object.entries(choice.impact).forEach(([stat, value]) => {
+                    const item = document.createElement('span');
+                    item.className = `impact-item ${value > 0 ? 'impact-positive' : value < 0 ? 'impact-negative' : 'impact-neutral'}`;
+                    item.innerHTML = `${stat.charAt(0).toUpperCase() + stat.slice(1)} ${value > 0 ? '+' : ''}${value}`;
+                    impact.appendChild(item);
+                });
+            }
+            
+            button.appendChild(header);
+            button.appendChild(description);
+            button.appendChild(impact);
+            
+            return button;
+        }
+
+        function makeChoice(choice) {
+            // Record the choice
+            storyChoices.push(choice);
+            
+            // Apply stat changes
+            if (choice.impact) {
+                Object.entries(choice.impact).forEach(([stat, value]) => {
+                    playerStats[stat] = Math.max(0, Math.min(10, playerStats[stat] + value));
+                });
+                updateStats();
+            }
+            
+            // Move to next scene
+            const nextScene = findScene(choice.next);
+            if (nextScene) {
+                currentScene++;
+                updateProgress();
+                setTimeout(() => displayScene(nextScene), 500);
+            }
+        }
+
+        function showTextInput(scene) {
+            document.getElementById('textInputContainer').style.display = 'block';
+            document.getElementById('userTextInput').value = '';
+            document.getElementById('userTextInput').focus();
+            
+            // Store the scene for later processing
+            window.currentTextScene = scene;
+        }
+
+        function submitTextResponse() {
+            const input = document.getElementById('userTextInput').value.trim();
+            if (!input) return;
+            
+            const scene = window.currentTextScene;
+            
+            // Evaluate the text input
+            const evaluation = evaluateTextResponse(input);
+            
+            // Apply evaluation results to stats
+            Object.entries(evaluation.impact).forEach(([stat, value]) => {
+                playerStats[stat] = Math.max(0, Math.min(10, playerStats[stat] + value));
+            });
+            updateStats();
+            
+            // Show feedback and continue
+            showResponseFeedback(evaluation);
+            
+            // Continue to next scene
+            const nextScene = findScene(scene.next);
+            if (nextScene) {
+                currentScene++;
+                updateProgress();
+                setTimeout(() => displayScene(nextScene), 2000);
+            }
+        }
+
+        function evaluateTextResponse(input) {
+            const lowerInput = input.toLowerCase();
+            let impact = { empathy: 0, trust: 0, effectiveness: 0 };
+            let feedback = "Your response shows care and concern.";
+            
+            // Check for empathetic language
+            const empathyWords = ['understand', 'feel', 'sorry', 'hear', 'sounds', 'difficult', 'hard'];
+            const empathyCount = empathyWords.filter(word => lowerInput.includes(word)).length;
+            impact.empathy += empathyCount;
+            
+            // Check for supportive language
+            const supportWords = ['here', 'support', 'help', 'care', 'love', 'together'];
+            const supportCount = supportWords.filter(word => lowerInput.includes(word)).length;
+            impact.trust += supportCount;
+            
+            // Check for questions
+            if (input.includes('?')) {
+                impact.effectiveness += 1;
+            }
+            
+            // Check for validation
+            if (lowerInput.includes('valid') || lowerInput.includes('normal') || lowerInput.includes('okay')) {
+                impact.empathy += 2;
+                impact.trust += 1;
+            }
+            
+            // Generate feedback based on response quality
+            const totalScore = impact.empathy + impact.trust + impact.effectiveness;
+            if (totalScore >= 4) {
+                feedback = "Excellent response! You showed great empathy and support.";
+            } else if (totalScore >= 2) {
+                feedback = "Good response. You're showing care and concern effectively.";
+            } else {
+                feedback = "Your response could be more supportive. Try validating their feelings.";
+            }
+            
+            return { impact, feedback };
+        }
+
+        function showResponseFeedback(evaluation) {
+            const tip = document.getElementById('situationTip');
+            tip.textContent = evaluation.feedback;
+            tip.parentElement.classList.add('outcome-success');
+            
+            setTimeout(() => {
+                tip.parentElement.classList.remove('outcome-success');
+            }, 2000);
+        }
+
+        function findScene(sceneId) {
+            return scenarioData.scenes.find(scene => scene.id === sceneId);
+        }
+
+        function updateProgress() {
+            const totalScenes = scenarioData.scenes.length;
+            const progress = ((currentScene + 1) / totalScenes) * 100;
+            
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `Scene ${currentScene + 1} of ${totalScenes}`;
+        }
+
+        function updateStats() {
+            Object.entries(playerStats).forEach(([stat, value]) => {
+                const bar = document.getElementById(`${stat}Bar`);
+                const valueSpan = document.getElementById(`${stat}Value`);
+                
+                if (bar && valueSpan) {
+                    bar.style.width = `${(value / 10) * 100}%`;
+                    valueSpan.textContent = value;
+                }
+            });
+        }
+
+        function updateSituationTip(scene) {
+            const tips = {
+                intro: "First impressions matter. Choose an approach that makes them feel safe to open up.",
+                casual_approach: "You've created a comfortable atmosphere. Now listen actively.",
+                direct_approach: "Being direct can work, but be prepared to show genuine care.",
+                opening_up: "They're being vulnerable. Show that you're a safe person to talk to.",
+                crisis_response: "This is a crisis situation. Stay calm and get professional help immediately."
+            };
+            
+            const tip = tips[scene.id] || "Choose your response carefully - it will affect how the conversation develops.";
+            document.getElementById('situationTip').textContent = tip;
+        }
+
+        function endScenario(scene) {
+            // Calculate final score
+            const totalScore = playerStats.empathy + playerStats.trust + playerStats.effectiveness;
+            const maxScore = 30;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            
+            // Show completion feedback
+            setTimeout(() => {
+                showFeedbackModal(percentage, totalScore);
+            }, 1000);
+        }
+
+        // Utility functions
+        function getHint() {
+            const hints = [
+                "Active listening involves reflecting back what you've heard",
+                "Validate their emotions before offering solutions",
+                "Ask open-ended questions to encourage sharing",
+                "Sometimes the best response is just being present",
+                "Avoid trying to 'fix' everything - focus on understanding"
+            ];
+            
+            const randomHint = hints[Math.floor(Math.random() * hints.length)];
+            document.getElementById('situationTip').textContent = `💡 ${randomHint}`;
+        }
+
+        function restartConversation() {
+            if (confirm('Are you sure you want to restart this scenario?')) {
+                startInteractiveScenario();
+            }
+        }
+
+        function endConversation() {
+            const totalScore = playerStats.empathy + playerStats.trust + playerStats.effectiveness;
+            const percentage = Math.round((totalScore / 30) * 100);
+            showFeedbackModal(percentage, totalScore);
+        }
+
+        function chooseNewScenario() {
+            // Reset everything
+            currentScenario = null;
+            currentScene = 0;
+            scenarioData = {};
+            playerStats = { empathy: 0, trust: 0, effectiveness: 0 };
+            storyChoices = [];
+            
+            // Hide conversation interface and show scenario selection
+            document.getElementById('conversationInterface').style.display = 'none';
+            document.getElementById('scenarioSelection').style.display = 'block';
+            
+            // Remove all selections
+            document.querySelectorAll('.scenario-card').forEach(card => {
+                card.classList.remove('selected');
+                card.setAttribute('aria-checked', 'false');
+            });
+            
+            closeFeedbackModal();
+            
+            // Scroll back to scenarios
+            document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal functions
+        function showFeedbackModal(percentage, totalScore) {
+            const feedbackContent = document.getElementById('feedbackContent');
+            
+            let grade, message;
+            if (percentage >= 80) {
+                grade = "A";
+                message = "Outstanding! You demonstrated excellent empathy and communication skills.";
+            } else if (percentage >= 60) {
+                grade = "B";
+                message = "Well done! You showed good understanding and support.";
+            } else if (percentage >= 40) {
+                grade = "C";
+                message = "Not bad, but there's room to improve your empathy and listening skills.";
+            } else {
+                grade = "D";
+                message = "This is challenging! Consider practicing more active listening techniques.";
+            }
+            
+            feedbackContent.innerHTML = `
+                <div class="feedback-score">
+                    <h4>Grade: ${grade} (${percentage}%)</h4>
+                    <p>${message}</p>
+                </div>
+                <div class="feedback-areas">
+                    <div class="feedback-area">
+                        <h5>Empathy: ${playerStats.empathy}/10</h5>
+                        <p>${playerStats.empathy >= 7 ? 'Excellent emotional understanding!' : 'Try to show more understanding of their feelings.'}</p>
+                    </div>
+                    <div class="feedback-area">
+                        <h5>Trust Building: ${playerStats.trust}/10</h5>
+                        <p>${playerStats.trust >= 7 ? 'Great at making them feel safe!' : 'Focus on creating a more supportive environment.'}</p>
+                    </div>
+                    <div class="feedback-area">
+                        <h5>Effectiveness: ${playerStats.effectiveness}/10</h5>
+                        <p>${playerStats.effectiveness >= 7 ? 'Your approach was very effective!' : 'Consider different communication strategies.'}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('feedbackModal').style.display = 'flex';
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').style.display = 'none';
+        }
+
+        function showCrisisBanner() {
+            document.getElementById('crisisBanner').classList.add('show');
+        }
+
+        function closeCrisisBanner() {
+            document.getElementById('crisisBanner').classList.remove('show');
+        }
+
+        function showCrisisModal() {
+            document.getElementById('crisisModal').style.display = 'flex';
+        }
+
+        function closeCrisisModal() {
+            document.getElementById('crisisModal').style.display = 'none';
+        }
+
+        // Navigation and other utility functions
+        function toggleMobileMenu() {
+            console.log('Mobile menu toggle - to be implemented');
+        }
+
+        // Smooth scrolling and other event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background change on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(28, 28, 30, 0.98)';
+                } else {
+                    header.style.background = 'rgba(28, 28, 30, 0.95)';
+                }
+            });
+
+            // Add enter key support for text input
+            const textInput = document.getElementById('userTextInput');
+            if (textInput) {
+                textInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        submitTextResponse();
+                    }
+                });
+            }
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCrisisBanner();
+                closeCrisisModal();
+                closeFeedbackModal();
+            }
+        });
+    </script>
+</body>
+</html>
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo">The Rehearsal</div>
+            <nav class="nav">
+                <a href="#practice" class="nav-link">Practice</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="#about" class="nav-link">About</a>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            </nav>
+        </header>
+
+        <main id="practice">
+            <section id="scenarioSelection" class="scenario-selection">
+                <h2>Select a Scenario</h2>
+                <div class="scenario-cards">
+                    <!-- Scenario cards will be dynamically generated here -->
+                    <div class="scenario-card" data-scenario="active-listening">
+                        <h3>Active Listening</h3>
+                        <p>Practice your active listening skills with a friend in need.</p>
+                    </div>
+                    <div class="scenario-card" data-scenario="therapy-suggestion">
+                        <h3>Suggesting Therapy</h3>
+                        <p>Learn how to suggest therapy to a friend struggling with anxiety.</p>
+                    </div>
+                    <div class="scenario-card" data-scenario="crisis-response">
+                        <h3>Crisis Response</h3>
+                        <p>Respond to a friend in crisis with empathy and care.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="conversationInterface" class="conversation-interface">
+                <h2 id="currentScenarioTitle"></h2>
+                <p id="currentScenarioDesc"></p>
+
+                <!-- Progress bar -->
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                    <span id="progressText"></span>
+                </div>
+
+                <!-- Character dialogue -->
+                <div id="characterDialogue" class="character-dialogue">
+                    <span id="characterAvatar"></span>
+                    <span id="characterName"></span>:
+                    <span id="characterMood"></span><br/>
+                    <span id="dialogueText"></span>
+                </div>
+
+                <!-- Story text -->
+                <div id="storyText" class="story-text"></div>
+
+                <!-- Choice container -->
+                <div id="choiceContainer" class="choice-container">
+                    <div id="choices" class="choices"></div>
+                </div>

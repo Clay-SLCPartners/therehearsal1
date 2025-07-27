@@ -1,0 +1,181 @@
+// Prisma schema for The Rehearsal AI Backend
+// "Data organization is the foundation of all good rehearsals" - Nathan
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("user")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastLogin DateTime?
+
+  // User preferences as JSON
+  preferences Json @default("{}")
+  
+  // Relationships
+  scripts         Script[]
+  conversations   Conversation[]
+  analytics       UserAnalytics[]
+  
+  @@map("users")
+}
+
+// Script model for Director's Studio
+model Script {
+  id               String   @id @default(cuid())
+  userId           String
+  title            String
+  originalScript   String   @db.Text
+  enhancedScript   String?  @db.Text
+  template         String   @default("custom")
+  enhancements     Json     @default("[]")
+  nathanLevel      Int      @default(0)
+  draftNumber      Int      @default(1)
+  status           String   @default("DRAFT")
+  productionNotes  Json     @default("[]")
+  storyboardFrames Json     @default("[]")
+  metadata         Json     @default("{}")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relationships
+  user                User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enhancements_rel    ScriptEnhancement[]
+  analyses            ScriptAnalysis[]
+
+  @@map("scripts")
+}
+
+// Script enhancement tracking
+model ScriptEnhancement {
+  id                String   @id @default(cuid())
+  scriptId          String
+  enhancementType   String
+  intensity         Int      @default(7)
+  aiModel           String   @default("nathan-gpt")
+  processingTime    Int      @default(0) // milliseconds
+  nathanLevelBefore Int      @default(0)
+  nathanLevelAfter  Int      @default(0)
+  createdAt         DateTime @default(now())
+
+  // Relationships
+  script Script @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+
+  @@map("script_enhancements")
+}
+
+// Script analysis results
+model ScriptAnalysis {
+  id               String   @id @default(cuid())
+  scriptId         String
+  awkwardnessScore Int      @default(0)
+  complexityRating Int      @default(0)
+  optimalityScore  Int      @default(0)
+  suggestions      Json     @default("[]")
+  nathanObservation String  @db.Text
+  aiModel          String   @default("nathan-analyzer")
+  breakdown        Json     @default("{}")
+  createdAt        DateTime @default(now())
+
+  // Relationships
+  script Script @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+
+  @@map("script_analyses")
+}
+
+// Conversation scenarios
+model Scenario {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  category    String
+  difficulty  String   @default("intermediate")
+  character   Json     @default("{}")
+  scenes      Json     @default("[]")
+  metadata    Json     @default("{}")
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  conversations Conversation[]
+
+  @@map("scenarios")
+}
+
+// User conversation sessions
+model Conversation {
+  id           String   @id @default(cuid())
+  userId       String
+  scenarioId   String
+  currentScene Int      @default(0)
+  choices      Json     @default("[]")
+  outcome      Json     @default("{}")
+  stats        Json     @default("{}")
+  isCompleted  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relationships
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scenario Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+
+  @@map("conversations")
+}
+
+// User analytics and progress tracking
+model UserAnalytics {
+  id                   String   @id @default(cuid())
+  userId               String
+  scriptMetrics        Json     @default("{}")
+  conversationMetrics  Json     @default("{}")
+  learningProgress     Json     @default("{}")
+  streaks              Json     @default("{}")
+  achievements         Json     @default("[]")
+  generatedAt          DateTime @default(now())
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_analytics")
+}
+
+// System health and monitoring
+model SystemHealth {
+  id        String   @id @default(cuid())
+  status    String   @default("healthy")
+  services  Json     @default("{}")
+  metrics   Json     @default("{}")
+  timestamp DateTime @default(now())
+
+  @@map("system_health")
+}
+
+// API request logging
+model ApiLog {
+  id         String   @id @default(cuid())
+  method     String
+  endpoint   String
+  userId     String?
+  statusCode Int
+  duration   Int      // milliseconds
+  userAgent  String?
+  ipAddress  String?
+  requestId  String?
+  createdAt  DateTime @default(now())
+
+  @@map("api_logs")
+}

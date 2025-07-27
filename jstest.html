@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Test</title>
+</head>
+<body>
+    <h1>Testing JavaScript Execution</h1>
+    
+    <div onclick="alert('Direct onclick works!')" style="padding: 20px; background: lightblue; margin: 10px; cursor: pointer;">
+        Click me - Direct onclick
+    </div>
+    
+    <div id="testDiv" style="padding: 20px; background: lightgreen; margin: 10px; cursor: pointer;">
+        Click me - Function onclick
+    </div>
+    
+    <script>
+        console.log("JavaScript is loading...");
+        
+        // Test function
+        function testFunction() {
+            alert('Function onclick works!');
+            console.log('Function was called successfully');
+        }
+        
+        // Set onclick via JavaScript
+        document.getElementById('testDiv').onclick = testFunction;
+        
+        console.log("JavaScript loaded successfully");
+    </script>
+</body>
+</html>

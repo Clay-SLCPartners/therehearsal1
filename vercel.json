@@ -1,30 +1,25 @@
 {
-  "buildCommand": "echo 'Static site build'",
-  "outputDirectory": ".",
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "functions": {},
   "rewrites": [
     {
       "source": "/",
       "destination": "/main.html"
     },
     {
-      "source": "/index.html",
+      "source": "/index.html", 
       "destination": "/main.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/css/(.*)",
-      "dest": "/public/css/$1"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "/public/js/$1"
+      "source": "/css/(.*)",
+      "destination": "/public/css/$1"
     },
     {
-      "src": "/data/(.*)",
-      "dest": "/public/data/$1"
+      "source": "/js/(.*)",
+      "destination": "/public/js/$1"
+    },
+    {
+      "source": "/data/(.*)",
+      "destination": "/public/data/$1"
     }
   ],
   "headers": [

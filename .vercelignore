@@ -1,0 +1,7 @@
+node_modules/
+server.js
+server_clean.js
+*.disabled
+the-rehearsal-ai-backend/
+.env*
+.git/

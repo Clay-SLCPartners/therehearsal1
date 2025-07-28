@@ -2,10 +2,11 @@
   "name": "therehearsal-ai",
   "version": "1.0.0",
   "description": "A mental health conversation practice platform inspired by HBO's The Rehearsal",
-  "main": "server.js",
+  "main": "server_clean.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node server_clean.js",
+    "dev": "nodemon server_clean.js",
+    "build": "echo 'No build step required'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["mental-health", "conversation-practice", "ai", "chatbot"],

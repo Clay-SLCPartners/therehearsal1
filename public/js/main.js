@@ -67,17 +67,17 @@ function initializeModules() {
     try {
         // Check if modules are loaded
         console.log('Module availability:');
-        console.log('- AuthModule:', typeof AuthModule !== 'undefined' ? '✅' : '❌');
+        console.log('- authSystem:', typeof authSystem !== 'undefined' ? '✅' : '❌');
         console.log('- AnalyticsModule:', typeof AnalyticsModule !== 'undefined' ? '✅' : '❌');
         console.log('- ScenariosModule:', typeof ScenariosModule !== 'undefined' ? '✅' : '❌');
         console.log('- ConversationModule:', typeof ConversationModule !== 'undefined' ? '✅' : '❌');
         
-        // Initialize authentication first
-        if (typeof AuthModule !== 'undefined' && AuthModule.init) {
-            AuthModule.init();
-            console.log('✅ AuthModule initialized');
+        // Initialize authentication first (now simplified)
+        if (typeof authSystem !== 'undefined' && authSystem.init) {
+            authSystem.init();
+            console.log('✅ authSystem initialized - no authentication required');
         } else {
-            console.warn('⚠️ AuthModule not available');
+            console.warn('⚠️ authSystem not available');
         }
         
         // Initialize analytics and tracking

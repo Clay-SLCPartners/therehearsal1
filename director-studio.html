@@ -678,6 +678,18 @@
     </style>
 </head>
 <body>
+    <!-- No authentication required - all features available -->
+    <script>
+        console.log('Director\'s Studio - All features available to all users');
+        
+        // Optional: Update any user display elements to show guest mode
+        document.addEventListener('DOMContentLoaded', () => {
+            const userElements = document.querySelectorAll('.current-user');
+            userElements.forEach(el => {
+                el.textContent = 'Guest User';
+            });
+        });
+    </script>
     <!-- Studio Header -->
     <header class="studio-header">
         <nav class="studio-nav">
@@ -973,15 +985,19 @@ What if I say 'hello' wrong? Is there a wrong way to say hello? I should have pr
             auth: `${API_BASE}/auth`
         };
 
-        // Authentication helper - check for main app's auth system
+        // Authentication helper - no authentication required
         function getAuthToken() {
-            // Check if user is logged in via main app
-            const currentUser = JSON.parse(localStorage.getItem('rehearsal_current_user'));
-            return currentUser ? 'authenticated' : null;
+            // Always return a guest token
+            return 'guest-token';
         }
 
         function getCurrentUser() {
-            return JSON.parse(localStorage.getItem('rehearsal_current_user'));
+            // Always return a guest user - no authentication required
+            return {
+                id: 'guest-user',
+                name: 'Guest User',
+                authenticated: false
+            };
         }
 
         // API request helper
@@ -1557,16 +1573,8 @@ Note for future calls: Maybe don't explain what letters stand for.`,
                 return;
             }
             
-            // Check authentication using main app's system
-            const currentUser = getCurrentUser();
-            if (!currentUser) {
-                // Show login redirect message instead of generic alert
-                showNathanNotification('Please log in to use AI enhancement. Return to main app to authenticate.');
-                setTimeout(() => {
-                    window.location.href = 'main.html';
-                }, 2000);
-                return;
-            }
+            // No authentication required - continue with AI generation
+            console.log('🎬 Generating script without authentication...');
             
             // Show loading animation
             document.getElementById('loadingAnimation').classList.add('active');
@@ -2393,14 +2401,8 @@ PURPOSE: Mental Health Conversation Practice through Artistic Absurdity
                 return;
             }
 
-            const currentUser = getCurrentUser();
-            if (!currentUser) {
-                showNathanNotification('Please log in to save your script. Redirecting to main app...');
-                setTimeout(() => {
-                    window.location.href = 'main.html';
-                }, 2000);
-                return;
-            }
+            // No authentication required - save as guest script
+            console.log('💾 Saving script without authentication...');
 
             try {
                 const scriptData = {

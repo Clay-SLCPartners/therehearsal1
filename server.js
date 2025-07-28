@@ -44,6 +44,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'main.html'));
 });
 
+// Also serve main.html when accessed directly
+app.get('/main.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'main.html'));
+});
+
 // Serve the Director's Studio page
 app.get('/director-studio.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'director-studio.html'));

@@ -1,4 +1,6 @@
 {
+  "buildCommand": "echo 'Static site build'",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
@@ -9,6 +11,20 @@
     {
       "source": "/index.html",
       "destination": "/main.html"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/data/(.*)",
+      "dest": "/public/data/$1"
     }
   ],
   "headers": [

@@ -1,0 +1,15 @@
+{
+  "name": "therehearsal-ai",
+  "version": "1.0.0",
+  "description": "A mental health conversation practice platform inspired by HBO's The Rehearsal",
+  "scripts": {
+    "build": "echo 'Static site - no build required'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mental-health", "conversation-practice", "ai", "chatbot"],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

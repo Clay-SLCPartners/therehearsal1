@@ -5,3 +5,5 @@ server_clean.js
 the-rehearsal-ai-backend/
 .env*
 .git/
+.vscode/
+*.backup

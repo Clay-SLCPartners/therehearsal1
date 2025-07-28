@@ -1,0 +1,8 @@
+{
+  "name": "therehearsal-ai",
+  "version": "1.0.0",
+  "description": "Mental health conversation practice platform",
+  "scripts": {
+    "build": "echo 'Static site - no build required'"
+  }
+}

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actors Guild - Understanding emotions for character development and self-awareness">
+    <meta name="keywords" content="acting, emotions, character development, self-awareness, The Rehearsal AI">
+    
+    <title>Actors Guild - The Rehearsal AI</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* HBO Max inspired color scheme with theatrical fl        <!-- Interactive Section -->
+        <section id="practice" class="interactive-section">
+            <h2 class="section-title">Practice Your Emotional Range</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                Ready to put this knowledge into practice? Start distinguishing between your primary authentic reactions 
+                and your secondary learned responses. As Shakespeare said, "All the world's a stage"—but now you get to 
+                choose whether you're performing consciously or unconsciously.
+            </p>
+            
+            <a href="main.html#practice" class="cta-button">
+                🎭 Practice Emotional Scenarios
+            </a>
+            <a href="director-studio.html" class="cta-button secondary">
+                📽️ Director's Studio
+            </a>
+            <a href="main.html#quick-tools" class="cta-button secondary">
+                🚀 Quick Resources
+            </a>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid var(--border-accent);">
+                <h4 style="color: var(--theater-gold); margin-bottom: 1rem;">🎪 The Ultimate Rehearsal</h4>
+                <p style="font-style: italic; color: var(--text-secondary);">
+                    "What if we could practice being authentic until it became natural? What if we rehearsed emotional honesty 
+                    the way Nathan rehearses conversations? The result wouldn't be perfect performance—it would be perfect presence."
+                </p>
+            </div>
+        </section>   --hbo-primary: #1C1C1E;
+            --hbo-secondary: #2D1B69;
+            --hbo-accent: #5C2D91;
+            --hbo-purple: #8B5CF6;
+            --hbo-bright-purple: #A855F7;
+            --theater-gold: #FFD700;
+            --theater-crimson: #DC143C;
+            --theater-emerald: #50C878;
+            
+            /* Text Colors */
+            --text-primary: #FFFFFF;
+            --text-secondary: #E5E5E5;
+            --text-muted: #B8B8B8;
+            --text-accent: #F3F4F6;
+            
+            /* Background Colors */
+            --bg-primary: #000000;
+            --bg-secondary: #1C1C1E;
+            --bg-card: #2A2A2E;
+            --bg-overlay: rgba(28, 28, 30, 0.95);
+            
+            /* Border and Effects */
+            --border-primary: #3A3A3E;
+            --border-accent: #5C2D91;
+            --shadow-primary: 0 4px 20px rgba(139, 92, 246, 0.15);
+            --shadow-secondary: 0 8px 40px rgba(45, 27, 105, 0.3);
+            --shadow-intense: 0 20px 60px rgba(139, 92, 246, 0.4);
+            --shadow-gold: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Theatrical curtain effect */
+        .curtain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(220, 20, 60, 0.1) 0%,
+                rgba(45, 27, 105, 0.2) 50%,
+                rgba(139, 92, 246, 0.1) 100%
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, var(--hbo-secondary) 0%, var(--hbo-accent) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="theater" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,215,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23theater)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stage-lights {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--theater-gold);
+            box-shadow: 0 0 20px var(--theater-gold);
+            animation: spotlight 3s ease-in-out infinite alternate;
+        }
+
+        .light:nth-child(2) { animation-delay: 1s; }
+        .light:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes spotlight {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .guild-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--hbo-bright-purple);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .guild-subtitle {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .shakespeare-quote {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--theater-gold);
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .quote-attribution {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--theater-gold);
+        }
+
+        .nav-link.active {
+            color: var(--theater-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* Emotions Chart Section */
+        .emotions-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-accent);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--theater-gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Emotions Table */
+        .emotions-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .emotions-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-secondary);
+            font-size: 0.95rem;
+        }
+
+        .emotions-table th {
+            background: linear-gradient(135deg, var(--hbo-secondary) 0%, var(--hbo-accent) 100%);
+            color: var(--text-primary);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .emotions-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-primary);
+            vertical-align: top;
+        }
+
+        .emotion-descriptors {
+            text-align: center;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .emotion-gifts {
+            text-align: center;
+            color: var(--theater-emerald);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .emotion-location {
+            text-align: center;
+            color: var(--hbo-bright-purple);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .emotions-table tr:hover {
+            background: rgba(139, 92, 246, 0.05);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        /* Emotion Dropdown Styles */
+        .emotion-row {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .emotion-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--theater-gold);
+            text-align: center;
+            background: var(--bg-primary);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: var(--hbo-bright-purple);
+        }
+
+        .emotion-row.expanded .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .emotion-definition {
+            display: none;
+            padding: 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-top: 1px solid var(--border-accent);
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .emotion-definition.expanded {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 200px;
+            }
+        }
+
+        .emotion-definition strong {
+            color: var(--theater-gold);
+        }
+
+        /* Character Development Section */
+        .character-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .character-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--theater-gold) 0%, var(--theater-crimson) 100%);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--theater-gold);
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--theater-gold);
+        }
+
+        .card-content {
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Interactive Elements */
+        .interactive-section {
+            background: linear-gradient(135deg, var(--hbo-secondary) 0%, var(--hbo-accent) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--theater-gold);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0 1rem 1rem 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--theater-gold);
+            border: 2px solid var(--theater-gold);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--theater-gold);
+            color: var(--bg-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-link {
+            color: var(--theater-gold);
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .guild-title {
+                font-size: 2.5rem;
+            }
+
+            .shakespeare-quote {
+                font-size: 1.3rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .emotions-section {
+                padding: 1.5rem;
+            }
+
+            .character-section {
+                grid-template-columns: 1fr;
+            }
+
+            .emotions-table {
+                font-size: 0.85rem;
+            }
+
+            .emotions-table th,
+            .emotions-table td {
+                padding: 0.7rem 0.5rem;
+            }
+        }
+
+        /* Special Nathan Fielder Easter Egg */
+        .nathan-easter-egg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--theater-gold);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: nathanAppear 10s ease-in-out infinite;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        @keyframes nathanAppear {
+            0%, 90% { opacity: 0; transform: translateY(20px); }
+            5%, 85% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="curtain-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="stage-lights">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        
+        <div class="header-content">
+            <h1 class="guild-title">🎭 Actors Guild</h1>
+            <p class="guild-subtitle">The Rehearsal AI Center for Emotional Intelligence</p>
+            
+            <blockquote class="shakespeare-quote">
+                "All the world's a stage, so learn how to understand your part"
+            </blockquote>
+            <p class="quote-attribution">— Inspired by William Shakespeare & Nathan Fielder's methodical approach to human understanding</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="main.html" class="nav-link">← Back to The Rehearsal AI</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#emotions" class="nav-link active">Emotion Map</a></li>
+                <li><a href="#character" class="nav-link">Character Work</a></li>
+                <li><a href="#glossary" class="nav-link">Glossary</a></li>
+                <li><a href="#practice" class="nav-link">Practice Scenarios</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction -->
+        <section class="intro-section">
+            <p class="intro-text">
+                Welcome to the Actors Guild, where we explore the fundamental emotions that drive human behavior. 
+                Whether you're developing a character for performance or simply seeking deeper self-understanding, 
+                this emotional intelligence hub provides the tools Nathan Fielder would appreciate: methodical, 
+                comprehensive, and slightly obsessive in its attention to detail.
+            </p>
+        </section>
+
+        <!-- Primary and Secondary Emotions Section -->
+        <section class="emotions-section" style="margin-bottom: 3rem;">
+            <h2 class="section-title">Understanding Primary vs. Secondary Emotions</h2>
+            <p class="section-subtitle">
+                The key to understanding yourself as both a person and an actor on the world's stage lies in recognizing 
+                the difference between what you feel first (primary) and what you feel about feeling (secondary).
+            </p>
+
+            <div class="character-section" style="margin-bottom: 2rem;">
+                <div class="character-card">
+                    <h3 class="card-title">🎯 Primary Emotions: Your Authentic Self</h3>
+                    <div class="card-content">
+                        <strong>Crucial for Survival</strong><br>
+                        Primary emotions are your immediate, instinctual reactions to events. They're innate, universal, 
+                        and serve adaptive functions. They don't require learning—they just <em>are</em>. These raw, 
+                        unfiltered responses are where authentic character work begins.
+                        <br><br>
+                        <em>Example:</em> You feel immediate fear when someone raises their voice unexpectedly.
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <h3 class="card-title">🎭 Secondary Emotions: Your Performance</h3>
+                    <div class="card-content">
+                        <strong>Learned Responses from Culture & Family</strong><br>
+                        Secondary emotions are what we feel <em>about</em> our primary emotions. They're shaped by our 
+                        upbringing, culture, and learned beliefs about how we "should" feel. These often mask or cover 
+                        up our primary emotions—like putting on a performance for the world.
+                        <br><br>
+                        <em>Example:</em> You feel shame about feeling that fear, because you were taught "strong people don't get scared."
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-primary); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--theater-gold);">
+                <h3 style="color: var(--theater-gold); margin-bottom: 1rem;">🌟 Why This Matters for Self-Understanding</h3>
+                <div style="color: var(--text-primary); line-height: 1.7;">
+                    <p><strong>As a Person:</strong> Understanding primary emotions helps you honor your authentic reactions without judgment. 
+                    Your secondary emotions reveal the "scripts" you've internalized about how you're "supposed" to feel. 
+                    This awareness creates space between stimulus and response—the foundation of emotional intelligence.</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>As an Actor on the World's Stage:</strong> Every interaction is a performance where you choose 
+                    which emotions to express. By understanding your primary emotions, you access genuine feeling. 
+                    By understanding your secondary emotions, you recognize when you're performing for others' approval 
+                    rather than being authentic. This awareness lets you choose your performance consciously rather than 
+                    reactively.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--hbo-secondary) 0%, var(--hbo-accent) 100%); border-radius: 12px;">
+                <h4 style="color: var(--theater-gold); margin-bottom: 1rem; font-family: 'Crimson Pro', serif;">The Nathan Fielder Approach</h4>
+                <p style="font-style: italic; color: var(--text-primary);">
+                    "Most painful feelings are uncomfortable because they make us feel vulnerable. But what if we practiced 
+                    feeling vulnerable on purpose? What if we rehearsed being authentic until it became natural? 
+                    That's the difference between reacting from secondary emotions and responding from primary ones."
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    — The methodical pursuit of emotional authenticity, one rehearsal at a time
+                </p>
+            </div>
+        </section>
+
+        <!-- Eight Basic Emotions Chart -->
+        <section id="emotions" class="emotions-section">
+            <h2 class="section-title">The Eight Basic Emotions</h2>
+            <p class="section-subtitle">
+                A comprehensive guide to understanding the core emotions that shape human experience. 
+                Use this as a reference for character development, self-reflection, or those awkward moments 
+                when someone asks "How are you feeling?" and you need more than "fine."
+            </p>
+
+            <div class="emotions-container">
+                <table class="emotions-table">
+                    <thead>
+                        <tr>
+                            <th>EIGHT BASIC EMOTIONS</th>
+                            <th>THEIR GIFTS</th>
+                            <th>WHERE THEY'RE FELT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="emotion-row" onclick="toggleDefinition('anger')">
+                            <td class="emotion-name">
+                                ANGER <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Assertiveness<br>
+                                Strength<br>
+                                Energy
+                            </td>
+                            <td class="emotion-location">
+                                ALL OVER BODY<br>
+                                Power<br>
+                                Energy
+                            </td>
+                        </tr>
+                        <tr id="anger-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> A natural response to perceived threats, injustice, or obstacles. Anger provides energy and motivation to address problems and defend boundaries.
+                                <br><br>
+                                <strong>How it feels:</strong> Resentful • Irritated • Frustrated • Hot • Tense
+                                <br><br>
+                                <strong>When it's helpful:</strong> Setting boundaries, advocating for yourself or others, motivating action against injustice
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('fear')">
+                            <td class="emotion-name">
+                                FEAR <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Preservation<br>
+                                Wisdom<br>
+                                Protection
+                            </td>
+                            <td class="emotion-location">
+                                STOMACH AND<br>
+                                UPPER CHEST<br>
+                                Suffocation
+                            </td>
+                        </tr>
+                        <tr id="fear-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> An adaptive response to potential danger that helps us survive by increasing alertness and preparing the body for protective action.
+                                <br><br>
+                                <strong>How it feels:</strong> Apprehensive • Overwhelmed • Threatened • Anxious • Worried
+                                <br><br>
+                                <strong>When it's helpful:</strong> Avoiding real dangers, increasing caution in risky situations, motivating preparation and planning
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('pain')">
+                            <td class="emotion-name">
+                                PAIN <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Healing<br>
+                                Growth<br>
+                                Awareness
+                            </td>
+                            <td class="emotion-location">
+                                LOWER CHEST<br>
+                                AND HEART<br>
+                                Pain<br>
+                                Energy
+                            </td>
+                        </tr>
+                        <tr id="pain-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> Emotional pain signals that something important has been lost or damaged, motivating us to seek healing and make necessary changes.
+                                <br><br>
+                                <strong>How it feels:</strong> Hurt • Sad • Lonely • Heartbroken • Grieving
+                                <br><br>
+                                <strong>When it's helpful:</strong> Processing loss, motivating self-care, deepening empathy, signaling need for support or change
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('joy')">
+                            <td class="emotion-name">
+                                JOY <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Abundance<br>
+                                Happiness<br>
+                                Gratitude
+                            </td>
+                            <td class="emotion-location">
+                                ALL OVER BODY<br>
+                                Lightness
+                            </td>
+                        </tr>
+                        <tr id="joy-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> A positive emotion that signals well-being, success, or connection. Joy motivates us to engage with life and share positive experiences with others.
+                                <br><br>
+                                <strong>How it feels:</strong> Happy • Elated • Hopeful • Cheerful • Delighted
+                                <br><br>
+                                <strong>When it's helpful:</strong> Building relationships, celebrating achievements, increasing motivation, attracting positive experiences
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('passion')">
+                            <td class="emotion-name">
+                                PASSION <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Appetite<br>
+                                Energy<br>
+                                Excitement
+                            </td>
+                            <td class="emotion-location">
+                                ALL OVER BODY<br>
+                                Energy<br>
+                                Recharged<br>
+                                Spontaneity
+                            </td>
+                        </tr>
+                        <tr id="passion-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> Intense enthusiasm and energy directed toward something meaningful. Passion drives engagement, creativity, and sustained effort toward goals.
+                                <br><br>
+                                <strong>How it feels:</strong> Enthusiasm • Desire • Zest • Excitement • Fervor
+                                <br><br>
+                                <strong>When it's helpful:</strong> Pursuing goals, creating art, building relationships, motivating action, finding meaning
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('love')">
+                            <td class="emotion-name">
+                                LOVE <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Connection<br>
+                                Life<br>
+                                Spirituality
+                            </td>
+                            <td class="emotion-location">
+                                HEART<br>
+                                Swelling<br>
+                                Warmth
+                            </td>
+                        </tr>
+                        <tr id="love-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> Deep affection and connection that bonds us to others, ideas, or experiences. Love motivates care, protection, and self-sacrifice for what matters most.
+                                <br><br>
+                                <strong>How it feels:</strong> Affection • Tenderness • Compassion • Warmth • Devotion
+                                <br><br>
+                                <strong>When it's helpful:</strong> Building deep relationships, motivating sacrifice, creating meaning, fostering empathy and care
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('shame')">
+                            <td class="emotion-name">
+                                SHAME <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Humility<br>
+                                Containment<br>
+                                Humanity
+                            </td>
+                            <td class="emotion-location">
+                                FACE, NECK, AND/OR<br>
+                                UPPER CHEST<br>
+                                Warmth<br>
+                                Heat<br>
+                                Red
+                            </td>
+                        </tr>
+                        <tr id="shame-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> A social emotion that signals when our actions may have violated community standards. Shame promotes humility and motivates behavior that maintains social bonds.
+                                <br><br>
+                                <strong>How it feels:</strong> Embarrassment • Humble • Humiliated • Exposed • Mortified
+                                <br><br>
+                                <strong>When it's helpful:</strong> Learning social norms, developing humility, motivating apologies, maintaining group cohesion
+                            </td>
+                        </tr>
+                        
+                        <tr class="emotion-row" onclick="toggleDefinition('guilt')">
+                            <td class="emotion-name">
+                                GUILT <span class="dropdown-arrow">▼</span>
+                            </td>
+                            <td class="emotion-gifts">
+                                Values<br>
+                                Amends<br>
+                                Atonement
+                            </td>
+                            <td class="emotion-location">
+                                GUT<br>
+                                Gnawing Sensation
+                            </td>
+                        </tr>
+                        <tr id="guilt-definition" class="emotion-definition">
+                            <td colspan="3">
+                                <strong>Definition:</strong> The recognition that our actions have caused harm or violated our values. Guilt motivates making amends and aligning future behavior with our moral compass.
+                                <br><br>
+                                <strong>How it feels:</strong> Regretful • Contrite • Remorseful • Responsible • Sorry
+                                <br><br>
+                                <strong>When it's helpful:</strong> Making amends, learning from mistakes, maintaining moral behavior, motivating positive change
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Character Development Section -->
+        <section id="character" class="character-section">
+            <div class="character-card">
+                <h3 class="card-title">🎯 Primary Emotion Practice</h3>
+                <div class="card-content">
+                    <strong>Finding Your Authentic Base</strong><br>
+                    Before building a character, identify your own primary emotional patterns. When you feel anger, 
+                    where does it start in your body? How does genuine joy manifest before you "perform" happiness? 
+                    This self-knowledge becomes your foundation for authentic character work.
+                    <br><br>
+                    <em>Exercise:</em> Spend one day noting every time you have a gut reaction, then observe what you do with that feeling.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h3 class="card-title">🧠 Secondary Emotion Awareness</h3>
+                <div class="card-content">
+                    <strong>Recognizing Your Emotional Scripts</strong><br>
+                    Notice when you feel ashamed of feeling scared, guilty about being angry, or embarrassed about crying. 
+                    These secondary layers reveal the "rules" you've learned about emotions. Characters have these same 
+                    learned patterns—understanding yours helps you create theirs.
+                    <br><br>
+                    <em>Exercise:</em> When you feel something "inappropriate," ask: "What am I feeling about my feeling?"
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h3 class="card-title">🎭 Character Emotional Architecture</h3>
+                <div class="card-content">
+                    <strong>Building Layered Characters</strong><br>
+                    Great characters have both primary emotions (their authentic reactions) and secondary emotions 
+                    (their learned responses). A character might feel primary fear but secondary anger because they were 
+                    taught "fear is weakness." This creates compelling internal conflict.
+                    <br><br>
+                    <em>Exercise:</em> Give your character a family background that shapes which emotions they're "allowed" to feel.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h3 class="card-title">🌍 Performing Authenticity in Real Life</h3>
+                <div class="card-content">
+                    <strong>Choosing Your Response</strong><br>
+                    Understanding primary vs. secondary emotions gives you choice in how you respond to life's situations. 
+                    You can acknowledge your authentic feeling (primary) while choosing how to express it (conscious performance) 
+                    rather than defaulting to learned patterns (unconscious performance).
+                    <br><br>
+                    <em>Exercise:</em> In difficult conversations, pause and ask: "What am I actually feeling, and what do I think I should feel?"
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h3 class="card-title">💝 The Gift of Emotional Honesty</h3>
+                <div class="card-content">
+                    <strong>Embracing All Emotions</strong><br>
+                    Every primary emotion serves a purpose—even the uncomfortable ones. Fear protects, anger energizes, 
+                    sadness helps us process loss. Secondary emotions often try to shut down these valuable signals. 
+                    Learning to honor primary emotions while managing secondary reactions is emotional maturity.
+                    <br><br>
+                    <em>Insight:</em> The emotion is usually difficult to identify and often lingers after the event has happened.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h3 class="card-title">🔄 Breaking Emotional Patterns</h3>
+                <div class="card-content">
+                    <strong>Rewriting Your Scripts</strong><br>
+                    Just as Nathan rehearses conversations to get them right, you can practice new emotional responses. 
+                    When you notice a secondary emotion covering a primary one, you can choose to respond differently. 
+                    This is how you become the director of your own emotional performance.
+                    <br><br>
+                    <em>Practice:</em> "I feel scared about this presentation (primary), and I notice I'm judging myself for feeling scared (secondary). What if I just felt the fear without the judgment?"
+                </div>
+            </div>
+        </section>
+
+        <!-- Emotional Glossary Section -->
+        <section id="glossary" class="emotions-section">
+            <h2 class="section-title">Emotional Glossary</h2>
+            <p class="section-subtitle">
+                A comprehensive guide to the secondary emotions and feeling words that help you identify 
+                and articulate the nuances of your emotional experience. Perfect for character development 
+                and expanding your emotional vocabulary.
+            </p>
+
+            <div class="character-section">
+                <!-- Anger Family -->
+                <div class="character-card">
+                    <h3 class="card-title">🔥 Anger Family</h3>
+                    <div class="card-content">
+                        <strong>Resentful:</strong> Bitter indignation at having been treated unfairly; holding onto past grievances
+                        <br><br>
+                        <strong>Irritated:</strong> Mildly angry or annoyed; feeling bothered by minor inconveniences
+                        <br><br>
+                        <strong>Frustrated:</strong> Feeling upset or annoyed due to being unable to achieve something
+                        <br><br>
+                        <strong>Hot:</strong> Physical sensation of heat accompanying anger; feeling "heated" or inflamed
+                        <br><br>
+                        <strong>Tense:</strong> Physical and emotional rigidity; muscles tight with suppressed anger
+                    </div>
+                </div>
+
+                <!-- Fear Family -->
+                <div class="character-card">
+                    <h3 class="card-title">😰 Fear Family</h3>
+                    <div class="card-content">
+                        <strong>Apprehensive:</strong> Anxious or fearful that something bad or unpleasant will happen
+                        <br><br>
+                        <strong>Overwhelmed:</strong> Feeling buried or drowning under too much to handle
+                        <br><br>
+                        <strong>Threatened:</strong> Feeling in danger or under attack; sensing potential harm
+                        <br><br>
+                        <strong>Anxious:</strong> Experiencing worry, nervousness, or unease about uncertain outcomes
+                        <br><br>
+                        <strong>Worried:</strong> Feeling troubled about actual or potential problems
+                    </div>
+                </div>
+
+                <!-- Pain Family -->
+                <div class="character-card">
+                    <h3 class="card-title">💔 Pain Family</h3>
+                    <div class="card-content">
+                        <strong>Hurt:</strong> Emotional pain from feeling wounded, rejected, or damaged
+                        <br><br>
+                        <strong>Sad:</strong> Feeling sorrowful, unhappy, or filled with grief
+                        <br><br>
+                        <strong>Lonely:</strong> Feeling isolated, disconnected, or lacking companionship
+                        <br><br>
+                        <strong>Heartbroken:</strong> Overwhelming emotional pain from loss or betrayal
+                        <br><br>
+                        <strong>Grieving:</strong> The natural response to loss; processing what has been lost
+                    </div>
+                </div>
+
+                <!-- Joy Family -->
+                <div class="character-card">
+                    <h3 class="card-title">😊 Joy Family</h3>
+                    <div class="card-content">
+                        <strong>Happy:</strong> Feeling pleased, content, or satisfied with circumstances
+                        <br><br>
+                        <strong>Elated:</strong> Extremely happy and excited; feeling triumphant
+                        <br><br>
+                        <strong>Hopeful:</strong> Feeling optimistic about future possibilities
+                        <br><br>
+                        <strong>Cheerful:</strong> Bright, positive disposition; spreading good spirits
+                        <br><br>
+                        <strong>Delighted:</strong> Experiencing great pleasure or satisfaction
+                    </div>
+                </div>
+
+                <!-- Passion Family -->
+                <div class="character-card">
+                    <h3 class="card-title">🔥 Passion Family</h3>
+                    <div class="card-content">
+                        <strong>Enthusiasm:</strong> Intense and eager enjoyment, interest, or approval
+                        <br><br>
+                        <strong>Desire:</strong> Strong feeling of wanting to have or achieve something
+                        <br><br>
+                        <strong>Zest:</strong> Great energy and enthusiasm; spirited enjoyment
+                        <br><br>
+                        <strong>Excitement:</strong> Feeling of great enthusiasm and eagerness
+                        <br><br>
+                        <strong>Fervor:</strong> Intense and passionate feeling; burning enthusiasm
+                    </div>
+                </div>
+
+                <!-- Love Family -->
+                <div class="character-card">
+                    <h3 class="card-title">💕 Love Family</h3>
+                    <div class="card-content">
+                        <strong>Affection:</strong> Gentle feeling of fondness or liking
+                        <br><br>
+                        <strong>Tenderness:</strong> Gentle, caring, and affectionate feeling
+                        <br><br>
+                        <strong>Compassion:</strong> Sympathetic concern for others' suffering with desire to help
+                        <br><br>
+                        <strong>Warmth:</strong> Feeling of friendliness, kindness, or love
+                        <br><br>
+                        <strong>Devotion:</strong> Love, loyalty, or enthusiasm for a person or cause
+                    </div>
+                </div>
+
+                <!-- Shame Family -->
+                <div class="character-card">
+                    <h3 class="card-title">😳 Shame Family</h3>
+                    <div class="card-content">
+                        <strong>Embarrassment:</strong> Feeling self-conscious or awkward in social situations
+                        <br><br>
+                        <strong>Humble:</strong> Having a modest view of one's importance; not proud
+                        <br><br>
+                        <strong>Humiliated:</strong> Feeling deeply ashamed or foolish; dignity wounded
+                        <br><br>
+                        <strong>Exposed:</strong> Feeling vulnerable or having flaws revealed publicly
+                        <br><br>
+                        <strong>Mortified:</strong> Extremely embarrassed or ashamed; feeling horrified
+                    </div>
+                </div>
+
+                <!-- Guilt Family -->
+                <div class="character-card">
+                    <h3 class="card-title">😔 Guilt Family</h3>
+                    <div class="card-content">
+                        <strong>Regretful:</strong> Feeling sorry about something you did or didn't do
+                        <br><br>
+                        <strong>Contrite:</strong> Feeling genuinely sorry and remorseful for wrongdoing
+                        <br><br>
+                        <strong>Remorseful:</strong> Filled with deep regret for past actions
+                        <br><br>
+                        <strong>Responsible:</strong> Feeling accountable for one's actions and their consequences
+                        <br><br>
+                        <strong>Sorry:</strong> Feeling regret or penitence; wishing things were different
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nathan's Method Note -->
+            <div style="background: linear-gradient(135deg, var(--hbo-secondary) 0%, var(--hbo-accent) 100%); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem;">
+                <h4 style="color: var(--theater-gold); margin-bottom: 1rem; font-family: 'Crimson Pro', serif;">🎭 The Nathan Fielder Vocabulary Method</h4>
+                <p style="color: var(--text-primary); font-style: italic;">
+                    "Having the exact word for what you're feeling is like having the right tool for the job. 
+                    You wouldn't use a hammer to fix a watch—and you shouldn't use 'fine' to describe heartbreak. 
+                    Precision in emotional vocabulary leads to precision in emotional understanding."
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    — The methodical approach to emotional accuracy, one word at a time
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Section -->
+        <section id="practice" class="interactive-section">
+            <h2 class="section-title">Practice Your Emotional Range</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                Ready to put this knowledge into practice? Choose your path to emotional mastery.
+            </p>
+            
+            <a href="main.html#practice" class="cta-button">
+                🎭 Practice Emotional Scenarios
+            </a>
+            <a href="director-studio.html" class="cta-button secondary">
+                �️ Director's Studio
+            </a>
+            <a href="main.html#quick-tools" class="cta-button secondary">
+                🚀 Quick Resources
+            </a>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="emotions-section">
+            <h2 class="section-title">Mental Health Resources & Support</h2>
+            <p class="section-subtitle">
+                When emotions become overwhelming, these professional resources and support groups can provide guidance, 
+                community, and specialized care. You don't have to handle everything alone.
+            </p>
+
+            <div class="character-section">
+                <!-- Professional Treatment -->
+                <div class="character-card">
+                    <h3 class="card-title">🏥 Professional Treatment Centers</h3>
+                    <div class="card-content">
+                        <strong><a href="https://meadowsoutpatient.com/" target="_blank" rel="noopener" style="color: var(--theater-gold); text-decoration: none;">The Meadows Outpatient Center</a></strong><br>
+                        Specialized treatment for trauma, addiction, and mental health disorders. Evidence-based programs 
+                        including trauma therapy, EMDR, and intensive outpatient services.
+                        <br><br>
+                        <em>Ideal for:</em> Comprehensive treatment programs, trauma recovery, intensive therapy needs.
+                    </div>
+                </div>
+
+                <!-- NAMI Support -->
+                <div class="character-card">
+                    <h3 class="card-title">🤝 NAMI - National Alliance on Mental Illness</h3>
+                    <div class="card-content">
+                        <strong><a href="https://www.nami.org/" target="_blank" rel="noopener" style="color: var(--theater-gold); text-decoration: none;">NAMI.org</a></strong><br>
+                        Free support groups, education programs, and advocacy. Local chapters nationwide offer peer support 
+                        groups for individuals and families affected by mental illness.
+                        <br><br>
+                        <em>Find local groups:</em> <a href="https://www.nami.org/Support-Education/Support-Groups" target="_blank" rel="noopener" style="color: var(--hbo-bright-purple);">NAMI Support Groups</a>
+                    </div>
+                </div>
+
+                <!-- Addiction Recovery -->
+                <div class="character-card">
+                    <h3 class="card-title">🔄 Addiction Recovery Support</h3>
+                    <div class="card-content">
+                        <strong>Alcoholics Anonymous (AA)</strong><br>
+                        <a href="https://www.aa.org/" target="_blank" rel="noopener" style="color: var(--theater-gold); text-decoration: none;">AA.org</a> - Find local meetings
+                        <br><br>
+                        <strong>Narcotics Anonymous (NA)</strong><br>
+                        <a href="https://www.na.org/" target="_blank" rel="noopener" style="color: var(--theater-gold); text-decoration: none;">NA.org</a> - Worldwide fellowship for drug addiction recovery
+                        <br><br>
+                        <em>24/7 meetings available online and in-person worldwide</em>
+                    </div>
+                </div>
+
+                <!-- Crisis Support -->
+                <div class="character-card">
+                    <h3 class="card-title">🚨 Crisis Support Lines</h3>
+                    <div class="card-content">
+                        <strong>988 Suicide & Crisis Lifeline</strong><br>
+                        <a href="tel:988" style="color: var(--theater-crimson); font-weight: bold;">Call or Text 988</a>
+                        <br><br>
+                        <strong>Crisis Text Line</strong><br>
+                        <a href="sms:741741" style="color: var(--theater-crimson); font-weight: bold;">Text HOME to 741741</a>
+                        <br><br>
+                        <strong>LGBTQ+ Support - Trevor Lifeline</strong><br>
+                        <a href="tel:1-866-488-7386" style="color: var(--theater-crimson); font-weight: bold;">1-866-488-7386</a>
+                    </div>
+                </div>
+
+                <!-- Support Groups -->
+                <div class="character-card">
+                    <h3 class="card-title">👥 Specialized Support Groups</h3>
+                    <div class="card-content">
+                        <strong>Depression and Bipolar Support Alliance (DBSA)</strong><br>
+                        <a href="https://www.dbsalliance.org/" target="_blank" rel="noopener" style="color: var(--theater-gold);">DBSA.org</a> - Peer support groups
+                        <br><br>
+                        <strong>Anxiety and Depression Association (ADAA)</strong><br>
+                        <a href="https://adaa.org/" target="_blank" rel="noopener" style="color: var(--theater-gold);">ADAA.org</a> - Resources and support group finder
+                        <br><br>
+                        <strong>Smart Recovery</strong><br>
+                        <a href="https://www.smartrecovery.org/" target="_blank" rel="noopener" style="color: var(--theater-gold);">SmartRecovery.org</a> - Science-based addiction recovery
+                    </div>
+                </div>
+
+                <!-- Online Communities -->
+                <div class="character-card">
+                    <h3 class="card-title">💻 Online Support Communities</h3>
+                    <div class="card-content">
+                        <strong>7 Cups</strong><br>
+                        <a href="https://www.7cups.com/" target="_blank" rel="noopener" style="color: var(--theater-gold);">7Cups.com</a> - Free emotional support and counseling
+                        <br><br>
+                        <strong>Mental Health America</strong><br>
+                        <a href="https://www.mhanational.org/" target="_blank" rel="noopener" style="color: var(--theater-gold);">MHANational.org</a> - Resources and community connections
+                        <br><br>
+                        <em>Remember: Online support complements but doesn't replace professional care</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Note -->
+            <div style="background: linear-gradient(135deg, var(--theater-crimson) 0%, var(--hbo-accent) 100%); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem;">
+                <h4 style="color: var(--text-primary); margin-bottom: 1rem; font-family: 'Crimson Pro', serif;">🎭 Remember: It's Okay to Need Help</h4>
+                <p style="color: var(--text-primary); font-style: italic;">
+                    "Even the best actors need directors, coaches, and ensemble casts. Your mental health journey 
+                    is no different—seeking support isn't weakness, it's professional development for life."
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    — The Nathan Fielder approach to emotional intelligence: methodical, supported, and never done alone
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Nathan's Easter Egg -->
+    <div class="nathan-easter-egg" onclick="this.innerHTML = this.innerHTML === '🤔 The plan is working...' ? '🎭 Actors Guild' : '🤔 The plan is working...'">
+        🎭 Actors Guild
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                Part of <a href="main.html" class="footer-link">The Rehearsal AI</a> • 
+                Inspired by Nathan Fielder's methodical approach to understanding human nature • 
+                <a href="main.html#about" class="footer-link">About</a> • 
+                <a href="main.html#contact" class="footer-link">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Toggle emotion definition dropdowns
+        function toggleDefinition(emotionName) {
+            const definitionRow = document.getElementById(emotionName + '-definition');
+            const emotionRow = document.querySelector(`[onclick="toggleDefinition('${emotionName}')"]`);
+            const arrow = emotionRow.querySelector('.dropdown-arrow');
+            
+            if (definitionRow.classList.contains('expanded')) {
+                // Close the dropdown
+                definitionRow.classList.remove('expanded');
+                emotionRow.classList.remove('expanded');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other dropdowns first
+                document.querySelectorAll('.emotion-definition.expanded').forEach(def => {
+                    def.classList.remove('expanded');
+                });
+                document.querySelectorAll('.emotion-row.expanded').forEach(row => {
+                    row.classList.remove('expanded');
+                    const otherArrow = row.querySelector('.dropdown-arrow');
+                    if (otherArrow) otherArrow.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open this dropdown
+                definitionRow.classList.add('expanded');
+                emotionRow.classList.add('expanded');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Interactive emotion hover effects
+        document.querySelectorAll('.emotions-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                const emotionName = this.querySelector('.emotion-name');
+                if (emotionName) {
+                    console.log(`Exploring: ${emotionName.textContent}`);
+                }
+            });
+        });
+
+        // Nathan Fielder inspired random facts
+        const nathanFacts = [
+            "Nathan would spend 3 weeks researching the optimal font for this emotions chart",
+            "This is the exact emotional preparation Nathan would use before any social interaction", 
+            "Primary emotions are like Nathan's raw footage—authentic but unedited",
+            "Secondary emotions are like Nathan's final cut—shaped by what he thinks the audience wants to see",
+            "Nathan approves of this systematic approach to distinguishing authentic feelings from learned responses",
+            "The attention to detail here rivals Nathan's commitment to authentic awkwardness",
+            "Understanding primary vs. secondary emotions is like having director's commentary on your own feelings",
+            "Nathan would rehearse feeling vulnerable until it became a comfortable performance of authenticity"
+        ];
+
+        // Display random Nathan fact every 30 seconds
+        setInterval(() => {
+            const randomFact = nathanFacts[Math.floor(Math.random() * nathanFacts.length)];
+            console.log(`🤔 Nathan Insight: ${randomFact}`);
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -54,6 +54,11 @@ app.get('/director-studio.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'director-studio.html'));
 });
 
+// Serve the Actors Guild page
+app.get('/actors_guild.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'actors_guild.html'));
+});
+
 // Serve static files (but exclude index.html)
 app.use(express.static(path.join(__dirname, 'public'), {
   index: false // Don't serve index.html from public folder
